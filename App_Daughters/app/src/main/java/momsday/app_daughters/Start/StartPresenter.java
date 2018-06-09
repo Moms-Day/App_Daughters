@@ -12,4 +12,9 @@ public class StartPresenter implements StartContract.Presenter {
     public void moveSignIn() {
         view.startSignInActivity();
     }
+
+    @Override
+    public void moveSignUp() {
+        view.startSignUpActivity();
+    }
 }
