@@ -24,6 +24,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/toolBar_signup">
     </android.support.v4.view.ViewPager>
+    <momsday.app_daughters.SignUp.CircleAnimIndicator
+        android:id="@+id/circleAnimIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btn_signup_next"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp" />
     <Button
         android:id="@+id/btn_signup_next"
         android:layout_width="match_parent"
