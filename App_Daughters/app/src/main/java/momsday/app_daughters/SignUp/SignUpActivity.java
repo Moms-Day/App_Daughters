@@ -11,10 +11,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import momsday.app_daughters.R;
 
 public class SignUpActivity extends AppCompatActivity {
     private ViewPager signUpViewPager;
+    private CircleAnimIndicator circleAnimIndicator;
+    private List<String> numberList;
     private Button signUpNextBtn;
 
     @Override
@@ -23,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         signUpViewPager = (ViewPager) findViewById(R.id.viewPager_signup);
+        circleAnimIndicator = (CircleAnimIndicator) findViewById(R.id.circleAnimIndicator);
         signUpNextBtn = (Button) findViewById(R.id.btn_signup_next);
 
         signUpViewPager.setAdapter(new pagerAdapter(getSupportFragmentManager()));
@@ -49,6 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+                circleAnimIndicator.selectDot(position);
             }
 
             @Override
@@ -56,6 +63,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        initData();
+        initIndicaotor();
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {
@@ -80,5 +89,22 @@ public class SignUpActivity extends AppCompatActivity {
         public int getCount() {
             return 2;
         }
+    }
+    private void initData(){
+
+        numberList = new ArrayList<>();
+        numberList.add("1");
+        numberList.add("2");
+
+    }
+
+    private void initIndicaotor(){
+
+        //원사이의 간격
+        circleAnimIndicator.setItemMargin(15);
+        //애니메이션 속도
+        circleAnimIndicator.setAnimDuration(300);
+        //indecator 생성
+        circleAnimIndicator.createDotPanel(numberList.size(), R.drawable.indicator_non , R.drawable.indicator_on);
     }
 }
