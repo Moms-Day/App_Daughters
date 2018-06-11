@@ -11,6 +11,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="50dp"
+        android:background="@mipmap/ic_launcher"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,17 +21,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="아이디"
-        app:layout_constraintLeft_toLeftOf="@+id/edit_id_sign_in"
-        app:layout_constraintTop_toBottomOf="@id/image_icon_sign_in" />
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/edit_id_sign_in"
+        app:layout_constraintLeft_toLeftOf="@+id/edit_id_sign_in" />
 
     <EditText
         android:id="@+id/edit_id_sign_in"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="아이디를 입력해주세요"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_sign_in"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_id_sign_in" />
+        app:layout_constraintTop_toBottomOf="@id/image_icon_sign_in"
+        app:layout_constraintVertical_bias="0.26999998"
+        app:layout_constraintWidth_percent="0.8" />
 
     <TextView
         android:id="@+id/text_pw_sign_in"
@@ -38,36 +47,43 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="비밀번호"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="@id/edit_pw_sign_in"
         app:layout_constraintTop_toBottomOf="@id/edit_id_sign_in" />
 
     <EditText
         android:id="@+id/edit_pw_sign_in"
         android:layout_width="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="비밀번호를 입력해주세요"
+        android:inputType="textPassword"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_pw_sign_in" />
+        app:layout_constraintTop_toBottomOf="@id/text_pw_sign_in"
+        app:layout_constraintWidth_percent="0.8" />
 
     <Button
         android:id="@+id/btn_sign_in"
         android:layout_width="0dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/roundstyle_start_signin_btn"
+        android:text="로그인"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_pw_sign_in"
-        app:layout_constraintVertical_bias="0.7"
-        app:layout_constraintWidth_percent="0.8"
-        android:text="로그인"
-        android:background="@drawable/roundstyle_start_signin_btn"
-        android:textColor="@android:color/white"/>
+        app:layout_constraintWidth_percent="0.8" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="아이디/비밀번호를 잊으셨나요?"
-        app:layout_constraintTop_toBottomOf="@id/btn_sign_in"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_in" />
 </android.support.constraint.ConstraintLayout>
