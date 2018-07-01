@@ -15,7 +15,7 @@ import momsday.app_daughters.SignUp.SignUpActivity;
 public class StartActivity extends AppCompatActivity implements StartContract.View {
 
     private StartContract.Presenter presenter;
-    private Button signInBtn,signUpBtn;
+    private Button signInBtn, signUpBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity implements StartContract.Vi
 
     private void initView() {
         signInBtn = (Button) findViewById(R.id.btn_signin_start);
-        signUpBtn = (Button)findViewById(R.id.btn_signup_start);
+        signUpBtn = (Button) findViewById(R.id.btn_signup_start);
 
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
