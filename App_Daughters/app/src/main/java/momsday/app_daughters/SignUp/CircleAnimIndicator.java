@@ -47,10 +47,11 @@ public class CircleAnimIndicator extends LinearLayout {
 
     /**
      * 기본 점 생성
-     * @param count 점의 갯수
+     *
+     * @param count         점의 갯수
      * @param defaultCircle 점의 이미지
      */
-    public void createDotPanel(int count , int defaultCircle , int selectCircle) {
+    public void createDotPanel(int count, int defaultCircle, int selectCircle) {
 
         mDefaultCircle = defaultCircle;
         mSelectCircle = selectCircle;
@@ -82,6 +83,7 @@ public class CircleAnimIndicator extends LinearLayout {
 
     /**
      * 선택된 점 표시
+     *
      * @param position
      */
     public void selectDot(int position) {
@@ -89,10 +91,10 @@ public class CircleAnimIndicator extends LinearLayout {
         for (int i = 0; i < imageDot.length; i++) {
             if (i == position) {
                 imageDot[i].setImageResource(mSelectCircle);
-                selectScaleAnim(imageDot[i],1f,1.5f);
+                selectScaleAnim(imageDot[i], 1f, 1.5f);
             } else {
 
-                if((boolean)imageDot[i].getTag(imageDot[i].getId()) == true){
+                if ((boolean) imageDot[i].getTag(imageDot[i].getId()) == true) {
                     imageDot[i].setImageResource(mDefaultCircle);
                     defaultScaleAnim(imageDot[i], 1.5f, 1f);
                 }
@@ -103,6 +105,7 @@ public class CircleAnimIndicator extends LinearLayout {
 
     /**
      * 선택된 점의 애니메이션
+     *
      * @param view
      * @param startScale
      * @param endScale
@@ -116,12 +119,13 @@ public class CircleAnimIndicator extends LinearLayout {
         anim.setFillAfter(true);
         anim.setDuration(animDuration);
         view.startAnimation(anim);
-        view.setTag(view.getId(),true);
+        view.setTag(view.getId(), true);
     }
 
 
     /**
      * 선택되지 않은 점의 애니메이션
+     *
      * @param view
      * @param startScale
      * @param endScale
@@ -135,7 +139,6 @@ public class CircleAnimIndicator extends LinearLayout {
         anim.setFillAfter(true);
         anim.setDuration(animDuration);
         view.startAnimation(anim);
-        view.setTag(view.getId(),false);
+        view.setTag(view.getId(), false);
     }
 }
-

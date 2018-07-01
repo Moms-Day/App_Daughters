@@ -14,7 +14,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_phone_number" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_phone_number"
         android:layout_width="0dp"
         android:layout_height="45dp"
@@ -22,6 +21,7 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="전화번호 입력"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_certification"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5" />
@@ -29,8 +29,8 @@
     <Button
         android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:text="인증"
         android:background="@color/colorPrimary"
+        android:text="인증"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@id/edit_signup_phone_number"
         app:layout_constraintLeft_toRightOf="@id/edit_signup_phone_number"
@@ -47,7 +47,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_certification" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_certification"
         android:layout_width="0dp"
         android:layout_height="45dp"
@@ -55,6 +54,7 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="인증번호 입력"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_phone_number"
@@ -70,7 +70,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_name" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_name"
         android:layout_width="0dp"
         android:layout_height="45dp"
@@ -78,6 +77,7 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="이름 입력"
         android:inputType="text"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_certification"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_certification"
         app:layout_constraintWidth_percent="0.35" />
@@ -92,7 +92,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_age" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_age"
         android:layout_width="0dp"
         android:layout_height="45dp"
@@ -100,11 +99,13 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="나이 입력"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintRight_toRightOf="@id/edit_signup_certification"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_certification"
         app:layout_constraintWidth_percent="0.35" />
 
     <TextView
+        android:id="@+id/text_signup_inform_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="*선택(부모정보)"
@@ -114,7 +115,6 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_name_parent" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_name_parent"
         android:layout_width="0dp"
         android:layout_height="45dp"
@@ -122,19 +122,20 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="이름 입력"
         android:inputType="text"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_name"
         app:layout_constraintWidth_percent="0.7" />
 
     <EditText
-        android:textSize="14sp"
         android:id="@+id/edit_signup_age_parent"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="나이 입력"
         android:inputType="number"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_name_parent"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_name_parent"
         app:layout_constraintWidth_percent="0.4" />

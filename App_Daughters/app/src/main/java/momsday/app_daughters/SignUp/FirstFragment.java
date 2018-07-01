@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import momsday.app_daughters.R;
 
 public class FirstFragment extends Fragment {
-    public FirstFragment()
-    {
+    public FirstFragment() {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_first, container, false);
         return layout;
     }
