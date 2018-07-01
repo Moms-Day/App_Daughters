@@ -1,13 +1,12 @@
 package momsday.app_daughters.SignUp;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import momsday.app_daughters.R;
+import momsday.app_daughters.SignIn.SignInActivity;
 
 public class SignUpActivity extends AppCompatActivity {
     private ViewPager signUpViewPager;
@@ -49,6 +49,14 @@ public class SignUpActivity extends AppCompatActivity {
                         break;
                     case 1:
                         signUpNextBtn.setText("회원가입");
+                        signUpNextBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
                         break;
                 }
             }
@@ -78,7 +86,6 @@ public class SignUpActivity extends AppCompatActivity {
                 case 0:
                     return new FirstFragment();
                 case 1:
-                    signUpNextBtn.setText("회원가입");
                     return new SecondFragment();
                 default:
                     return null;
@@ -90,7 +97,8 @@ public class SignUpActivity extends AppCompatActivity {
             return 2;
         }
     }
-    private void initData(){
+
+    private void initData() {
 
         numberList = new ArrayList<>();
         numberList.add("1");
@@ -98,13 +106,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    private void initIndicaotor(){
+    private void initIndicaotor() {
 
         //원사이의 간격
         circleAnimIndicator.setItemMargin(15);
         //애니메이션 속도
         circleAnimIndicator.setAnimDuration(300);
         //indecator 생성
-        circleAnimIndicator.createDotPanel(numberList.size(), R.drawable.indicator_non , R.drawable.indicator_on);
+        circleAnimIndicator.createDotPanel(numberList.size(), R.drawable.indicator_non, R.drawable.indicator_on);
     }
 }
