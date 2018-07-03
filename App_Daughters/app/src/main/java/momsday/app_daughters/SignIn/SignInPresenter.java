@@ -1,5 +1,7 @@
 package momsday.app_daughters.SignIn;
 
+import android.widget.EditText;
+
 public class SignInPresenter implements SignInContract.Presenter {
     private SignInContract.View view;
 

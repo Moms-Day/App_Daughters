@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import momsday.app_daughters.Main.MainActivity;
 import momsday.app_daughters.R;
@@ -13,6 +15,8 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     private SignInContract.Presenter presenter;
     private Button btnSignIn;
+    private EditText editIdSignIn;
+    private EditText editPwSignIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,14 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void startMainActivity() {
-        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-        startActivity(intent);
+        editIdSignIn = (EditText) findViewById(R.id.edit_id_sign_in);
+        editPwSignIn = (EditText) findViewById(R.id.edit_pw_sign_in);
+        if (editIdSignIn.getText().toString().isEmpty() || editPwSignIn.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(),"아이디 또는 비밀번호를 입력해주세요",Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(),"로그인에 성공하셨습니다!",Toast.LENGTH_LONG).show();
+        }
     }
 }

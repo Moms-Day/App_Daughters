@@ -1,115 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scroll_main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingEnd="20dp"
+    android:paddingStart="20dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/text_inform_schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="하루일정표"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_schedule"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_schedule"></android.support.v7.widget.RecyclerView>
-
-    <TextView
-        android:id="@+id/text_inform_meal_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="식단표"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recycler_schedule" />/>
-    <TextView
-        android:id="@+id/text_inform_breakfast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="아침"
-        android:layout_marginLeft="60dp"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/text_inform_lunch"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_meal_menu" />
-
-    <TextView
-        android:id="@+id/text_inform_lunch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="점심"
-        app:layout_constraintLeft_toRightOf="@id/text_inform_breakfast"
-        app:layout_constraintRight_toLeftOf="@id/text_inform_dinner"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_meal_menu" />
-
-    <TextView
-        android:id="@+id/text_inform_dinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="저녁"
-        android:layout_marginRight="60dp"
-        app:layout_constraintLeft_toRightOf="@id/text_inform_lunch"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_meal_menu" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_inform_meal_breakfast"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="@color/colorCardView"
-        app:layout_constraintLeft_toLeftOf="@id/text_inform_breakfast"
-        app:layout_constraintRight_toRightOf="@id/text_inform_breakfast"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_breakfast">
+        android:layout_height="1000dp">
 
         <TextView
-            android:id="@+id/text_inform_meal_breakfast"
+            android:id="@+id/text_main_content_schedule"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
+            android:layout_height="wrap_content"
+            android:text="하루일정표"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_inform_meal_lunch"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintLeft_toLeftOf="@id/text_inform_lunch"
-        app:layout_constraintRight_toRightOf="@id/text_inform_lunch"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_lunch">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_main_content_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_schedule"></android.support.v7.widget.RecyclerView>
 
         <TextView
-            android:id="@+id/text_inform_meal_lunch"
+            android:id="@+id/text_main_content_meal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="식단표"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recycler_main_content_schedule" />/>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_inform_meal_dinner"
-        android:layout_width="100dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintLeft_toLeftOf="@id/text_inform_dinner"
-        app:layout_constraintRight_toRightOf="@id/text_inform_dinner"
-        app:layout_constraintTop_toBottomOf="@id/text_inform_dinner">
 
         <TextView
-            android:id="@+id/text_inform_meal_dinner"
+            android:id="@+id/text1_main_content"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="아침"
+            app:layout_constraintLeft_toLeftOf="@id/card_main_content_breakfast"
+            app:layout_constraintRight_toRightOf="@id/card_main_content_breakfast"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_meal" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/text2_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="점심"
+            app:layout_constraintLeft_toRightOf="@id/card_main_content_lunch"
+            app:layout_constraintRight_toLeftOf="@id/card_main_content_lunch"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_meal" />
+
+        <TextView
+            android:id="@+id/text3_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="저녁"
+            app:layout_constraintLeft_toLeftOf="@id/card_main_content_dinner"
+            app:layout_constraintRight_toRightOf="@id/card_main_content_dinner"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_meal" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_breakfast"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/card_main_content_lunch"
+            app:layout_constraintTop_toBottomOf="@id/text1_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_lunch"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toRightOf="@id/card_main_content_breakfast"
+            app:layout_constraintRight_toLeftOf="@id/card_main_content_dinner"
+            app:layout_constraintTop_toBottomOf="@id/text2_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_dinner"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@id/card_main_content_lunch"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text3_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/text4_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="추가간식"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_breakfast" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_snack"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text4_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_snack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:text="추가간식" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/text5_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="건강상태"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_snack" />
+        <TextView
+            android:layout_marginTop="16dp"
+            android:id="@+id/text_main_content_degree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체온"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/text5_main_content"/>
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_degree"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_degree">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="낮음"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="정상"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="높음"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="매우높음"
+                    android:layout_margin="6dp"/>
+            </RadioGroup>
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:layout_marginTop="16dp"
+            android:id="@+id/text_main_content_cough"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="기침"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_degree"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_main_content_cough">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="안함"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="거의 안함"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가끔"
+                    android:layout_margin="6dp"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="자주"
+                    android:layout_margin="6dp"/>
+            </RadioGroup>
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
