@@ -6,51 +6,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".Main.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_weight="1"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:contentInsetStart="0dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="엄마를 부탁해"
-                android:textSize="20sp"
                 android:textColor="@android:color/white"
+                android:textSize="20sp"
                 android:layout_gravity="center_horizontal"/>
+
         </android.support.v7.widget.Toolbar>
 
         <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
+            android:id="@+id/tabs_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
-                android:id="@+id/tabItem_main"
+                android:id="@+id/tab_main_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="메인" />
 
             <android.support.design.widget.TabItem
-                android:id="@+id/tabItem_chat"
+                android:id="@+id/tab_main_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="채팅" />
 
             <android.support.design.widget.TabItem
-                android:id="@+id/tabItem_rank"
+                android:id="@+id/tab_main_rank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="순위" />
@@ -59,7 +59,8 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+        android:layout_marginTop="20dp"
+        android:id="@+id/viewPager_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

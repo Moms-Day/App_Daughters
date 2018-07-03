@@ -1,4 +1,4 @@
-package momsday.app_daughters.SignUp;
+package momsday.app_daughters.Main;
 
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 import momsday.app_daughters.R;
 
-public class FirstFragment extends Fragment {
-    public FirstFragment() {
+public class RankFragment extends Fragment {
+    public RankFragment() {
     }
 
     @Override
@@ -20,7 +20,7 @@ public class FirstFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_sign_up_first, container, false);
+        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_main_rank, container, false);
         return layout;
     }
 }

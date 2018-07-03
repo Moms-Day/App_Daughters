@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/btn_main_yesterday"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/text_main_year" />
+
+    <TextView
+        android:id="@+id/text_main_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018"
+        android:textSize="16sp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/text1_main" />
+
+    <TextView
+        android:id="@+id/text1_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="."
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/text_main_year"
+        app:layout_constraintRight_toLeftOf="@id/text_main_month" />
+
+    <TextView
+        android:id="@+id/text_main_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/text1_main"
+        app:layout_constraintRight_toLeftOf="@id/text2_main" />
+
+    <TextView
+        android:id="@+id/text2_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="."
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/text_main_month"
+        app:layout_constraintRight_toLeftOf="@id/text_main_date" />
+
+    <TextView
+        android:id="@+id/text_main_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/text2_main"
+        app:layout_constraintRight_toLeftOf="@id/text_main_day" />
+
+    <TextView
+        android:id="@+id/text_main_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수요일"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/text_main_date"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_main_tomorrow"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:layout_constraintLeft_toRightOf="@id/text_main_day"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_main_inform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/text_main_date"></android.support.v4.view.ViewPager>
+</android.support.constraint.ConstraintLayout>

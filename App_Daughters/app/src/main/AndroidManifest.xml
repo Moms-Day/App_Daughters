@@ -18,10 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp.SignUpActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".Main.MainActivity" />
     </application>
 
 </manifest>

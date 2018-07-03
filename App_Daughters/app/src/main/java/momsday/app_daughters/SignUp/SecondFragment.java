@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import momsday.app_daughters.R;
 
 public class SecondFragment extends Fragment {
@@ -27,7 +25,7 @@ public class SecondFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_second, container, false);
+        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_sign_up_second, container, false);
         TextView signUpInformParentText = (TextView) layout.findViewById(R.id.text_signup_inform_parent);
         String str = "*부모정보(선택)";
         SpannableStringBuilder ssb = new SpannableStringBuilder(str);

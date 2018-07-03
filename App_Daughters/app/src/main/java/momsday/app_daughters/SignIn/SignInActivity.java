@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import momsday.app_daughters.MainActivity;
+import momsday.app_daughters.Main.MainActivity;
 import momsday.app_daughters.R;
 
 public class SignInActivity extends AppCompatActivity implements SignInContract.View {
