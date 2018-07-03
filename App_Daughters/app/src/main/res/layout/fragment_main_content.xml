@@ -168,96 +168,24 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_main_content_snack" />
-        <TextView
-            android:layout_marginTop="16dp"
-            android:id="@+id/text_main_content_degree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="체온"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/text5_main_content"/>
+
         <android.support.v7.widget.CardView
-            android:id="@+id/card_main_content_degree"
+            android:id="@+id/card_main_content_condition"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:cardBackgroundColor="@color/colorCardView"
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_main_content_degree">
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="낮음"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="정상"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="높음"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="매우높음"
-                    android:layout_margin="6dp"/>
-            </RadioGroup>
-        </android.support.v7.widget.CardView>
-        <TextView
-            android:layout_marginTop="16dp"
-            android:id="@+id/text_main_content_cough"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기침"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/card_main_content_degree"/>
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/colorCardView"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_main_content_cough">
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="안함"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="거의 안함"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="가끔"
-                    android:layout_margin="6dp"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="자주"
-                    android:layout_margin="6dp"/>
-            </RadioGroup>
+            app:layout_constraintTop_toBottomOf="@id/text5_main_content">
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="활동량 감소"
+                android:button="@drawable/radiobtn_main_content_icon"
+                android:fitsSystemWindows="true"/>
         </android.support.v7.widget.CardView>
 
     </android.support.constraint.ConstraintLayout>

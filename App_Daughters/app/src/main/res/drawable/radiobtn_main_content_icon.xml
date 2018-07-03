@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false">
+        <bitmap android:src="@drawable/radiobutton_main_icon" />
+    </item>
+    <item android:state_checked="true">
+        <bitmap android:src="@drawable/radiobutton_clicked_main_icon"/>
+    </item>
+</selector>
