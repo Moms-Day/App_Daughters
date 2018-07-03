@@ -4,9 +4,9 @@
     android:id="@+id/scroll_main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:paddingEnd="20dp"
-    android:paddingStart="20dp"
-    android:fillViewport="true">
+    android:paddingStart="20dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -180,12 +180,96 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text5_main_content">
-            <CheckBox
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_main_content_condition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/text6_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="기타 기록사항"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_condition" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_extra"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text6_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_extra"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="활동량 감소"
-                android:button="@drawable/radiobtn_main_content_icon"
-                android:fitsSystemWindows="true"/>
+                android:layout_margin="7dp"
+                android:text="기타 기록 사항" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/text7_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="사진 첨부"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_extra" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_photo"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text7_main_content">
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/text8_main_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="부가 설명"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_photo" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_main_content_explain"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/colorCardView"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text8_main_content">
+
+            <TextView
+                android:id="@+id/text_main_content_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:text="부가설명" />
         </android.support.v7.widget.CardView>
 
     </android.support.constraint.ConstraintLayout>
