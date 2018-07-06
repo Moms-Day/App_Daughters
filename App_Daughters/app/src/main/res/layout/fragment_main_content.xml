@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_main_content_schedule"
+            android:id="@+id/recycler_main_schedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recycler_main_content_schedule" />/>
+            app:layout_constraintTop_toBottomOf="@id/recycler_main_schedule" />/>
 
 
         <TextView
@@ -181,7 +181,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text5_main_content">
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_main_content_condition"
+                android:id="@+id/recycler_main_condition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
         </android.support.v7.widget.CardView>
