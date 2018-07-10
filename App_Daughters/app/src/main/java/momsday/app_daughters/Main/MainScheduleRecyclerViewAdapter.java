@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class MainScheduleRecyclerViewAdapter extends RecyclerView.Adapter<MainSc
     // 필수 오버라이드 : View 생성, ViewHolder 호출
     @Override
     public MainScheduleRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_recyler_schedule, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_recycler_schedule, parent, false);
         mainRecyclerScheduleContext = parent.getContext();
         MainScheduleRecyclerViewHolder holder = new MainScheduleRecyclerViewHolder(v);
         return holder;

@@ -20,5 +20,5 @@
         <activity android:name=".SignUp.SignUpActivity" />
         <activity android:name=".Main.MainActivity" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

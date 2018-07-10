@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "945096892988",
+    "firebase_url": "https://app-daughters.firebaseio.com",
+    "project_id": "app-daughters",
+    "storage_bucket": "app-daughters.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945096892988:android:4e8bd0d0a0e5312f",
+        "android_client_info": {
+          "package_name": "momsday.app_daughters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945096892988-4dpvmqnqj2acqc2h03tkid1k3e82693u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "momsday.app_daughters",
+            "certificate_hash": "8ea881f252a8933fe892311388a3243947ff2c3d"
+          }
+        },
+        {
+          "client_id": "945096892988-b8lhu6na2iqu4iuf6uad91urv6p7radt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9bz1TUb4O7ox1rPHFOBN6pYqhX4vDN7M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945096892988-b8lhu6na2iqu4iuf6uad91urv6p7radt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
