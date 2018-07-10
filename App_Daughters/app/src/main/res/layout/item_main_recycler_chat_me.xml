@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="17:25"
-        app:layout_constraintRight_toLeftOf="@id/chat_me"
-        app:layout_constraintBottom_toBottomOf="@id/chat_me"
         android:layout_marginRight="10dp"
-        />
+        android:text="17:25"
+        app:layout_constraintBottom_toBottomOf="@id/chat_me"
+        app:layout_constraintRight_toLeftOf="@id/chat_me" />
+
     <TextView
         android:id="@+id/chat_me"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="채팅 내용"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
+        android:background="@drawable/chatbubble_chat_me"
+        android:paddingBottom="10dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:paddingTop="10dp"
+        android:text="채팅 내용"
         android:textColor="@android:color/white"
-        android:background="@drawable/chatbubble_chat_me"/>
+        app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

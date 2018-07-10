@@ -2,9 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
 
     <TextView
+        android:id="@+id/chat_you"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="채팅 내용"
@@ -16,4 +18,11 @@
         android:layout_marginLeft="20dp"
         android:textColor="@android:color/white"
         android:background="@drawable/chatbubble_chat_you"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="17:25"
+        app:layout_constraintBottom_toBottomOf="@id/chat_you"
+        app:layout_constraintLeft_toRightOf="@id/chat_you" />
 </android.support.constraint.ConstraintLayout>
