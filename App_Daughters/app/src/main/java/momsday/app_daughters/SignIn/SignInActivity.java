@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import momsday.app_daughters.Main.MainActivity;
+import momsday.app_daughters.Main.Main.MainActivity;
 import momsday.app_daughters.R;
 
 public class SignInActivity extends AppCompatActivity implements SignInContract.View {

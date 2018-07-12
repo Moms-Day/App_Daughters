@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,10 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import momsday.app_daughters.R;
 

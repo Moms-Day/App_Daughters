@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Main;
 
 public class MainRecyclerConditionItem {
     String checkbox1, checkbox2, checkbox3;

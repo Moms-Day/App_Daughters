@@ -6,18 +6,19 @@
     android:padding="10dp">
 
     <TextView
+        android:id="@+id/chat_my_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:text="17:25"
-        app:layout_constraintBottom_toBottomOf="@id/chat_me"
-        app:layout_constraintRight_toLeftOf="@id/chat_me" />
+        app:layout_constraintBottom_toBottomOf="@id/chat_my_message"
+        app:layout_constraintRight_toLeftOf="@id/chat_my_message" />
 
     <TextView
-        android:id="@+id/chat_me"
+        android:id="@+id/chat_my_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/chatbubble_chat_me"
         android:paddingBottom="10dp"
         android:paddingEnd="15dp"

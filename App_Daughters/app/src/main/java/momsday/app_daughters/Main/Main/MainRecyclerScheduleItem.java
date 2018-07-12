@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Main;
 
 public class MainRecyclerScheduleItem {
     String startTime, endTime, work;

@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Chat;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

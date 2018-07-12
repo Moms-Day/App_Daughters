@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 
 import momsday.app_daughters.R;
-import momsday.app_daughters.SignUp.FirstFragment;
 
 
 public class MainFragment extends Fragment {

@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main;
+package momsday.app_daughters.Main.Main;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
