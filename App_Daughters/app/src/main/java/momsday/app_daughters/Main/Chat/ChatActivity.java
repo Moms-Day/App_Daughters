@@ -19,7 +19,7 @@ public class ChatActivity extends AppCompatActivity {
     LinearLayoutManager mainChatLayoutManager;
     MainChatRecyclerViewAdapter mainChatRecyclerAdapter;
     long now;
-    Date nowDate, lastDate;
+    Date nowDate;
     SimpleDateFormat timeDateFormat, dateDateFormat;
     String timeText, dateText;
 
@@ -33,7 +33,7 @@ public class ChatActivity extends AppCompatActivity {
         timeDateFormat = new SimpleDateFormat("hh:mm");
         dateDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
         timeText = timeDateFormat.format(nowDate);
-        dateText = timeDateFormat.format(nowDate);
+        dateText = dateDateFormat.format(nowDate);
 
 
         mainChatRecycler = (RecyclerView)findViewById(R.id.recycler_main_chat);
@@ -41,6 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         mainChatLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         ArrayList<MainRecyclerChatItem> mainRecyclerChatItems = new ArrayList();
 
+        mainRecyclerChatItems.add(new MainRecyclerChatItem(0,dateText));
         mainRecyclerChatItems.add(new MainRecyclerChatItem(1,"이종현",timeText));
 
         mainChatRecycler.setLayoutManager(mainChatLayoutManager);
