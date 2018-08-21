@@ -63,7 +63,6 @@ public class MainChatRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
             ((MainChatRecyclerMeViewHolder) holder).chatMessageText.setText(mainRecyclerChatItems.get(position).messageText);
             ((MainChatRecyclerMeViewHolder) holder).chatTimeText.setText(mainRecyclerChatItems.get(position).timeText);
         } else {
-            ((MainChatRecyclerYouViewHolder) holder).chatNameText.setText(mainRecyclerChatItems.get(position).nameText);
             ((MainChatRecyclerYouViewHolder) holder).chatMessageText.setText(mainRecyclerChatItems.get(position).messageText);
             ((MainChatRecyclerYouViewHolder) holder).chatTimeText.setText(mainRecyclerChatItems.get(position).timeText);
         }

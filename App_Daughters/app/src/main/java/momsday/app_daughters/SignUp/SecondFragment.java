@@ -26,11 +26,6 @@ public class SecondFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_sign_up_second, container, false);
-        TextView signUpInformParentText = (TextView) layout.findViewById(R.id.text_signup_inform_parent);
-        String str = "*부모정보(선택)";
-        SpannableStringBuilder ssb = new SpannableStringBuilder(str);
-        ssb.setSpan(new ForegroundColorSpan(Color.parseColor("#ff5858")), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        signUpInformParentText.setText(ssb);
         return layout;
     }
 

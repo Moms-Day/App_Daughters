@@ -71,8 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        initData();
-        initIndicaotor();
+        init();
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {
@@ -98,16 +97,12 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    private void initData() {
+
+    private void init() {
 
         numberList = new ArrayList<>();
         numberList.add("1");
         numberList.add("2");
-
-    }
-
-    private void initIndicaotor() {
-
         //원사이의 간격
         circleAnimIndicator.setItemMargin(15);
         //애니메이션 속도

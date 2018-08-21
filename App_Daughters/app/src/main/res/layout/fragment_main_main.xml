@@ -6,14 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/btn_main_yesterday"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/text_main_year"
-        android:background="@drawable/main_yesterday_icon"/>
-
     <TextView
         android:id="@+id/text_main_year"
         android:layout_width="wrap_content"
@@ -22,10 +14,12 @@
         android:textSize="16sp"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/text1_main" />
+        app:layout_constraintRight_toLeftOf="@id/text1_main"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/text1_main"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
@@ -35,6 +29,7 @@
 
     <TextView
         android:id="@+id/text_main_month"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="07"
@@ -44,6 +39,7 @@
 
     <TextView
         android:id="@+id/text2_main"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="."
@@ -53,6 +49,7 @@
 
     <TextView
         android:id="@+id/text_main_date"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="07"
@@ -62,20 +59,15 @@
 
     <TextView
         android:id="@+id/text_main_day"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="수요일"
+        android:layout_marginStart="5dp"
         android:textSize="16sp"
         app:layout_constraintLeft_toRightOf="@id/text_main_date"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_main_tomorrow"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintLeft_toRightOf="@id/text_main_day"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/main_tomorrow_icon"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager_main_content"

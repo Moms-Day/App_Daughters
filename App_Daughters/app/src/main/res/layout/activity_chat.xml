@@ -8,11 +8,7 @@
         android:id="@+id/toolbar_chat"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:layout_width="16dp"
-            android:layout_height="16dp" />
+        android:background="@drawable/strokestyle_toolbar">
 
         <TextView
             android:id="@+id/text_chat_toolbar_name"
@@ -20,11 +16,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Name"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="30dp"
         android:id="@+id/recycler_main_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

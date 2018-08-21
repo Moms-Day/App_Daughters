@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import momsday.app_daughters.R;
-import momsday.app_daughters.Start.StartActivity;
 
 public class MainChatListRecyclerViewAdapter extends RecyclerView.Adapter<MainChatListRecyclerViewHolder> {
     private ArrayList<MainRecyclerChatListItem> mainRecyclerChatListItems;

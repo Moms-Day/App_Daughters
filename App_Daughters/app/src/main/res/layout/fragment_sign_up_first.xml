@@ -14,9 +14,10 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_id" />
 
     <EditText
+        android:paddingStart="20dp"
         android:id="@+id/edit_signup_id"
         android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="아이디를 입력해주세요"
@@ -25,7 +26,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.75" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,10 +38,12 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_pw" />
 
     <EditText
+        android:paddingStart="20dp"
+
         android:id="@+id/edit_signup_pw"
         android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="비밀번호를 입력해주세요"
         android:inputType="textPassword"
@@ -48,7 +51,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_id"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.75" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,10 +63,11 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_signup_pwcheck" />
 
     <EditText
+        android:paddingStart="20dp"
         android:id="@+id/edit_signup_pwcheck"
         android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="비밀번호를 입력해주세요"
         android:inputType="textPassword"
@@ -71,6 +75,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_signup_pw"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.75" />
 
 </android.support.constraint.ConstraintLayout>

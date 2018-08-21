@@ -1,78 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <View
-        android:id="@+id/view_main_recycler_schedule"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="#ffb062"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/icon_main_schedule"
-        app:layout_constraintRight_toRightOf="@id/view_main_recycler_schedule"
-        app:layout_constraintLeft_toLeftOf="@id/view_main_recycler_schedule"
-        app:layout_constraintTop_toTopOf="@id/view_main_recycler_schedule"
-        app:layout_constraintBottom_toBottomOf="@id/view_main_recycler_schedule"/>
-    <TextView
-        android:id="@+id/text_recycler_schedule_start_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8"
-        android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/view_main_recycler_schedule"
-        app:layout_constraintRight_toLeftOf="@id/text1_main_recycler_schedule"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/text1_main_recycler_schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="시 ~ "
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_start_time"
-        app:layout_constraintRight_toLeftOf="@id/text_recycler_schedule_end_time"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/text_recycler_schedule_end_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/text1_main_recycler_schedule"
-        app:layout_constraintRight_toLeftOf="@id/text2_main_recycler_schedule"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/text2_main_recycler_schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="시"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_end_time"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+    android:layout_height="50dp">
 
-    <TextView
-        android:id="@+id/text_main_recycler_schedule_work"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="아침식사"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintLeft_toRightOf="@id/text2_main_recycler_schedule"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/image_main_recycler_schedule"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_main_schedule"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/image_main_recycler_schedule"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/text_recycler_schedule_start_time"/>
+
+        <TextView
+            android:id="@+id/text_recycler_schedule_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="8"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/image_main_recycler_schedule"
+            app:layout_constraintRight_toLeftOf="@id/text1_main_recycler_schedule"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1_main_recycler_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시 ~ "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_start_time"
+            app:layout_constraintRight_toLeftOf="@id/text_recycler_schedule_end_time"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_recycler_schedule_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/text1_main_recycler_schedule"
+            app:layout_constraintRight_toLeftOf="@id/text2_main_recycler_schedule"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2_main_recycler_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_end_time"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_main_recycler_schedule_work"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="아침식사"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/text2_main_recycler_schedule"
+            app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

@@ -10,14 +10,14 @@
         android:id="@+id/toolBar_signup"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/strokestyle_toolbar">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="회원가입"
-            android:textColor="@android:color/white"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
     </android.support.v7.widget.Toolbar>
 
@@ -40,9 +40,9 @@
         android:id="@+id/btn_signup_next"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/strokestyle_signup_next_btn"
         android:text="다음"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>

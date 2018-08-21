@@ -25,6 +25,6 @@
         android:paddingStart="15dp"
         android:paddingTop="10dp"
         android:text="채팅 내용"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorGray"
         app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>
