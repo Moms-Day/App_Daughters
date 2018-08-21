@@ -2,7 +2,7 @@ package momsday.app_daughters.Main.Rank;
 
 import android.media.Image;
 
-public class RankRecyclerMyHospitalItem {
+public class RankRecyclerHospitalItem {
 
     Image rankMyHospitalImage;
     String rankMyHospitalName, rankMyHospitalLocation;
@@ -24,7 +24,7 @@ public class RankRecyclerMyHospitalItem {
         return rankMyHospitalScore;
     }
 
-    public RankRecyclerMyHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, int rankMyHospitalScore) {
+    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, int rankMyHospitalScore) {
         this.rankMyHospitalName = rankMyHospitalName;
         this.rankMyHospitalLocation = rankMyHospitalLocation;
         this.rankMyHospitalScore = rankMyHospitalScore;

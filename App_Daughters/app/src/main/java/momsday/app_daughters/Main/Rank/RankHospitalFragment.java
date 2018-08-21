@@ -17,9 +17,9 @@ import momsday.app_daughters.R;
 public class RankHospitalFragment extends Fragment {
     public RankHospitalFragment() {
     }
-    RecyclerView rankMyHospitalRecycler;
-    LinearLayoutManager rankMyHospitalLayoutManager;
-    RankMyHospitalRecyclerViewAdapter rankMyHospitalRecyclerAdapter;
+    RecyclerView rankMyHospitalRecycler, rankHospitalRecycler;
+    LinearLayoutManager rankMyHospitalLayoutManager, rankHospitalLayoutManager;
+    RankHospitalRecyclerViewAdapter rankMyHospitalRecyclerAdapter, rankHospitalRecyclerAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,17 +29,29 @@ public class RankHospitalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_rank_hospital, container, false);
+
+        //나의 요양병원
         rankMyHospitalRecycler = (RecyclerView)layout.findViewById(R.id.recycler_main_rank_my_hospital);
         rankMyHospitalLayoutManager = new LinearLayoutManager(getContext());
         rankMyHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        ArrayList<RankRecyclerMyHospitalItem> rankRecyclerMyHospitalItems = new ArrayList();
-
-        rankRecyclerMyHospitalItems.add(new RankRecyclerMyHospitalItem("종현병원","종현이왼팔",2));
+        ArrayList<RankRecyclerHospitalItem> rankRecyclerMyHospitalItems = new ArrayList();
+        rankRecyclerMyHospitalItems.add(new RankRecyclerHospitalItem("종현병원","종현이왼팔",2));
         rankMyHospitalRecycler.setLayoutManager(rankMyHospitalLayoutManager);
         rankMyHospitalRecycler.setItemAnimator(new DefaultItemAnimator());
-
-        rankMyHospitalRecyclerAdapter = new RankMyHospitalRecyclerViewAdapter(rankRecyclerMyHospitalItems);
+        rankMyHospitalRecyclerAdapter = new RankHospitalRecyclerViewAdapter(rankRecyclerMyHospitalItems);
         rankMyHospitalRecycler.setAdapter(rankMyHospitalRecyclerAdapter);
+
+        //요양병원 순위
+        rankHospitalRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_hospital);
+        rankHospitalLayoutManager = new LinearLayoutManager(getContext());
+        rankHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        ArrayList<RankRecyclerHospitalItem> rankRecyclerHospitalItems = new ArrayList();
+        rankRecyclerHospitalItems.add(new RankRecyclerHospitalItem("hospitalname","location",3));
+        rankHospitalRecycler.setLayoutManager(rankHospitalLayoutManager);
+        rankHospitalRecycler.setItemAnimator(new DefaultItemAnimator());
+        rankHospitalRecyclerAdapter = new RankHospitalRecyclerViewAdapter(rankRecyclerHospitalItems);
+        rankHospitalRecycler.setAdapter(rankHospitalRecyclerAdapter);
+
         return layout;
     }
 }

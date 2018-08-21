@@ -74,7 +74,7 @@ public class RankFragment extends Fragment {
                 case 0:
                     return new RankHospitalFragment();
                 case 1:
-                    return new RankHospitalFragment();
+                    return new RankCareworkerFragment();
                 default:
                     return null;
             }

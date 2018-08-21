@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:cardCornerRadius="10dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#2995c1ff">
+
+            <ImageView
+                android:id="@+id/image_main_rank_careworker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.3"/>
+
+            <TextView
+                android:id="@+id/text_main_rank_careworker_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이종현"
+                app:layout_constraintStart_toEndOf="@id/image_main_rank_careworker" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="요양보호사님"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toEndOf="@id/text_main_rank_careworker_name" />
+
+            <TextView
+                android:id="@+id/text_main_rank_careworker_hospital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="하늘요양병원"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@id/image_main_rank_careworker"
+                app:layout_constraintTop_toBottomOf="@id/text_main_rank_careworker_name" />
+
+            <RatingBar
+                android:id="@+id/ratingbar_main_rank_careworker_score"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stepSize="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_main_rank_careworker"
+                app:layout_constraintTop_toBottomOf="@id/text_main_rank_careworker_hospital" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

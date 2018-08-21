@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import momsday.app_daughters.R;
 
-public class RankMyHospitalRecyclerViewHolder extends RecyclerView.ViewHolder {
+public class RankHospitalRecyclerViewHolder extends RecyclerView.ViewHolder {
     public TextView myHospitalNameText, myHospitalLocationText;
     public RatingBar myHospitalScoreRatingBar;
     public ImageView myHospitalImageView;
 
-    public RankMyHospitalRecyclerViewHolder(View itemView) {
+    public RankHospitalRecyclerViewHolder(View itemView) {
         super(itemView);
 
         myHospitalNameText = (TextView) itemView.findViewById(R.id.text_main_rank_hospital_name);
