@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="엄마를 부탁해"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:layout_gravity="center_horizontal"/>
 
@@ -35,13 +35,18 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs_main"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:tabTextColor="@color/colorGray"
+            app:tabSelectedTextColor="@color/colorGray"
+            app:tabIndicatorColor="@color/colorDarkGray"
+            android:scaleY="-1">
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tab_main_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="메인" />
+                android:text="메인"/>
 
             <android.support.design.widget.TabItem
                 android:id="@+id/tab_main_chat"
