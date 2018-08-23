@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
         requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
+        requestConnectionDialog.setCancelable(false);
         requestConnectionDialog.show();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_main);

@@ -1,13 +1,16 @@
 package momsday.app_daughters.SearchHospital;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 
+import momsday.app_daughters.HospitalInformation.HospitalInformationActivity;
 import momsday.app_daughters.Main.Main.MainRecyclerScheduleItem;
 import momsday.app_daughters.Main.Main.MainScheduleRecyclerViewAdapter;
 import momsday.app_daughters.R;
@@ -37,5 +40,19 @@ public class SearchHospitalActivity extends AppCompatActivity {
 
         searchHospitalListRecyclerViewAdapter = new SearchHospitalListRecyclerViewAdapter(searchHospitalListRecyclerItems);
         searchHospitalListRecycler.setAdapter(searchHospitalListRecyclerViewAdapter);
+        searchHospitalListRecycler.addOnItemTouchListener(new SearchHospitalListRecyclerClickListener(getApplicationContext(), searchHospitalListRecycler, new SearchHospitalListRecyclerClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(SearchHospitalActivity.this, HospitalInformationActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }) {
+
+        });
     }
 }
