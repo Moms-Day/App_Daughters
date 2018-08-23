@@ -36,18 +36,17 @@
     </RadioGroup>
 
     <ImageButton
-        android:id="@+id/imagebtn_main_rank_write"
+        android:id="@+id/imagebtn_main_rank_evaluate"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/icon_main_rank_write"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.v4.view.ViewPager
+    <view class="momsday.app_daughters.CustomViewPager"
         android:id="@+id/viewpager_rank"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/radiogrp_main_rank"></android.support.v4.view.ViewPager>
-    
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_main_rank"></view>
 
 </android.support.constraint.ConstraintLayout>

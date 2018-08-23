@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="450dp"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="hospital name"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_facility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시설"
+        app:layout_constraintBottom_toBottomOf="@id/radiogrp_rank_evaluate_hospital_facility"
+        app:layout_constraintEnd_toStartOf="@id/radiogrp_rank_evaluate_hospital_facility"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radiogrp_rank_evaluate_hospital_facility" />
+
+    <RadioGroup
+        android:layout_marginTop="10dp"
+        android:id="@+id/radiogrp_rank_evaluate_hospital_facility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_facility"
+        app:layout_constraintTop_toBottomOf="@id/text_rank_evaluate_hospital_name">
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_facility_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="5"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_facility_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="4"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_facility_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="3"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_facility_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="2"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_facility_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="1"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="식단"
+        app:layout_constraintBottom_toBottomOf="@id/radiogrp_rank_evaluate_hospital_meal"
+        app:layout_constraintEnd_toStartOf="@id/radiogrp_rank_evaluate_hospital_meal"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radiogrp_rank_evaluate_hospital_meal" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp_rank_evaluate_hospital_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_meal"
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_facility">
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_meal_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="5"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_meal_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="4"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_meal_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="3"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_meal_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="2"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_meal_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="1"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일정"
+        app:layout_constraintBottom_toBottomOf="@id/radiogrp_rank_evaluate_hospital_schedule"
+        app:layout_constraintEnd_toStartOf="@id/radiogrp_rank_evaluate_hospital_schedule"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radiogrp_rank_evaluate_hospital_schedule" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp_rank_evaluate_hospital_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_schedule"
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_meal">
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_schedule_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="5"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_schedule_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="4"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_schedule_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="3"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_schedule_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="2"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_schedule_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="1"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비용"
+        app:layout_constraintBottom_toBottomOf="@id/radiogrp_rank_evaluate_hospital_cost"
+        app:layout_constraintEnd_toStartOf="@id/radiogrp_rank_evaluate_hospital_cost"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/radiogrp_rank_evaluate_hospital_cost" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp_rank_evaluate_hospital_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_cost"
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_schedule">
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_cost_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="5"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_cost_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="4"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_cost_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="3"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_cost_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="2"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_cost_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="1"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="서비스"
+        app:layout_constraintBottom_toBottomOf="@id/radiogrp_rank_evaluate_hospital_service"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/text_rank_evaluate_hospital_cost"
+        app:layout_constraintTop_toTopOf="@id/radiogrp_rank_evaluate_hospital_service" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp_rank_evaluate_hospital_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/radiogrp_rank_evaluate_hospital_cost"
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_cost">
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_service_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="5"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_service_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="4"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_service_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="3"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_service_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="2"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_rank_evaluate_hospital_service_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:text="1"
+            android:textSize="12sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="총점"
+        app:layout_constraintTop_toTopOf="@id/ratingbar_rank_evaluate_hospital_score"
+        app:layout_constraintBottom_toBottomOf="@id/ratingbar_rank_evaluate_hospital_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ratingbar_rank_evaluate_hospital_score"/>
+    <RatingBar
+        android:layout_marginTop="5dp"
+        android:id="@+id/ratingbar_rank_evaluate_hospital_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_service"
+        app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_score"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/edit_rank_evaluate_hospital_review"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:hint="한줄평가"
+        android:textSize="12sp"
+        android:background="@drawable/roundstyle_signup_edit"
+        app:layout_constraintTop_toBottomOf="@id/ratingbar_rank_evaluate_hospital_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닫기"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorDarkGray"
+        app:layout_constraintTop_toBottomOf="@id/edit_rank_evaluate_hospital_review"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/text_rank_evaluate_hospital_ok"
+        android:layout_marginEnd="30dp"/>
+    <TextView
+        android:id="@+id/text_rank_evaluate_hospital_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/edit_rank_evaluate_hospital_review"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="25dp"/>
+</android.support.constraint.ConstraintLayout>
