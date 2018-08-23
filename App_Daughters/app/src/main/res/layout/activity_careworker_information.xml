@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CareworkerInformationActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_careworker_information"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/strokestyle_toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="요양보호사 정보"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/image_careworker_information"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_careworker_information" />
+
+    <TextView
+        android:id="@+id/text_careworker_information_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_careworker_information_hospital_name"
+        app:layout_constraintStart_toEndOf="@id/image_careworker_information"
+        app:layout_constraintTop_toTopOf="@id/image_careworker_information"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="요양 보호사님"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/text_careworker_information_name"
+        app:layout_constraintTop_toTopOf="@id/text_careworker_information_name" />
+
+    <TextView
+        android:id="@+id/text_careworker_information_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="7dp"
+        android:text="하늘요양병원"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/image_careworker_information"
+        app:layout_constraintStart_toEndOf="@id/image_careworker_information"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_name"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/text1_careworker_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="맡은 환자 수 : "
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_careworker_information_patient_number"
+        app:layout_constraintEnd_toStartOf="@id/text_careworker_information_patient_number"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_careworker_information_patient_number" />
+
+    <TextView
+        android:id="@+id/text_careworker_information_patient_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="6명"
+        android:textColor="@color/colorPrimary"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@id/text2_careworker_information"
+        app:layout_constraintStart_toEndOf="@id/text1_careworker_information"
+        app:layout_constraintTop_toBottomOf="@id/image_careworker_information" />
+
+    <TextView
+        android:id="@+id/text2_careworker_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="경력 : "
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_careworker_information_patient_number"
+        app:layout_constraintEnd_toStartOf="@id/text_careworker_information_career"
+        app:layout_constraintStart_toEndOf="@id/text_careworker_information_patient_number"
+        app:layout_constraintTop_toTopOf="@id/text_careworker_information_patient_number" />
+
+    <TextView
+        android:id="@+id/text_careworker_information_career"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4년"
+        android:textColor="@color/colorPrimary"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@id/text_careworker_information_patient_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text2_careworker_information"
+        app:layout_constraintTop_toTopOf="@id/text_careworker_information_patient_number" />
+    <TextView
+        android:id="@+id/text_careworker_information_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="introduction"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_patient_number"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/view_careworker_information_score"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/roundstyle_signup_certify_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_introduction"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            android:id="@+id/text_careworker_information_sincerity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="성실"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/ratingbar_careworker_information_total_score"
+            app:layout_constraintEnd_toStartOf="@id/text_careworker_information_sincerity_score"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_careworker_information_sincerity_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0점"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/text_careworker_information_kindness"
+            app:layout_constraintStart_toEndOf="@id/text_careworker_information_sincerity"
+            app:layout_constraintTop_toTopOf="@id/text_careworker_information_sincerity" />
+
+        <TextView
+            android:id="@+id/text_careworker_information_kindness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="친절도"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/text_careworker_information_kindness_score"
+            app:layout_constraintStart_toEndOf="@id/text_careworker_information_sincerity_score"
+            app:layout_constraintTop_toTopOf="@id/text_careworker_information_sincerity" />
+
+        <TextView
+            android:id="@+id/text_careworker_information_kindness_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="0.0점"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_careworker_information_kindness"
+            app:layout_constraintTop_toTopOf="@id/text_careworker_information_sincerity" />
+
+        <TextView
+            android:id="@+id/text_careworker_information_total_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총점"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ratingbar_careworker_information_total_score"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_careworker_information_sincerity" />
+
+        <RatingBar
+            android:id="@+id/ratingbar_careworker_information_total_score"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/text_careworker_information_total_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_careworker_information_total_score"
+            app:layout_constraintTop_toTopOf="@id/text_careworker_information_total_score" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_careworker_information_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="한줄평가"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_careworker_information_score" />
+
+    <TextView
+        android:id="@+id/text_careworker_information_first_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="* 친절해요"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_review" />
+
+
+    <TextView
+        android:id="@+id/text_careworker_information_second_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="* 친절해요"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_first_review" />
+
+
+    <TextView
+        android:id="@+id/text_careworker_information_third_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="* 친절해요"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_careworker_information_second_review" />
+
+
+</android.support.constraint.ConstraintLayout>
