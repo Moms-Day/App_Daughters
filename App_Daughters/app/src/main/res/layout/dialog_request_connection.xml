@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="330dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+    <TextView
+        android:id="@+id/text_dialog_request_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        android:textSize="12sp"
+        android:textColor="@color/colorGray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="요양보호사와 연결하시겠습니까?"
+        app:layout_constraintTop_toBottomOf="@id/text_dialog_request_connection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="16sp"
+        android:textColor="@color/colorDarkGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btn_dialog_request_connection_move_connect"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/roundstyle_chat_edit"
+        android:text="연결하기"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="35dp"/>
+    <TextView
+        android:id="@+id/text_dialog_request_connection_move_rank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="요양보호사/요양병원 순위 보기"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_dialog_request_connection_move_connect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+
+</android.support.constraint.ConstraintLayout>

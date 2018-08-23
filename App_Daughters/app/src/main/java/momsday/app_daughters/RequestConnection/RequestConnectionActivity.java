@@ -1,21 +1,25 @@
 package momsday.app_daughters.RequestConnection;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import momsday.app_daughters.R;
+import momsday.app_daughters.SearchHospital.SearchHospitalActivity;
 
 public class RequestConnectionActivity extends AppCompatActivity {
 
     private Spinner careworkerNameSpinner;
     private ArrayAdapter spinnerAdapter;
+    private EditText hospitalNameEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class RequestConnectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_request_connection);
 
         careworkerNameSpinner = (Spinner) findViewById(R.id.spinner_request_connection_careworker_name);
+        hospitalNameEdit = (EditText) findViewById(R.id.edit_request_connection_hospital_name);
 
 
         final ArrayList<String> careworkerNameList = new ArrayList<>();
@@ -43,6 +48,14 @@ public class RequestConnectionActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+        hospitalNameEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RequestConnectionActivity.this, SearchHospitalActivity.class);
+                startActivity(intent);
             }
         });
     }
