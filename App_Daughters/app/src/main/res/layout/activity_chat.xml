@@ -24,7 +24,38 @@
         android:layout_marginTop="30dp"
         android:id="@+id/recycler_main_chat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_chat">
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_chat"
+        app:layout_constraintBottom_toTopOf="@id/view_chat_bottom">
     </android.support.v7.widget.RecyclerView>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/view_chat_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@android:color/white">
+        <EditText
+            android:paddingStart="20dp"
+            android:id="@+id/edit_chat_message"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/text_chat_send_message"
+            android:background="@drawable/roundstyle_chat_edit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/text_chat_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전송"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/edit_chat_message"/>
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
