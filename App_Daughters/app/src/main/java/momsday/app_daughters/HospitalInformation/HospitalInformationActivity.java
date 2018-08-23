@@ -1,7 +1,9 @@
-package momsday.app_daughters;
+package momsday.app_daughters.HospitalInformation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import momsday.app_daughters.R;
 
 public class HospitalInformationActivity extends AppCompatActivity {
 

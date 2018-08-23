@@ -22,9 +22,10 @@
         <activity android:name=".SignUp.SignUpActivity" />
         <activity android:name=".Main.Main.MainActivity" />
         <activity android:name=".Main.Chat.ChatActivity" />
-        <activity android:name=".HospitalInformationActivity" />
-        <activity android:name=".CareworkerInformationActivity" />
-        <activity android:name=".RequestConnectionActivity"></activity>
+        <activity android:name=".HospitalInformation.HospitalInformationActivity" />
+        <activity android:name=".CareworkerInformation.CareworkerInformationActivity" />
+        <activity android:name=".RequestConnection.RequestConnectionActivity" />
+        <activity android:name=".SearchHospital.SearchHospitalActivity"></activity>
     </application>
 
 </manifest>

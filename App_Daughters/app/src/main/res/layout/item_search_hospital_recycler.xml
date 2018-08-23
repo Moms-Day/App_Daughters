@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="25dp">
+    <TextView
+        android:id="@+id/text_search_hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hospital name"
+        android:textSize="16sp"
+        android:textColor="@color/colorDarkGray"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/text_search_hospital_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:textSize="12sp"
+        android:textColor="@color/colorGray"
+        app:layout_constraintTop_toBottomOf="@id/text_search_hospital_name"
+        android:layout_marginTop="5dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

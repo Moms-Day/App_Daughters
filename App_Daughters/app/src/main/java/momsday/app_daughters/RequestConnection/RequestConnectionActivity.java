@@ -1,4 +1,4 @@
-package momsday.app_daughters;
+package momsday.app_daughters.RequestConnection;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import momsday.app_daughters.R;
 
 public class RequestConnectionActivity extends AppCompatActivity {
 

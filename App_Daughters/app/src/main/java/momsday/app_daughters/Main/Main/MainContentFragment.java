@@ -61,7 +61,7 @@ public class MainContentFragment extends Fragment {
         mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴","폭식","설사"));
         mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비","구토","배뇨활동 불편"));
         mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴","빈혈","기침"));
-        //객혈추가
+        //todo 객혈추가
         mainConditionRecycler.setLayoutManager(mainConditionLayoutManager);
         mainConditionRecycler.setItemAnimator(new DefaultItemAnimator());
 

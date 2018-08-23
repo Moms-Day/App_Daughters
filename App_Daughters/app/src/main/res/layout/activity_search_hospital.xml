@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchHospital.SearchHospitalActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_search_hospital"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/strokestyle_toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="요양병원 검색"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edit_serach_hospital_name"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:drawableEnd="@drawable/icon_main_rank_write"
+        android:hint="요양병원 이름"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_search_hospital"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="30dp"
+        android:id="@+id/recycler_search_hospital"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/edit_serach_hospital_name"
+        app:layout_constraintBottom_toBottomOf="parent"></android.support.v7.widget.RecyclerView>
+</android.support.constraint.ConstraintLayout>
