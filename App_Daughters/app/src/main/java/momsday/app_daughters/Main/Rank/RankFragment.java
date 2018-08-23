@@ -1,17 +1,25 @@
 package momsday.app_daughters.Main.Rank;
 
 
+import android.content.Context;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
+
+import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.R;
 
 public class RankFragment extends Fragment {
@@ -19,6 +27,9 @@ public class RankFragment extends Fragment {
     }
     private RadioButton rankHospitalRadiobtn, rankCareworkerRadiobtn;
     private ViewPager rankViewPager;
+    private ImageButton rankEvaluateBtn;
+    private RankEvaluateHospitalDialog rankEvaluateHospitalDialog;
+    private RankEvaluateCareworkerDialog rankEvaluateCareworkerDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +41,10 @@ public class RankFragment extends Fragment {
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_main_rank, container, false);
         rankHospitalRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_hospital);
         rankCareworkerRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_careworker);
-        rankViewPager = (ViewPager) layout.findViewById(R.id.viewpager_rank);
+        rankEvaluateBtn = (ImageButton) layout.findViewById(R.id.imagebtn_main_rank_evaluate);
+        rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(),hospitalDialogCancelClickListener);
+        rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(),careworkerDialogCancelClickListener);
+        rankViewPager = (CustomViewPager) layout.findViewById(R.id.viewpager_rank);
 
         rankViewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         rankViewPager.setCurrentItem(0);
@@ -43,14 +57,18 @@ public class RankFragment extends Fragment {
             }
         });
 
+
         rankViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 rankViewPager.getParent().requestDisallowInterceptTouchEvent(true);
+
+
             }
 
             @Override
             public void onPageSelected(int position) {
+
             }
 
             @Override
@@ -58,9 +76,53 @@ public class RankFragment extends Fragment {
 
             }
         });
+        rankHospitalRadiobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Debug","rankHospitalRadioBtn checked");
+                rankViewPager.setCurrentItem(0);
+            }
+        });
+
+        rankCareworkerRadiobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("Debug","rankCareworkerRadioBtn checked");
+                rankViewPager.setCurrentItem(1);
+            }
+        });
+
+        rankEvaluateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(rankViewPager.getCurrentItem() == 0) {
+                    rankEvaluateHospitalDialog.setCancelable(true);
+                    rankEvaluateHospitalDialog.getWindow().setGravity(Gravity.CENTER);
+                    rankEvaluateHospitalDialog.show();
+                } else {
+                 rankEvaluateCareworkerDialog.setCancelable(true);
+                 rankEvaluateCareworkerDialog.getWindow().setGravity(Gravity.CENTER);
+                 rankEvaluateCareworkerDialog.show();
+                }
+            }
+        });
+
         return layout;
     }
 
+    private View.OnClickListener hospitalDialogCancelClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            rankEvaluateHospitalDialog.dismiss();
+        }
+    };
+
+    private View.OnClickListener careworkerDialogCancelClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            rankEvaluateCareworkerDialog.dismiss();
+        }
+    };
 
     public class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -85,4 +147,5 @@ public class RankFragment extends Fragment {
             return 2;
         }
     }
+
 }

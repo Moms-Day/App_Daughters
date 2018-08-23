@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Chat.ChatFragment;
 import momsday.app_daughters.Main.Rank.RankFragment;
 import momsday.app_daughters.R;
@@ -27,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        
-        mainViewPager = (ViewPager) findViewById(R.id.viewPager_main);
+
+        mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_main);
