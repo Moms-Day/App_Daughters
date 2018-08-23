@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RequestConnectionActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_careworker_information"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/strokestyle_toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="연결 요청"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/edit_request_connection_hospital_name"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:drawableEnd="@drawable/icon_main_rank_write"
+        android:hint="요양병원 이름"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_careworker_information"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <Spinner
+        android:id="@+id/spinner_request_connection_careworker_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/edit_request_connection_hospital_name"
+        app:layout_constraintTop_toBottomOf="@id/edit_request_connection_hospital_name"></Spinner>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="요양보호사님"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/spinner_request_connection_careworker_name"
+        app:layout_constraintStart_toEndOf="@id/spinner_request_connection_careworker_name"
+        app:layout_constraintTop_toTopOf="@id/spinner_request_connection_careworker_name" />
+
+    <TextView
+        android:id="@+id/text_request_connection_my_inform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="내 정보"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/spinner_request_connection_careworker_name"
+        app:layout_constraintTop_toBottomOf="@id/spinner_request_connection_careworker_name" />
+
+    <TextView
+        android:id="@+id/text_request_connection_my_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_my_name"
+        app:layout_constraintStart_toStartOf="@id/text_request_connection_my_inform"
+        app:layout_constraintTop_toTopOf="@id/edit_request_connection_my_name" />
+
+    <EditText
+        android:id="@+id/edit_request_connection_my_name"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="이름 입력"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/text_request_connection_my_name"
+        app:layout_constraintTop_toBottomOf="@id/text_request_connection_my_inform" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_my_name"
+        app:layout_constraintStart_toEndOf="@id/edit_request_connection_my_name"
+        app:layout_constraintTop_toTopOf="@id/edit_request_connection_my_name">
+
+        <RadioButton
+            android:id="@+id/radiobtn_request_connection_my_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남자" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_request_connection_my_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여자" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text_request_connection_parent_inform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="보호자 정보"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/spinner_request_connection_careworker_name"
+        app:layout_constraintTop_toBottomOf="@id/edit_request_connection_my_name" />
+
+    <TextView
+        android:id="@+id/text_request_connection_parent_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_parent_name"
+        app:layout_constraintStart_toStartOf="@id/text_request_connection_parent_inform"
+        app:layout_constraintTop_toTopOf="@id/edit_request_connection_parent_name" />
+
+    <EditText
+        android:id="@+id/edit_request_connection_parent_name"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="이름 입력"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/text_request_connection_parent_name"
+        app:layout_constraintTop_toBottomOf="@id/text_request_connection_parent_inform" />
+
+    <TextView
+        android:id="@+id/text_request_connection_parent_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나이"
+        android:textColor="@color/colorGray"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_parent_age"
+        app:layout_constraintStart_toStartOf="@id/text_request_connection_parent_inform"
+        app:layout_constraintTop_toTopOf="@id/edit_request_connection_parent_age" />
+
+    <EditText
+        android:id="@+id/edit_request_connection_parent_age"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="이름 입력"
+        android:textSize="12sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/text_request_connection_parent_age"
+        app:layout_constraintTop_toBottomOf="@id/edit_request_connection_parent_name" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_parent_age"
+        app:layout_constraintStart_toEndOf="@id/edit_request_connection_parent_age"
+        app:layout_constraintTop_toTopOf="@id/edit_request_connection_parent_age">
+
+        <RadioButton
+            android:id="@+id/radiobtn_request_connection_parent_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남자" />
+
+        <RadioButton
+            android:id="@+id/radiobtn_request_connection_parent_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여자" />
+    </RadioGroup>
+    
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="42dp"
+        android:background="@drawable/roundstyle_reqeust_connection_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_request_connection_parent_age"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="연결요청하기"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintVertical_bias="0.6"/>
+
+
+</android.support.constraint.ConstraintLayout>

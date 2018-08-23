@@ -23,7 +23,8 @@
         <activity android:name=".Main.Main.MainActivity" />
         <activity android:name=".Main.Chat.ChatActivity" />
         <activity android:name=".HospitalInformationActivity" />
-        <activity android:name=".CareworkerInformationActivity"></activity>
+        <activity android:name=".CareworkerInformationActivity" />
+        <activity android:name=".RequestConnectionActivity"></activity>
     </application>
 
 </manifest>
