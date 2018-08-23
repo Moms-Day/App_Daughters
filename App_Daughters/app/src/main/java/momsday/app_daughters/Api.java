@@ -1,16 +1,30 @@
 package momsday.app_daughters;
 
-import momsday.app_daughters.SignIn.SignInModel;
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
-interface Api {
-    //로그인
-    @POST("/daughter/auth")
-    @Headers("Content-Type: application/json")
+public interface Api {
     @FormUrlEncoded
-    Call<SignInModel> signIn(@Body String id, @Body String pw);
+    @POST("signup")
+    @Headers("Content-Type: application/json")
+    Call<Void> doSignUp(@Field("id") String id,
+                        @Field("pw") String pw,
+                        @Field("phoneNumber") String phoneNumber,
+                        @Field("certifyCode") String certifyCode,
+                        @Field("name") String name,
+                        @Field("age") int age);
+
+
+
+    @FormUrlEncoded
+    @POST("signin")
+    Call<JSONObject> doSignIn(@Field("id") String id,
+                              @Field("pw") String pw);
+
 }

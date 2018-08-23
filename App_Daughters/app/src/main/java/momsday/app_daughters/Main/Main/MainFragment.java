@@ -1,5 +1,6 @@
 package momsday.app_daughters.Main.Main;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -59,6 +60,7 @@ public class MainFragment extends Fragment {
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {
+
         public pagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -73,4 +75,6 @@ public class MainFragment extends Fragment {
             return 30;
         }
     }
+
+
 }
