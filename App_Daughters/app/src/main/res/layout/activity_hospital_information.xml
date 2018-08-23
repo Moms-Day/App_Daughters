@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HospitalInformationActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_hospital_information"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@drawable/strokestyle_toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="병원 정보"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_hospital_information"
+        app:layout_constraintVertical_weight="1">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_hospital_information"
+                android:layout_width="350dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_hospital_information_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="hospital name"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_hospital_information" />
+
+            <ImageView
+                android:id="@+id/image_hospital_information_call"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_name" />
+
+            <TextView
+                android:id="@+id/text_hospital_information_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="042-1234-1234"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/image_hospital_information_call"
+                app:layout_constraintStart_toEndOf="@id/image_hospital_information_call"
+                app:layout_constraintTop_toTopOf="@id/image_hospital_information_call" />
+
+            <ImageView
+                android:id="@+id/image_hospital_information_location"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="@id/image_hospital_information_call"
+                app:layout_constraintTop_toBottomOf="@id/image_hospital_information_call" />
+
+            <TextView
+                android:id="@+id/text_hospital_information_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="위치정보 없음"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@id/image_hospital_information_location"
+                app:layout_constraintStart_toEndOf="@id/image_hospital_information_location"
+                app:layout_constraintTop_toTopOf="@id/image_hospital_information_location" />
+
+            <TextView
+                android:id="@+id/text_hospital_information_introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12sp"
+                android:text="Can I help you?"
+                android:textSize="13sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_location" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/view_hospital_information_score"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundstyle_signup_certify_btn"
+                app:layout_constraintBottom_toTopOf="@id/text_hospital_information_review"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.28"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_introduction"
+                app:layout_constraintWidth_percent="0.8">
+
+                <TextView
+                    android:id="@+id/text_hospital_information_facility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="시설"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/text_hospital_information_schedule"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_facility_score"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_facility_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0점"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_meal"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_facility"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_facility" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="식단"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_meal_score"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_facility_score"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_facility" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_meal_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="0.0점"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_meal"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_facility" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="일정"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/text_hospital_information_service"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_facility_score"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_hospital_information_facility" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_schedule_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0점"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_cost"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_schedule"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_schedule" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="비용"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/text_hospital_information_cost_score"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_schedule_score"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_schedule" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_cost_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="0.0점"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_meal"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_schedule" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_service"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서비스"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/text_hospital_information_total_score"
+                    app:layout_constraintStart_toStartOf="@id/text_hospital_information_schedule"
+                    app:layout_constraintTop_toBottomOf="@id/text_hospital_information_schedule" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_service_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0점"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/text_hospital_information_schedule_score"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_service" />
+
+                <TextView
+                    android:id="@+id/text_hospital_information_total_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총점"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ratingbar_hospital_information_total_score"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_hospital_information_service" />
+
+                <RatingBar
+                    android:id="@+id/ratingbar_hospital_information_total_score"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    app:layout_constraintBottom_toBottomOf="@id/text_hospital_information_total_score"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/text_hospital_information_total_score"
+                    app:layout_constraintTop_toTopOf="@id/text_hospital_information_total_score" />
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/text_hospital_information_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="한줄평가"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_hospital_information_score" />
+
+            <TextView
+                android:id="@+id/text_hospital_information_first_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="* 친절해요"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_review" />
+
+
+            <TextView
+                android:id="@+id/text_hospital_information_second_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="* 친절해요"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_first_review" />
+
+
+            <TextView
+                android:id="@+id/text_hospital_information_third_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="* 친절해요"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_hospital_information_second_review" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
