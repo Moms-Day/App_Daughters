@@ -19,16 +19,24 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:background="@drawable/strokestyle_toolbar"
+            app:contentInsetStart="0dp"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:contentInsetStart="0dp">
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="엄마를 부탁해"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:layout_gravity="center_horizontal"/>
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:id="@+id/btn_main_my_page"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="right"
+                android:layout_marginEnd="10dp" />
 
         </android.support.v7.widget.Toolbar>
 

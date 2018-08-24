@@ -11,12 +11,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Chat.ChatFragment;
 import momsday.app_daughters.Main.Rank.RankFragment;
+import momsday.app_daughters.MyPage.MyPageActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.RequestConnection.RequestConnectionActivity;
 import momsday.app_daughters.RequestConnection.RequestConnectionDialog;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mainSectionsPagerAdapter;
     private ViewPager mainViewPager;
+    private ImageButton myPageBtn;
     private RequestConnectionDialog requestConnectionDialog;
 
     @Override
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
+        myPageBtn = (ImageButton) findViewById(R.id.btn_main_my_page);
         mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
         requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
@@ -51,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
         mainViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mainViewPager));
+
+        myPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MyPageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

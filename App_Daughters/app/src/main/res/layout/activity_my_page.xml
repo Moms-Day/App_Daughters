@@ -22,6 +22,7 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/text_my_page_complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="완료"
