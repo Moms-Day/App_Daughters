@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="340dp"
+    android:layout_height="360dp"
+    android:layout_gravity="center"
+    android:background="@android:color/white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_change_pw"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/strokestyle_toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 변경" />
+
+        <ImageButton
+            android:id="@+id/btn_change_pw_cancel"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="20dp" />
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="현재 비밀번호"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/edit_change_pw_now"
+        app:layout_constraintStart_toStartOf="@id/edit_change_pw_now" />
+
+    <EditText
+        android:id="@+id/edit_change_pw_now"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="현재 비밀번호를 입력해주세요."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/edit_change_pw_new"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_change_pw"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="새로운 비밀번호"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/edit_change_pw_new"
+        app:layout_constraintStart_toStartOf="@id/edit_change_pw_new" />
+
+    <EditText
+        android:id="@+id/edit_change_pw_new"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="새로운 비밀번호를 입력해주세요."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/edit_change_pw_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_change_pw_now"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="새로운 비밀번호 확인"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/edit_change_pw_check"
+        app:layout_constraintStart_toStartOf="@id/edit_change_pw_check" />
+
+    <EditText
+        android:id="@+id/edit_change_pw_check"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/roundstyle_signup_edit"
+        android:hint="새로운 비밀번호를 한 번 더 입력해주세요."
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_change_pw_new"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <Button
+        android:id="@+id/btn_change_pw_change"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:background="@drawable/roundstyle_chat_edit"
+        android:text="변경하기"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_change_pw_check"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+</android.support.constraint.ConstraintLayout>

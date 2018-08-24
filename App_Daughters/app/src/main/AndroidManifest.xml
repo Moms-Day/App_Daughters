@@ -25,7 +25,8 @@
         <activity android:name=".HospitalInformation.HospitalInformationActivity" />
         <activity android:name=".CareworkerInformation.CareworkerInformationActivity" />
         <activity android:name=".RequestConnection.RequestConnectionActivity" />
-        <activity android:name=".SearchHospital.SearchHospitalActivity"></activity>
+        <activity android:name=".SearchHospital.SearchHospitalActivity" />
+        <activity android:name=".MyPage.MyPageActivity"></activity>
     </application>
 
 </manifest>

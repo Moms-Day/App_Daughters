@@ -271,6 +271,12 @@
                 android:layout_margin="7dp"
                 android:text="부가설명" />
         </android.support.v7.widget.CardView>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_main_content_explain">
+        </android.support.v7.widget.RecyclerView>
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
