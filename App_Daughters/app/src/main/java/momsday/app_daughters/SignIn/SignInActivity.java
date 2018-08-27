@@ -33,7 +33,6 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
         editPwSignIn = (EditText) findViewById(R.id.edit_pw_sign_in);
         goSignUpBtn = (TextView) findViewById(R.id.text_sign_in_sign_up);
         initView();
-
     }
 
     private void initView() {
@@ -57,13 +56,9 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void startMainActivity() {
-//        if (editIdSignIn.getText().toString().isEmpty() || editPwSignIn.getText().toString().isEmpty()) {
-//            Toast.makeText(getApplicationContext(),"아이디 또는 비밀번호를 입력해주세요",Toast.LENGTH_LONG).show();
-//        } else {
             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(intent);
             Toast.makeText(getApplicationContext(),"로그인에 성공하셨습니다!",Toast.LENGTH_LONG).show();
-//        }
     }
 
     @Override

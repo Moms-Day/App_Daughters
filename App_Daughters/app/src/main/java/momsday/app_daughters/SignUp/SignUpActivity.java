@@ -7,8 +7,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +19,34 @@ import java.util.List;
 import momsday.app_daughters.R;
 import momsday.app_daughters.SignIn.SignInActivity;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements SignUpContract.SignUpView{
+    private SignUpContract.SignUpPresenter signUpPresenter;
+    private EditText signUpIdEdit, signUpPwEdit, signUpPhoneNumEdit, signUpCertifyCodeEdit, signUpnameEdit, signUpageEdit, signUpParentNameEdit, signUpParentAgeEdit;
+    String id,pw,phoneNumber,certifyCode,name, age, parentName, parentAge, parentGender;
     private ViewPager signUpViewPager;
     private CircleAnimIndicator circleAnimIndicator;
     private List<String> numberList;
     private Button signUpNextBtn;
+    private FirstFragment firstFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        firstFragment = new FirstFragment();
         signUpViewPager = (ViewPager) findViewById(R.id.viewPager_signup);
+        signUpIdEdit = (EditText)findViewById(R.id.edit_signup_id);
+        signUpPwEdit = (EditText)findViewById(R.id.edit_signup_pw);
+        signUpPhoneNumEdit = (EditText)findViewById(R.id.edit_signup_phone_number);
+        signUpCertifyCodeEdit = (EditText)findViewById(R.id.edit_signup_certification);
+        signUpnameEdit = (EditText) findViewById(R.id.edit_signup_name);
+        signUpageEdit = (EditText)findViewById(R.id.edit_signup_age);
+        signUpParentNameEdit = (EditText) findViewById(R.id.edit_signup_name_parent);
+        signUpParentAgeEdit = (EditText)findViewById(R.id.edit_signup_age_parent);
+        //todo signUpParentGenderRadioBtn
+        signUpPresenter = new SignUpPresenter();
+        signUpPresenter.setView(this);
         circleAnimIndicator = (CircleAnimIndicator) findViewById(R.id.circleAnimIndicator);
         signUpNextBtn = (Button) findViewById(R.id.btn_signup_next);
 
@@ -52,11 +71,18 @@ public class SignUpActivity extends AppCompatActivity {
                         signUpNextBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                                startActivity(intent);
+                                id = FirstFragment.signUpIdEdit.getText().toString();
+                                pw = FirstFragment.signUpPwEdit.getText().toString();
+                                phoneNumber = SecondFragment.signUpPhoneNumberEdit.getText().toString();
+                                certifyCode = SecondFragment.signUpCertifyCodeEdit.getText().toString();
+                                name = SecondFragment.signUpNameEdit.getText().toString();
+                                age = SecondFragment.signUpAgeEdit.getText().toString();
+                                parentName = SecondFragment.signUpParentNameEdit.getText().toString();
+                                parentAge = SecondFragment.signUpParentAgeEdit.getText().toString();
+
+                                signUpPresenter.doSignUp(id, pw, phoneNumber, certifyCode, name, age, parentName, parentAge, "woman");
                             }
                         });
-
                         break;
                 }
             }
@@ -72,6 +98,27 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         init();
+    }
+
+    @Override
+    public void startSignInActivity() {
+        Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void showErrorMessage() {
+        Toast.makeText(getApplicationContext(),"오류",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showIdErrorMessage() {
+        Toast.makeText(getApplicationContext(),"id중복",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showErrorMessage(String errorMessage) {
+        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {

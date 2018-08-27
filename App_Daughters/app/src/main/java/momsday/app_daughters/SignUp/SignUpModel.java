@@ -1,10 +1,23 @@
 package momsday.app_daughters.SignUp;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import com.google.gson.annotations.SerializedName;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 
-public class SignUpModel implements Serializable{
+import momsday.app_daughters.Api;
+import momsday.app_daughters.ApiClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class SignUpModel {
     @SerializedName("id")
     private String id;
     @SerializedName("pw")
@@ -17,6 +30,8 @@ public class SignUpModel implements Serializable{
     private String name;
     @SerializedName("age")
     private int age;
+    @SerializedName("parents")
+    private JSONArray parents;
 
     public String getId() {
         return id;
@@ -65,4 +80,13 @@ public class SignUpModel implements Serializable{
     public void setAge(int age) {
         this.age = age;
     }
+
+    public JSONArray getParents() {
+        return parents;
+    }
+
+    public void setParents(JSONArray parents) {
+        this.parents = parents;
+    }
+
 }

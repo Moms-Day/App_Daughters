@@ -44,13 +44,6 @@ public class CircleAnimIndicator extends LinearLayout {
         mContext = context;
     }
 
-
-    /**
-     * 기본 점 생성
-     *
-     * @param count         점의 갯수
-     * @param defaultCircle 점의 이미지
-     */
     public void createDotPanel(int count, int defaultCircle, int selectCircle) {
 
         mDefaultCircle = defaultCircle;
@@ -80,12 +73,6 @@ public class CircleAnimIndicator extends LinearLayout {
         selectDot(0);
     }
 
-
-    /**
-     * 선택된 점 표시
-     *
-     * @param position
-     */
     public void selectDot(int position) {
 
         for (int i = 0; i < imageDot.length; i++) {
@@ -102,14 +89,6 @@ public class CircleAnimIndicator extends LinearLayout {
         }
     }
 
-
-    /**
-     * 선택된 점의 애니메이션
-     *
-     * @param view
-     * @param startScale
-     * @param endScale
-     */
     public void selectScaleAnim(View view, float startScale, float endScale) {
         Animation anim = new ScaleAnimation(
                 startScale, endScale,
@@ -122,14 +101,6 @@ public class CircleAnimIndicator extends LinearLayout {
         view.setTag(view.getId(), true);
     }
 
-
-    /**
-     * 선택되지 않은 점의 애니메이션
-     *
-     * @param view
-     * @param startScale
-     * @param endScale
-     */
     public void defaultScaleAnim(View view, float startScale, float endScale) {
         Animation anim = new ScaleAnimation(
                 startScale, endScale,
