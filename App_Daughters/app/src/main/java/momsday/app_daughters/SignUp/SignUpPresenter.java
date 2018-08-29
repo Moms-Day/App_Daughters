@@ -18,9 +18,7 @@ import retrofit2.Response;
 public class SignUpPresenter implements SignUpContract.SignUpPresenter {
     private SignUpContract.SignUpView signUpView;
     private SignUpModel signUpModel;
-    private int age, parentAge;
-    private boolean parentGender;
-    private JSONArray parents;
+    private int age;
     private Api api = ApiClient.getClient().create(Api.class);
 
     @Override
@@ -30,7 +28,7 @@ public class SignUpPresenter implements SignUpContract.SignUpPresenter {
     }
 
     @Override
-    public void doSignUp(String id, String pw, String phoneNumber, String certifyCode, String name, String ageText, String parentName, String parentAgeText, String parentGenderText) {
+    public void doSignUp(String id, String pw, String phoneNumber, String certifyCode, String name, String ageText) {
 
 
         if (TextUtils.isEmpty(id) || TextUtils.isEmpty(pw) || TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(certifyCode) || TextUtils.isEmpty(name) || TextUtils.isEmpty(ageText)) {
@@ -45,30 +43,6 @@ public class SignUpPresenter implements SignUpContract.SignUpPresenter {
             signUpModel.setCertifyCode(certifyCode);
             signUpModel.setPhoneNumber(phoneNumber);
 
-            if ((TextUtils.isEmpty(parentName) || TextUtils.isEmpty(parentAgeText) || TextUtils.isEmpty(parentGenderText)) == false) {
-                this.parentAge = Integer.parseInt(parentAgeText);
-
-                if (parentGenderText.equals("man")) {
-                    this.parentGender = true;
-                } else {
-                    this.parentGender = false;
-                }
-
-                this.parents = new JSONArray();
-//            JSONObject jsonObject = new JSONObject();
-                try {
-//                jsonObject.put("name", this.parentName);
-//                jsonObject.put("age", this.parentAge);
-//                jsonObject.put("gender", this.parentGender);
-//                this.parents.put(jsonObject);
-                    this.parents.put(0, parentName);
-                    this.parents.put(1, this.parentAge);
-                    this.parents.put(2, this.parentGender);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                signUpModel.setParents(this.parents);
-            }
             api.doSignUp(signUpModel).enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {

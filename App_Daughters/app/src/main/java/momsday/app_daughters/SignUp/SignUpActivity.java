@@ -21,8 +21,8 @@ import momsday.app_daughters.SignIn.SignInActivity;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.SignUpView{
     private SignUpContract.SignUpPresenter signUpPresenter;
-    private EditText signUpIdEdit, signUpPwEdit, signUpPhoneNumEdit, signUpCertifyCodeEdit, signUpnameEdit, signUpageEdit, signUpParentNameEdit, signUpParentAgeEdit;
-    String id,pw,phoneNumber,certifyCode,name, age, parentName, parentAge, parentGender;
+    private EditText signUpIdEdit, signUpPwEdit, signUpPhoneNumEdit, signUpCertifyCodeEdit, signUpnameEdit, signUpageEdit;
+    String id,pw,phoneNumber,certifyCode,name, age;
     private ViewPager signUpViewPager;
     private CircleAnimIndicator circleAnimIndicator;
     private List<String> numberList;
@@ -42,9 +42,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         signUpCertifyCodeEdit = (EditText)findViewById(R.id.edit_signup_certification);
         signUpnameEdit = (EditText) findViewById(R.id.edit_signup_name);
         signUpageEdit = (EditText)findViewById(R.id.edit_signup_age);
-        signUpParentNameEdit = (EditText) findViewById(R.id.edit_signup_name_parent);
-        signUpParentAgeEdit = (EditText)findViewById(R.id.edit_signup_age_parent);
-        //todo signUpParentGenderRadioBtn
         signUpPresenter = new SignUpPresenter();
         signUpPresenter.setView(this);
         circleAnimIndicator = (CircleAnimIndicator) findViewById(R.id.circleAnimIndicator);
@@ -77,10 +74,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
                                 certifyCode = SecondFragment.signUpCertifyCodeEdit.getText().toString();
                                 name = SecondFragment.signUpNameEdit.getText().toString();
                                 age = SecondFragment.signUpAgeEdit.getText().toString();
-                                parentName = SecondFragment.signUpParentNameEdit.getText().toString();
-                                parentAge = SecondFragment.signUpParentAgeEdit.getText().toString();
 
-                                signUpPresenter.doSignUp(id, pw, phoneNumber, certifyCode, name, age, parentName, parentAge, "woman");
+                                signUpPresenter.doSignUp(id, pw, phoneNumber, certifyCode, name, age);
                             }
                         });
                         break;
@@ -102,8 +97,10 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
 
     @Override
     public void startSignInActivity() {
+        Toast.makeText(getApplicationContext(),"회원가입 성공!",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

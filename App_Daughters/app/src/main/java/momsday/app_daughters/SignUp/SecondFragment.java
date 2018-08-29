@@ -16,7 +16,7 @@ import android.widget.TextView;
 import momsday.app_daughters.R;
 
 public class SecondFragment extends Fragment {
-    public static EditText signUpPhoneNumberEdit, signUpCertifyCodeEdit, signUpNameEdit, signUpAgeEdit, signUpParentNameEdit, signUpParentAgeEdit;
+    public static EditText signUpPhoneNumberEdit, signUpCertifyCodeEdit, signUpNameEdit, signUpAgeEdit;
     public SecondFragment() {
     }
 
@@ -33,8 +33,6 @@ public class SecondFragment extends Fragment {
         signUpCertifyCodeEdit = (EditText) layout.findViewById(R.id.edit_signup_certification);
         signUpNameEdit = (EditText) layout.findViewById(R.id.edit_signup_name);
         signUpAgeEdit = (EditText) layout.findViewById(R.id.edit_signup_age);
-        signUpParentNameEdit = (EditText) layout.findViewById(R.id.edit_signup_name_parent);
-        signUpParentAgeEdit = (EditText)layout.findViewById(R.id.edit_signup_age_parent);
 
         return layout;
     }

@@ -1,6 +1,8 @@
 package momsday.app_daughters.SignIn;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,11 +23,15 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
     private EditText editIdSignIn, editPwSignIn;
     private TextView goSignUpBtn;
     private String id, pw;
+    public static Context signInContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        signInContext = this;
+
 
         presenter = new SignInPresenter();
         presenter.setView(this);
@@ -56,9 +62,11 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void startMainActivity() {
-            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-            startActivity(intent);
-            Toast.makeText(getApplicationContext(),"로그인에 성공하셨습니다!",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "로그인에 성공하셨습니다!", Toast.LENGTH_LONG).show();
+
+        finish();
     }
 
     @Override
@@ -69,12 +77,12 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void showErrorMessage() {
-        Toast.makeText(getApplicationContext(),"오류",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "오류", Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void showIdErrorMessage() {
-        Toast.makeText(getApplicationContext(),"id중복",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "id중복", Toast.LENGTH_SHORT).show();
     }
 }

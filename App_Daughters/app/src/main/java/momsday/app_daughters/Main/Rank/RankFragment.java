@@ -1,10 +1,7 @@
 package momsday.app_daughters.Main.Rank;
 
 
-import android.content.Context;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
-
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.R;
 

@@ -30,8 +30,6 @@ public class SignUpModel {
     private String name;
     @SerializedName("age")
     private int age;
-    @SerializedName("parents")
-    private JSONArray parents;
 
     public String getId() {
         return id;
@@ -79,14 +77,6 @@ public class SignUpModel {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public JSONArray getParents() {
-        return parents;
-    }
-
-    public void setParents(JSONArray parents) {
-        this.parents = parents;
     }
 
 }

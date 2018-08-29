@@ -171,6 +171,7 @@
         app:layout_constraintTop_toBottomOf="@id/edit_request_connection_parent_name" />
 
     <RadioGroup
+        android:id="@+id/radiogrp_request_connection_parent_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -183,7 +184,8 @@
             android:id="@+id/radiobtn_request_connection_parent_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="남자" />
+            android:text="남자"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radiobtn_request_connection_parent_female"
@@ -193,6 +195,7 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/btn_request_connection"
         android:layout_width="180dp"
         android:layout_height="42dp"
         android:background="@drawable/roundstyle_reqeust_connection_btn"

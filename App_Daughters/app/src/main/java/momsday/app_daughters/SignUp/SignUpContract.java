@@ -10,6 +10,6 @@ public interface SignUpContract {
     }
     interface SignUpPresenter{
         void setView(SignUpView signUpView);
-        void doSignUp(String id, String pw, String phoneNumber, String certifyCode, String name, String age, String parentName, String parentAge, String parentGender);
+        void doSignUp(String id, String pw, String phoneNumber, String certifyCode, String name, String age);
     }
 }
