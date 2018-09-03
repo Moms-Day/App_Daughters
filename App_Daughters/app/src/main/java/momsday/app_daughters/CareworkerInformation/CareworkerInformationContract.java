@@ -1,15 +1,13 @@
 package momsday.app_daughters.CareworkerInformation;
 
-import android.view.View;
-
 public interface CareworkerInformationContract {
     interface View {
-        void setCareworkerInform();
-
+        void setCareworkerInform(String name, String hospitalName, String career, String patientNumber, String introduction, String sincerityScore, String kindnessScore, int overall, String firstReview, String secondReview, String thirdReview);
+        void showErrorMessage();
     }
 
     interface Presenter {
-        void setView(android.view.View view);
-        void getCareworkerInform();
+        void setView(View view);
+        void getCareworkerInform(String careworkerId);
     }
 }
