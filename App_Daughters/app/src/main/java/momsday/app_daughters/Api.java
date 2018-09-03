@@ -3,14 +3,14 @@ package momsday.app_daughters;
 
 import com.google.gson.JsonObject;
 
-import org.json.JSONObject;
-
+import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
+import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospitalModel;
-import momsday.app_daughters.Main.Rank.RankModel;
+import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalModel;
 import momsday.app_daughters.RequestConnection.RequestConnectionModel;
+import momsday.app_daughters.SearchHospital.SearchHospitalModel;
 import momsday.app_daughters.SignIn.SignInModel;
 import momsday.app_daughters.SignUp.SignUpModel;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -36,6 +36,14 @@ public interface Api {
                                 @Header("Authorization") String Authorization,
                                 @Body RankEvaluateHospitalModel rankEvaluateHospitalModel);
 
+    @GET("ranking/care_worker")
+    @Headers("Content-Type: application/json")
+    Call<RankCareworkerModel> rankCareworker(@Header("Authorization") String Authorization);
+
+    @GET("ranking/facility")
+    @Headers("Content-Type: application/json")
+    Call<RankHospitalModel> rankHospital(@Header("Authorization") String Authorization);
+
     @POST("connect/request")
     @Headers("Content-Type: application/json")
     Call<Void> requestConnection(@Header("Authorization") String Authorization,
@@ -43,6 +51,10 @@ public interface Api {
 
     @GET("connect/search")
     @Headers("Content-Type: application/json")
-    Call<ResponseBody> searchHospital(@Header("Authorization") String Authorization,
-                                    @Query("facilityName") String facilityName);
+    Call<SearchHospitalModel> searchHospital(@Header("Authorization") String Authorization,
+                                                   @Query("facilityName") String facilityName);
+
+    @GET("info/care_worker/{care_worker_id}")
+    @Headers("Content-Type: application/json")
+    Call<CareworkerInformationModel> careworkerInform(@Path("care_worker_id") String careworkerId);
 }

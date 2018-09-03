@@ -3,7 +3,7 @@
     package="momsday.app_daughters">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp.SignUpActivity" />
-        <activity android:name=".Main.Main.MainActivity" />
+        <activity android:name=".Main.Main.MainActivity">
+
+        </activity>
         <activity android:name=".Main.Chat.ChatActivity" />
         <activity android:name=".HospitalInformation.HospitalInformationActivity" />
         <activity android:name=".CareworkerInformation.CareworkerInformationActivity" />

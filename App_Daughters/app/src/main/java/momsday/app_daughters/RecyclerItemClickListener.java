@@ -1,4 +1,4 @@
-package momsday.app_daughters.SearchHospital;
+package momsday.app_daughters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class SearchHospitalListRecyclerClickListener implements RecyclerView.OnItemTouchListener {
+public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
     private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
@@ -18,7 +18,7 @@ public class SearchHospitalListRecyclerClickListener implements RecyclerView.OnI
 
     GestureDetector mGestureDetector;
 
-    public SearchHospitalListRecyclerClickListener(Context context, final RecyclerView recyclerView, OnItemClickListener listener) {
+    public RecyclerItemClickListener(Context context, final RecyclerView recyclerView, OnItemClickListener listener) {
         mListener = listener;
         mGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
             @Override

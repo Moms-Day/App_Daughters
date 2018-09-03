@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import momsday.app_daughters.CustomViewPager;
+import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerFragment;
+import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment;
 import momsday.app_daughters.R;
 
 public class RankFragment extends Fragment {
