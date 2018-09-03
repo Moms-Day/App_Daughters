@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main.Rank;
+package momsday.app_daughters.Main.Rank.RankHospital;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
