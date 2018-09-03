@@ -18,13 +18,11 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
     private RatingBar careworkerOverallRatingBar;
     private String careworkerId;
     private CareworkerInformationContract.Presenter presenter;
-    public static Context CareworkerInformationContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_careworker_information);
-        CareworkerInformationContext = getApplicationContext();
         careworkerNameText = (TextView) findViewById(R.id.text_careworker_information_name);
         careworkerHospitalText = (TextView) findViewById(R.id.text_careworker_information_hospital_name);
         careworkerPatientNumberText = (TextView) findViewById(R.id.text_careworker_information_patient_number);

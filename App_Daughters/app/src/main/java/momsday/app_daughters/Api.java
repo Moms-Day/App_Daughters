@@ -4,6 +4,7 @@ package momsday.app_daughters;
 import com.google.gson.JsonObject;
 
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
+import momsday.app_daughters.HospitalInformation.HospitalInformationModel;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospitalModel;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalModel;
@@ -57,4 +58,8 @@ public interface Api {
     @GET("info/care_worker/{care_worker_id}")
     @Headers("Content-Type: application/json")
     Call<CareworkerInformationModel> careworkerInform(@Path("care_worker_id") String careworkerId);
+
+    @GET("info/facility/{facility_code}")
+    @Headers("Content-Type: application/json")
+    Call<HospitalInformationModel> hospitalInform(@Path("facility_code")String facilityCode);
 }

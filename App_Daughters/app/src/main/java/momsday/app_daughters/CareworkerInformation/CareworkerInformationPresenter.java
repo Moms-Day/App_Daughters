@@ -12,8 +12,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static momsday.app_daughters.CareworkerInformation.CareworkerInformationActivity.CareworkerInformationContext;
-
 public class CareworkerInformationPresenter implements CareworkerInformationContract.Presenter {
     CareworkerInformationContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
