@@ -55,6 +55,7 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="비밀번호를 입력해주세요."
         android:textSize="12sp"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

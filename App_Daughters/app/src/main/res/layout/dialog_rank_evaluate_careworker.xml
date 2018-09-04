@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radiobtn_rank_evaluate_careworker_sincerity_4"
@@ -108,7 +109,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radiobtn_rank_evaluate_careworker_kindness_4"
@@ -159,7 +161,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_careworker_kindness"
         app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_careworker_score"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:rating="5"/>
 
     <EditText
         android:id="@+id/edit_rank_evaluate_careworker_review"
@@ -167,6 +170,7 @@
         android:layout_height="60dp"
         android:hint="한줄평가"
         android:textSize="12sp"
+        android:inputType="text"
         android:background="@drawable/roundstyle_signup_edit"
         app:layout_constraintTop_toBottomOf="@id/ratingbar_rank_evaluate_careworker_score"
         app:layout_constraintStart_toStartOf="parent"

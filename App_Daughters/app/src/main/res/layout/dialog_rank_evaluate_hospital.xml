@@ -366,6 +366,7 @@
         android:layout_height="60dp"
         android:hint="한줄평가"
         android:textSize="12sp"
+        android:inputType="text"
         android:background="@drawable/roundstyle_signup_edit"
         app:layout_constraintTop_toBottomOf="@id/ratingbar_rank_evaluate_hospital_score"
         app:layout_constraintStart_toStartOf="parent"

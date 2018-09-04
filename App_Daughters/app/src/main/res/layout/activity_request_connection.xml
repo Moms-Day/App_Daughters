@@ -30,6 +30,7 @@
         android:drawableEnd="@drawable/icon_main_rank_write"
         android:hint="요양병원 이름"
         android:textSize="12sp"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_careworker_information"
@@ -84,6 +85,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="이름 입력"
+        android:inputType="text"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/text_request_connection_my_name"
         app:layout_constraintTop_toBottomOf="@id/text_request_connection_my_inform" />
@@ -143,6 +145,7 @@
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="이름 입력"
         android:textSize="12sp"
+        android:inputType="text"
         app:layout_constraintStart_toEndOf="@id/text_request_connection_parent_name"
         app:layout_constraintTop_toBottomOf="@id/text_request_connection_parent_inform" />
 
@@ -165,7 +168,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundstyle_signup_edit"
-        android:hint="이름 입력"
+        android:hint="나이 입력"
+        android:inputType="number"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/text_request_connection_parent_age"
         app:layout_constraintTop_toBottomOf="@id/edit_request_connection_parent_name" />
