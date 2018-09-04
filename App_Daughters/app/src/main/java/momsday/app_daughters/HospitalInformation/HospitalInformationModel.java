@@ -19,7 +19,7 @@ public class HospitalInformationModel {
     private String[] reviews;
 
     @SerializedName("overall")
-    private int overall;
+    private float overall;
 
     @SerializedName("phoneNumber")
     private String phoneNumber;

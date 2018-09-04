@@ -46,7 +46,7 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
 
 
     @Override
-    public void setHospitalInform(String name, String phoneNumber, String location, String introduction, String facilityScore, String mealScore, String scheduleScore, String costScore, String serviceScore, String firstReview, String secondReview, String thirdReview, int overall) {
+    public void setHospitalInform(String name, String phoneNumber, String location, String introduction, String facilityScore, String mealScore, String scheduleScore, String costScore, String serviceScore, String firstReview, String secondReview, String thirdReview, float overall) {
         hospitalNameText.setText(name);
         hospitalPhoneNumText.setText(phoneNumber);
         hospitalLocationText.setText(location);
@@ -59,7 +59,7 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
         hospitalFirstReviewText.setText(firstReview);
         hospitalSecondReviewText.setText(secondReview);
         hospitalThirdReviewText.setText(thirdReview);
-        hospitalTotalScoreRatingBar.setNumStars(overall);
+        hospitalTotalScoreRatingBar.setRating(overall);
     }
 
     @Override

@@ -43,7 +43,7 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public void setCareworkerInform(String name, String hospitalName, String career, String patientNumber, String introduction, String sincerityScore, String kindnessScore, int overall, String firstReview, String secondReview, String thirdReview) {
+    public void setCareworkerInform(String name, String hospitalName, String career, String patientNumber, String introduction, String sincerityScore, String kindnessScore, float overall, String firstReview, String secondReview, String thirdReview) {
         careworkerNameText.setText(name);
         careworkerHospitalText.setText(hospitalName);
         careworkerCareerText.setText(career);
@@ -55,7 +55,7 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
         careworkerSecondReview.setText(secondReview);
         careworkerThirdReview.setText(thirdReview);
 
-        careworkerOverallRatingBar.setNumStars(overall);
+        careworkerOverallRatingBar.setRating(overall);
     }
 
     @Override

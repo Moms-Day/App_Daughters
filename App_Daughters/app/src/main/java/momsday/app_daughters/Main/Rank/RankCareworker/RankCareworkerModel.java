@@ -18,7 +18,7 @@ public class RankCareworkerModel {
         @SerializedName("name")
         private String name;
         @SerializedName("overall")
-        private int overall;
+        private float overall;
         @SerializedName("patientInCharge")
         private int patientInCharge;
         @SerializedName("workplace")
@@ -38,7 +38,7 @@ public class RankCareworkerModel {
         @SerializedName("name")
         private String name;
         @SerializedName("overall")
-        private int overall;
+        private float overall;
         @SerializedName("patientInCharge")
         private int patientInCharge;
         @SerializedName("workplace")

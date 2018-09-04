@@ -19,7 +19,7 @@ public class CareworkerInformationModel {
     private String[] reviews;
 
     @SerializedName("overall")
-    private int overall;
+    private float overall;
 
     @SerializedName("patientInCharge")
     private int patientNumber;

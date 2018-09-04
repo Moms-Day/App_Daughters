@@ -20,7 +20,7 @@ public class RankHospitalModel{
         @SerializedName("name")
         private String hospitalName;
         @SerializedName("overall")
-        private String hospitalOverAll;
+        private float hospitalOverAll;
 
         public void setHospitalAddress(String hospitalAddress) {
             this.hospitalAddress = hospitalAddress;
@@ -42,7 +42,7 @@ public class RankHospitalModel{
             this.hospitalName = hospitalName;
         }
 
-        public void setHospitalOverAll(String hospitalOverAll) {
+        public void setHospitalOverAll(float hospitalOverAll) {
             this.hospitalOverAll = hospitalOverAll;
         }
     }
