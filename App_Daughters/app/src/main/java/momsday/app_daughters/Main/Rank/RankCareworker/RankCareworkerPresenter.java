@@ -26,21 +26,21 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
     public void getCareworkerRank() {
         SharedPreferences preferences = RankCareworkerContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization =preferences.getString("Authorization","");
-        api.rankCareworker("JWT "+authorization).enqueue(new Callback<RankCareworkerModel>() {
-            @Override
-            public void onResponse(Call<RankCareworkerModel> call, Response<RankCareworkerModel> response) {
-                if(response.code()==200) {
-                    RankCareworkerModel rankCareworkerModel = response.body();
-                    Log.d("Debug","rankCareworkerModel : "+rankCareworkerModel.toString());
-                    //todo response받아서 ranking띄워주기
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RankCareworkerModel> call, Throwable t) {
-
-            }
-        });
+//        api.rankCareworker("").enqueue(new Callback<RankCareworkerModel>() {
+//            @Override
+//            public void onResponse(Call<RankCareworkerModel> call, Response<RankCareworkerModel> response) {
+//                if(response.code()==200) {
+//                    RankCareworkerModel rankCareworkerModel = response.body();
+//                    Log.d("Debug","rankCareworkerModel : "+rankCareworkerModel.toString());
+//                    //todo response받아서 ranking띄워주기
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<RankCareworkerModel> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     @Override

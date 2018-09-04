@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class RankHospitalModel {
+public class RankHospitalModel{
     @SerializedName("facilityRanking")
     private List<Facilities> facilities;
 

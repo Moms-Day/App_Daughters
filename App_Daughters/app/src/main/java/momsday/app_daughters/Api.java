@@ -31,12 +31,6 @@ public interface Api {
     @Headers("Content-Type: application/json")
     Call<Void> doSignUp(@Body SignUpModel signUpModel);
 
-    @PATCH("evaluate/facility/{facility_code}")
-    @Headers("Content-Type: application/json")
-    Call<Void> evaluateHospital(@Path("facility_code") String facilityCode,
-                                @Header("Authorization") String Authorization,
-                                @Body RankEvaluateHospitalModel rankEvaluateHospitalModel);
-
     @GET("ranking/care_worker")
     @Headers("Content-Type: application/json")
     Call<RankCareworkerModel> rankCareworker(@Header("Authorization") String Authorization);
@@ -62,4 +56,12 @@ public interface Api {
     @GET("info/facility/{facility_code}")
     @Headers("Content-Type: application/json")
     Call<HospitalInformationModel> hospitalInform(@Path("facility_code")String facilityCode);
+
+    @PATCH("evaluate/facility/{facility_code}")
+    @Headers("Content-Type: application/json")
+    Call<Void> evaluateHospital(@Path("facility_code") String facilityCode,
+                                @Header("Authorization") String Authorization,
+                                @Body RankEvaluateHospitalModel rankEvaluateHospitalModel);
+
+
 }

@@ -14,7 +14,7 @@ public class RankEvaluateHospitalModel {
     @SerializedName("service")
     private int service;
     @SerializedName("overall")
-    private int overall;
+    private float overall;
     @SerializedName("lineE")
     private String lineE;
 
@@ -38,7 +38,7 @@ public class RankEvaluateHospitalModel {
         this.service = service;
     }
 
-    public void setOverall(int overall) {
+    public void setOverall(float overall) {
         this.overall = overall;
     }
 

@@ -1,7 +1,10 @@
 package momsday.app_daughters.Main.Rank;
 
 
+import android.content.Context;
+import android.media.Rating;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,12 +18,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerFragment;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment;
 import momsday.app_daughters.R;
 
-public class RankFragment extends Fragment {
+public class RankFragment extends Fragment implements RankContract.View{
     public RankFragment() {
     }
     private RadioButton rankHospitalRadiobtn, rankCareworkerRadiobtn;
@@ -28,6 +34,11 @@ public class RankFragment extends Fragment {
     private ImageButton rankEvaluateBtn;
     private RankEvaluateHospitalDialog rankEvaluateHospitalDialog;
     private RankEvaluateCareworkerDialog rankEvaluateCareworkerDialog;
+    private RankContract.Presenter presenter;
+    public static Context RankContext;
+    private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore;
+    private float hospitalTotalScore;
+    private String hospitalReview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,13 +47,17 @@ public class RankFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        RankContext = getContext();
+        presenter = new RankPresenter();
+        presenter.setView(this);
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_main_rank, container, false);
         rankHospitalRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_hospital);
         rankCareworkerRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_careworker);
         rankEvaluateBtn = (ImageButton) layout.findViewById(R.id.imagebtn_main_rank_evaluate);
-        rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(),hospitalDialogCancelClickListener);
+        rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(),hospitalDialogCancelClickListener, hospitalDialogEvaluateClickListener);
         rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(),careworkerDialogCancelClickListener);
         rankViewPager = (CustomViewPager) layout.findViewById(R.id.viewpager_rank);
+
 
         rankViewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         rankViewPager.setCurrentItem(0);
@@ -60,8 +75,6 @@ public class RankFragment extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 rankViewPager.getParent().requestDisallowInterceptTouchEvent(true);
-
-
             }
 
             @Override
@@ -77,7 +90,6 @@ public class RankFragment extends Fragment {
         rankHospitalRadiobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Debug","rankHospitalRadioBtn checked");
                 rankViewPager.setCurrentItem(0);
             }
         });
@@ -85,7 +97,6 @@ public class RankFragment extends Fragment {
         rankCareworkerRadiobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Debug","rankCareworkerRadioBtn checked");
                 rankViewPager.setCurrentItem(1);
             }
         });
@@ -107,6 +118,20 @@ public class RankFragment extends Fragment {
 
         return layout;
     }
+    private View.OnClickListener hospitalDialogEvaluateClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            hospitalFacilityScore = rankEvaluateHospitalDialog.getHospitalFacilityScore();
+            hospitalMealScore = rankEvaluateHospitalDialog.getHospitalMealScore();
+            hospitalScheduleScore = rankEvaluateHospitalDialog.getHospitalScheduleScore();
+            hospitalCostScore = rankEvaluateHospitalDialog.getHospitalCostScore();
+            hospitalServiceScore = rankEvaluateHospitalDialog.getHospitalServiceScore();
+            hospitalTotalScore = rankEvaluateHospitalDialog.getHospitalTotalScore();
+            hospitalReview = rankEvaluateHospitalDialog.getHospitalReview();
+            Log.d("Debug","view : "+hospitalFacilityScore+hospitalMealScore+hospitalScheduleScore+hospitalCostScore+hospitalServiceScore+hospitalTotalScore+hospitalReview);
+            presenter.evaluateHospital(hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore,hospitalTotalScore, hospitalReview);
+        }
+    };
 
     private View.OnClickListener hospitalDialogCancelClickListener = new View.OnClickListener() {
         @Override
@@ -121,6 +146,17 @@ public class RankFragment extends Fragment {
             rankEvaluateCareworkerDialog.dismiss();
         }
     };
+
+    @Override
+    public void showSuccessMessage() {
+        Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
+        rankEvaluateHospitalDialog.dismiss();
+    }
+
+    @Override
+    public void showErrorMEssage(String message) {
+        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+    }
 
     public class PagerAdapter extends FragmentStatePagerAdapter {
 
