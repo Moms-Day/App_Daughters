@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
 import momsday.app_daughters.HospitalInformation.HospitalInformationModel;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
+import momsday.app_daughters.Main.Rank.RankEvaluateCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospitalModel;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalModel;
 import momsday.app_daughters.RequestConnection.RequestConnectionModel;
@@ -62,6 +63,12 @@ public interface Api {
     Call<Void> evaluateHospital(@Path("facility_code") String facilityCode,
                                 @Header("Authorization") String Authorization,
                                 @Body RankEvaluateHospitalModel rankEvaluateHospitalModel);
+
+    @PATCH("evaluate/care_worker/{care_worker_id}")
+    @Headers("Content-Type: application/json")
+    Call<Void> evaluateCareworker(@Path("care_worker_id") String careworkerId,
+                                @Header("Authorization") String Authorization,
+                                @Body RankEvaluateCareworkerModel rankEvaluateCareworkerModel);
 
 
 }

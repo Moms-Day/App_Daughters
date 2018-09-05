@@ -36,9 +36,9 @@ public class RankFragment extends Fragment implements RankContract.View{
     private RankEvaluateCareworkerDialog rankEvaluateCareworkerDialog;
     private RankContract.Presenter presenter;
     public static Context RankContext;
-    private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore;
-    private float hospitalTotalScore;
-    private String hospitalReview;
+    private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore, careworkerSincerityScore, careworkerKindnessScore;
+    private float hospitalTotalScore, careworkerTotalScore;
+    private String hospitalReview, careworkerReview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class RankFragment extends Fragment implements RankContract.View{
         rankCareworkerRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_careworker);
         rankEvaluateBtn = (ImageButton) layout.findViewById(R.id.imagebtn_main_rank_evaluate);
         rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(),hospitalDialogCancelClickListener, hospitalDialogEvaluateClickListener);
-        rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(),careworkerDialogCancelClickListener);
+        rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(),careworkerDialogCancelClickListener, careworkerDialogEvaluateClickListener);
         rankViewPager = (CustomViewPager) layout.findViewById(R.id.viewpager_rank);
 
 
@@ -133,6 +133,17 @@ public class RankFragment extends Fragment implements RankContract.View{
         }
     };
 
+    private View.OnClickListener careworkerDialogEvaluateClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            careworkerSincerityScore = rankEvaluateCareworkerDialog.getCareworkerSincerityScore();
+            careworkerKindnessScore = rankEvaluateCareworkerDialog.getCareworkerKindnessScore();
+            careworkerTotalScore = rankEvaluateCareworkerDialog.getCareworkerTotalScore();
+            careworkerReview = rankEvaluateCareworkerDialog.getCareworkerReview();
+            presenter.evaluateCareworker(careworkerSincerityScore, careworkerKindnessScore, careworkerTotalScore, careworkerReview);
+        }
+    };
+
     private View.OnClickListener hospitalDialogCancelClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -148,9 +159,15 @@ public class RankFragment extends Fragment implements RankContract.View{
     };
 
     @Override
-    public void showSuccessMessage() {
+    public void showEvaluateHospitalSuccessMessage() {
         Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
         rankEvaluateHospitalDialog.dismiss();
+    }
+
+    @Override
+    public void showEvaluateCareworkerSuccessMessage() {
+        Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
+        rankEvaluateCareworkerDialog.dismiss();
     }
 
     @Override

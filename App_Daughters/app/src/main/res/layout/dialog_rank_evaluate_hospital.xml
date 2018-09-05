@@ -47,8 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:textSize="12sp"
-            android:checked="true"/>
+            android:textSize="12sp"/>
 
         <RadioButton
             android:id="@+id/radiobtn_rank_evaluate_hospital_facility_4"
@@ -112,7 +111,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:checked="true"
             android:textSize="12sp" />
 
         <RadioButton
@@ -178,7 +176,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:checked="true"
             android:textSize="12sp" />
 
         <RadioButton
@@ -243,7 +240,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:checked="true"
             android:textSize="12sp" />
 
         <RadioButton
@@ -305,7 +301,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:text="5"
-            android:checked="true"
             android:textSize="12sp" />
 
         <RadioButton
@@ -357,8 +352,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/radiogrp_rank_evaluate_hospital_service"
         app:layout_constraintStart_toEndOf="@id/text_rank_evaluate_hospital_score"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:rating="5"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <EditText
         android:id="@+id/edit_rank_evaluate_hospital_review"

@@ -15,8 +15,9 @@ import static momsday.app_daughters.Main.Rank.RankFragment.RankContext;
 public class RankPresenter implements RankContract.Presenter {
     private RankContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
-    RankEvaluateHospitalModel rankEvaluateHospitalModel;
-    private String authorization, hospitalCode;
+    private RankEvaluateHospitalModel rankEvaluateHospitalModel;
+    private RankEvaluateCareworkerModel rankEvaluateCareworkerModel;
+    private String authorization, hospitalCode, careworkerId;
 
     @Override
     public void setView(RankContract.View view) {
@@ -24,8 +25,34 @@ public class RankPresenter implements RankContract.Presenter {
     }
 
     @Override
-    public void evaluateCareworker() {
+    public void evaluateCareworker(int sincerity, int kindness, float overall, String review) {
+        SharedPreferences preferences = RankContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        authorization =preferences.getString("Authorization","");
+        careworkerId = preferences.getString("careworkerId","dd");
+        rankEvaluateCareworkerModel = new RankEvaluateCareworkerModel();
+        rankEvaluateCareworkerModel.setSincerity(sincerity);
+        rankEvaluateCareworkerModel.setKindness(kindness);
+        rankEvaluateCareworkerModel.setOverall(overall);
+        rankEvaluateCareworkerModel.setReview(review);
 
+        api.evaluateCareworker(careworkerId, "JWT "+authorization,rankEvaluateCareworkerModel).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.d("Debug","server");
+                if(response.code()==201) {
+                    view.showEvaluateCareworkerSuccessMessage();
+                } else if(response.code()==400){
+                    view.showErrorMEssage("존재하지 않는 요양보호사");
+                } else {
+                    view.showErrorMEssage("오류");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
@@ -48,7 +75,7 @@ public class RankPresenter implements RankContract.Presenter {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 Log.d("Debug","server");
                 if(response.code()==201) {
-                    view.showSuccessMessage();
+                    view.showEvaluateHospitalSuccessMessage();
                 } else if(response.code()==400){
                     view.showErrorMEssage("존재하지 않는 요양시설");
                 } else {
