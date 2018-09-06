@@ -15,7 +15,8 @@ import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.
 public class RankHospitalPresenter implements RankHospitalContract.Presenter {
     private RankHospitalContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
-    private String authorization;
+    private String authorization, hospitalCode;
+    private RankHospitalModel rankHospitalModel;
 
     @Override
     public void setView(RankHospitalContract.View view) {
@@ -30,12 +31,12 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
             @Override
             public void onResponse(Call<RankHospitalModel> call, Response<RankHospitalModel> response) {
                 if (response.code() == 200) {
-                    RankHospitalModel rankHospitalModel = response.body();
+                    rankHospitalModel = response.body();
                     for (int i = 0; i < rankHospitalModel.getFacilities().size(); i++) {
-                        view.setHospital(rankHospitalModel.getFacilities().get(i).getHospitalName(), rankHospitalModel.getFacilities().get(i).getHospitalAddress(), rankHospitalModel.getFacilities().get(i).getHospitalOverAll());
+                        view.setHospital(rankHospitalModel.getFacilities().get(i).getHospitalName(), rankHospitalModel.getFacilities().get(i).getHospitalAddress(), rankHospitalModel.getFacilities().get(i).getHospitalOverAll(), rankHospitalModel.getFacilities().get(i).getHospitalImagePath());
                     }
                     for(int i=0; i<rankHospitalModel.getMyFacilities().size(); i++) {
-                        view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll());
+                        view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
                     }
                     if(rankHospitalModel.getMyFacilities().size() == 0) {
                         view.setMyHospitalNoneText();
@@ -53,6 +54,8 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
 
     @Override
     public void getHospitalCode(int position) {
-        //view.startHospitalInform();
+        hospitalCode = rankHospitalModel.getFacilities().get(position).getHospitalCode();
+        view.startHospitalInform(hospitalCode);
+        Log.d("Debug","hospitalCode : "+hospitalCode);
     }
 }

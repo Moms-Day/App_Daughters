@@ -6,10 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.bumptech.glide.Glide;
 import java.util.ArrayList;
-
 import momsday.app_daughters.R;
+import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHospitalRecyclerViewHolder> {
 
@@ -35,6 +35,7 @@ public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHo
         holder.myHospitalNameText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalName);
         holder.myHospitalLocationText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalLocation);
         holder.myHospitalScoreRatingBar.setRating(rankRecyclerHospitalItems.get(position).rankMyHospitalScore);
+        Glide.with(RankHospitalContext).load(rankRecyclerHospitalItems.get(position).rankMyHospitalImagePath).into(holder.myHospitalImageView);
     }
 
     @Override

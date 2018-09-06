@@ -4,12 +4,12 @@ import android.media.Image;
 
 public class RankRecyclerHospitalItem {
 
-    Image rankMyHospitalImage;
+    String rankMyHospitalImagePath;
     String rankMyHospitalName, rankMyHospitalLocation;
     float rankMyHospitalScore;
 
-    public Image getRankMyHospitalImage() {
-        return rankMyHospitalImage;
+    public String getRankMyHospitalImagePath() {
+        return rankMyHospitalImagePath;
     }
 
     public String getRankMyHospitalName() {
@@ -24,9 +24,10 @@ public class RankRecyclerHospitalItem {
         return rankMyHospitalScore;
     }
 
-    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, float rankMyHospitalScore) {
+    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, float rankMyHospitalScore, String rankMyHospitalImagePath) {
         this.rankMyHospitalName = rankMyHospitalName;
         this.rankMyHospitalLocation = rankMyHospitalLocation;
         this.rankMyHospitalScore = rankMyHospitalScore;
+        this.rankMyHospitalImagePath = rankMyHospitalImagePath;
     }
 }

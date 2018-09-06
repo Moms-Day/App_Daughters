@@ -19,5 +19,6 @@ public class RankHospitalRecyclerViewHolder extends RecyclerView.ViewHolder {
         myHospitalNameText = (TextView) itemView.findViewById(R.id.text_main_rank_hospital_name);
         myHospitalLocationText = (TextView)itemView.findViewById(R.id.text_main_rank_hospital_location);
         myHospitalScoreRatingBar = (RatingBar)itemView.findViewById(R.id.ratingbar_main_rank_hopital_score);
+        myHospitalImageView = (ImageView)itemView.findViewById(R.id.image_main_rank_hospital);
     }
 }

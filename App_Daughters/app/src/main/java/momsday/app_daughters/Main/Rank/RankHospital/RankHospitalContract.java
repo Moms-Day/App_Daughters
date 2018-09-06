@@ -2,8 +2,8 @@ package momsday.app_daughters.Main.Rank.RankHospital;
 
 public interface RankHospitalContract {
     interface View {
-        void setMyHospital(String myHospitalName, String myHospitalLocation, float myHospitalOverall);
-        void setHospital(String hospitalName, String hospitalLocation, float hospitalOverall);
+        void setMyHospital(String myHospitalName, String myHospitalLocation, float myHospitalOverall, String myHospitalImagePath);
+        void setHospital(String hospitalName, String hospitalLocation, float hospitalOverall, String hospitalImagePath);
         void startHospitalInform(String hospitalCode);
         void setMyHospitalNoneText();
     }
