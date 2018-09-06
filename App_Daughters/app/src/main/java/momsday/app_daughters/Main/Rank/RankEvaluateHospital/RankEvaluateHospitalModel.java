@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main.Rank;
+package momsday.app_daughters.Main.Rank.RankEvaluateHospital;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -2,9 +2,7 @@ package momsday.app_daughters.Main.Rank;
 
 
 import android.content.Context;
-import android.media.Rating;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,11 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
-import android.widget.RatingBar;
 import android.widget.Toast;
 
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerFragment;
+import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalDialog;
+import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerDialog;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment;
 import momsday.app_daughters.R;
 

@@ -6,6 +6,8 @@ import android.util.Log;
 
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
+import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalModel;
+import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
