@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     private ArrayList<RankRecyclerHospitalItem> rankRecyclerHospitalItems;
     private RankHospitalContract.Presenter presenter;
     public static Context RankHospitalContext;
+    private TextView myHospitalNoneText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,10 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
         presenter.setView(this);
         //나의 요양병원
         rankMyHospitalRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_my_hospital);
+        myHospitalNoneText = (TextView) layout.findViewById(R.id.text_main_rank_hospital_my_hospital_none);
         rankMyHospitalLayoutManager = new LinearLayoutManager(getContext());
         rankMyHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerMyHospitalItems = new ArrayList();
-        rankRecyclerMyHospitalItems.add(new RankRecyclerHospitalItem("종현병원", "종현이왼팔", 2));
         rankMyHospitalRecycler.setLayoutManager(rankMyHospitalLayoutManager);
         rankMyHospitalRecycler.setItemAnimator(new DefaultItemAnimator());
         rankMyHospitalRecyclerAdapter = new RankHospitalRecyclerViewAdapter(rankRecyclerMyHospitalItems);
@@ -71,7 +73,6 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
         rankHospitalLayoutManager = new LinearLayoutManager(getContext());
         rankHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerHospitalItems = new ArrayList();
-        rankRecyclerHospitalItems.add(new RankRecyclerHospitalItem("hospitalname", "location", 3));
         rankHospitalRecycler.setLayoutManager(rankHospitalLayoutManager);
         rankHospitalRecycler.setItemAnimator(new DefaultItemAnimator());
         rankHospitalRecyclerAdapter = new RankHospitalRecyclerViewAdapter(rankRecyclerHospitalItems);
@@ -93,13 +94,14 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     }
 
     @Override
-    public void setMyHospital(String myHospitalName, String myHospitalLocation, int myHospitalOverall) {
+    public void setMyHospital(String myHospitalName, String myHospitalLocation, float myHospitalOverall) {
         rankRecyclerMyHospitalItems.add(new RankRecyclerHospitalItem(myHospitalName, myHospitalLocation, myHospitalOverall));
     }
 
     @Override
-    public void setHospital(String hospitalName, String hospitalLocation, int hospitalOverall) {
+    public void setHospital(String hospitalName, String hospitalLocation, float hospitalOverall) {
         rankRecyclerHospitalItems.add(new RankRecyclerHospitalItem(hospitalName, hospitalLocation, hospitalOverall));
+        rankHospitalRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -107,5 +109,10 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
         Intent intent = new Intent(getContext(), HospitalInformationActivity.class);
         intent.putExtra("hospitalCode", hospitalCode);
         startActivity(intent);
+    }
+
+    @Override
+    public void setMyHospitalNoneText() {
+        myHospitalNoneText.setVisibility(View.VISIBLE);
     }
 }

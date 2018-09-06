@@ -6,7 +6,7 @@ public class RankRecyclerHospitalItem {
 
     Image rankMyHospitalImage;
     String rankMyHospitalName, rankMyHospitalLocation;
-    int rankMyHospitalScore;
+    float rankMyHospitalScore;
 
     public Image getRankMyHospitalImage() {
         return rankMyHospitalImage;
@@ -20,11 +20,11 @@ public class RankRecyclerHospitalItem {
         return rankMyHospitalLocation;
     }
 
-    public int getRankMyHospitalScore() {
+    public float getRankMyHospitalScore() {
         return rankMyHospitalScore;
     }
 
-    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, int rankMyHospitalScore) {
+    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, float rankMyHospitalScore) {
         this.rankMyHospitalName = rankMyHospitalName;
         this.rankMyHospitalLocation = rankMyHospitalLocation;
         this.rankMyHospitalScore = rankMyHospitalScore;

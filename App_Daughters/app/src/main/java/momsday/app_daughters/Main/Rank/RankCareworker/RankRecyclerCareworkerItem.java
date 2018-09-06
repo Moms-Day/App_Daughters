@@ -5,7 +5,7 @@ import android.media.Image;
 public class RankRecyclerCareworkerItem {
     Image rankCareworkerImage;
     String rankCareworkerName, rankCareworkerHospital;
-    int rankCareworkerScore;
+    float rankCareworkerScore;
 
     public Image getRankCareworkerImage() {
         return rankCareworkerImage;
@@ -19,11 +19,11 @@ public class RankRecyclerCareworkerItem {
         return rankCareworkerHospital;
     }
 
-    public int getRankCareworkerScore() {
+    public float getRankCareworkerScore() {
         return rankCareworkerScore;
     }
 
-    public RankRecyclerCareworkerItem(String rankCareworkerName, String rankCareworkerHospital, int rankCareworkerScore) {
+    public RankRecyclerCareworkerItem(String rankCareworkerName, String rankCareworkerHospital, float rankCareworkerScore) {
         this.rankCareworkerName = rankCareworkerName;
         this.rankCareworkerHospital = rankCareworkerHospital;
         this.rankCareworkerScore = rankCareworkerScore;

@@ -34,7 +34,7 @@ public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHo
 
         holder.myHospitalNameText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalName);
         holder.myHospitalLocationText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalLocation);
-        holder.myHospitalScoreRatingBar.setNumStars(rankRecyclerHospitalItems.get(position).rankMyHospitalScore);
+        holder.myHospitalScoreRatingBar.setRating(rankRecyclerHospitalItems.get(position).rankMyHospitalScore);
     }
 
     @Override

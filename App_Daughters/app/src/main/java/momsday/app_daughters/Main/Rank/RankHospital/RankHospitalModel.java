@@ -45,6 +45,30 @@ public class RankHospitalModel{
         public void setHospitalOverAll(float hospitalOverAll) {
             this.hospitalOverAll = hospitalOverAll;
         }
+
+        public String getHospitalName() {
+            return hospitalName;
+        }
+
+        public float getHospitalOverAll() {
+            return hospitalOverAll;
+        }
+
+        public String getHospitalAddress() {
+            return hospitalAddress;
+        }
+
+        public String getHospitalCode() {
+            return hospitalCode;
+        }
+
+        public String getHospitalImagePath() {
+            return hospitalImagePath;
+        }
+
+        public String[] getHospitalMedals() {
+            return hospitalMedals;
+        }
     }
 
     @SerializedName("myFacilities")
@@ -62,7 +86,7 @@ public class RankHospitalModel{
         @SerializedName("name")
         private String myHospitalName;
         @SerializedName("overall")
-        private String myHospitalOverAll;
+        private float myHospitalOverAll;
 
         public void setMyHospitalAddress(String myHospitalAddress) {
             this.myHospitalAddress = myHospitalAddress;
@@ -84,8 +108,32 @@ public class RankHospitalModel{
             this.myHospitalName = myHospitalName;
         }
 
-        public void setMyHospitalOverAll(String myHospitalOverAll) {
+        public void setMyHospitalOverAll(float myHospitalOverAll) {
             this.myHospitalOverAll = myHospitalOverAll;
+        }
+
+        public String getMyHospitalAddress() {
+            return myHospitalAddress;
+        }
+
+        public String getMyHospitalCode() {
+            return myHospitalCode;
+        }
+
+        public String getMyHospitalImagePath() {
+            return myHospitalImagePath;
+        }
+
+        public String getMyHospitalName() {
+            return myHospitalName;
+        }
+
+        public float getMyHospitalOverAll() {
+            return myHospitalOverAll;
+        }
+
+        public String[] getMyHospitalMedals() {
+            return myHospitalMedals;
         }
     }
 
@@ -95,5 +143,13 @@ public class RankHospitalModel{
 
     public void setMyFacilities(List<MyFacilities> myFacilities) {
         this.myFacilities = myFacilities;
+    }
+
+    public List<Facilities> getFacilities() {
+        return facilities;
+    }
+
+    public List<MyFacilities> getMyFacilities() {
+        return myFacilities;
     }
 }

@@ -34,7 +34,7 @@ public class RankCareworkerRecyclerViewAdapter extends RecyclerView.Adapter<Rank
 
         holder.careworkerNameText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerName);
         holder.careworkerHospitalText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerHospital);
-        holder.careworkerScoreRatingBar.setNumStars(rankRecyclerCareworkerItems.get(position).rankCareworkerScore);
+        holder.careworkerScoreRatingBar.setRating(rankRecyclerCareworkerItems.get(position).rankCareworkerScore);
     }
 
     @Override
