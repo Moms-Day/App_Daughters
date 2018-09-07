@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import momsday.app_daughters.R;
 import momsday.app_daughters.RequestConnection.RequestConnectionActivity;
@@ -31,22 +32,14 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
     private ImageButton searchHospitalBtn;
     private SearchHospitalContract.Presenter presenter;
     public static Context searchHospitalContext;
+    private List<SearchHospitalModel.Careworkers> careworkers;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_hospital);
-        init();
 
-        //test
-        searchHospitalListRecyclerItems.add(new SearchHospitalListRecyclerItem("하늘요양병원","위치"));
-        searchHospitalListRecyclerItems.add(new SearchHospitalListRecyclerItem("요양병원","위치"));
-
-
-    }
-
-
-    private void init() {
         searchHospitalContext = this;
         presenter = new SearchHospitalPresenter();
         presenter.setView(this);
@@ -66,8 +59,19 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
         searchHospitalListRecycler.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), searchHospitalListRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                startRequestConnection(position);
+                hospitalName = searchHospitalListRecyclerItems.get(position).hospitalName;
+                careworkers = presenter.getCareworkerList(position);
+                intent = new Intent(SearchHospitalActivity.this, RequestConnectionActivity.class);
+                for(int i=0; i<careworkers.size(); i++) {
+                    intent.putExtra("careworkersSize",careworkers.size());
+                    String[] careworkerInform = {careworkers.get(i).getId(),careworkers.get(i).getName()};
+                    intent.putExtra("careworkers"+i,careworkerInform);;
+                }
+                intent.putExtra("hospitalName",hospitalName);
 
+                startActivity(intent);
+
+                finish();
             }
             @Override
             public void onLongItemClick(View view, int position) {
@@ -88,23 +92,13 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
                 }
             }
         });
-
     }
 
     @Override
     public void setHospitalNameList(String hospitalName, String hospitalLocation) {
         searchHospitalListRecyclerItems.add(new SearchHospitalListRecyclerItem(hospitalName, hospitalLocation));
+        searchHospitalListRecyclerViewAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void startRequestConnection(int position) {
-        hospitalName = searchHospitalListRecyclerItems.get(position).hospitalName;
 
-        Intent intent = new Intent(SearchHospitalActivity.this, RequestConnectionActivity.class);
-        Log.d("Debug","SearchHospitalActivity hospitalName : "+ hospitalName);
-        intent.putExtra("hospitalName",hospitalName);
-        startActivity(intent);
-
-        finish();
-    }
 }
