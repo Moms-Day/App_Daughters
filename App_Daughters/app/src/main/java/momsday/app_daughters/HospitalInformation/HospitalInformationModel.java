@@ -25,18 +25,65 @@ public class HospitalInformationModel {
     private String phoneNumber;
 
     @SerializedName("scoreCost")
-    private int costScore;
+    private float costScore;
 
     @SerializedName("scoreFacility")
-    private int facilityScore;
+    private float facilityScore;
 
     @SerializedName("scoreMeal")
-    private int mealScore;
+    private float mealScore;
 
     @SerializedName("scoreSchedule")
-    private int scheduleScore;
+    private float scheduleScore;
 
     @SerializedName("scoreService")
-    private String serviceScore;
+    private float serviceScore;
 
+    public String getName() {
+        return name;
+    }
+
+    public float getOverall() {
+        return overall;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public float getCostScore() {
+        return costScore;
+    }
+
+    public float getFacilityScore() {
+        return facilityScore;
+    }
+
+    public float getMealScore() {
+        return mealScore;
+    }
+
+    public float getScheduleScore() {
+        return scheduleScore;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public float getServiceScore() {
+        return serviceScore;
+    }
+
+    public String[] getReviews() {
+        return reviews;
+    }
 }
