@@ -15,6 +15,7 @@ import retrofit2.Response;
 public class CareworkerInformationPresenter implements CareworkerInformationContract.Presenter {
     CareworkerInformationContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
+    private String firstReview, secondReview, thirdReview;
 
     @Override
     public void setView(CareworkerInformationContract.View view) {
@@ -23,12 +24,36 @@ public class CareworkerInformationPresenter implements CareworkerInformationCont
 
     @Override
     public void getCareworkerInform(String careworkerId) {
+        Log.d("Debug","careworkerId : "+careworkerId);
         api.careworkerInform(careworkerId).enqueue(new Callback<CareworkerInformationModel>() {
             @Override
             public void onResponse(Call<CareworkerInformationModel> call, Response<CareworkerInformationModel> response) {
-                if(response.code()==200) {
+                Log.d("Debug","Debug");
+                if (response.code() == 200) {
                     CareworkerInformationModel model = response.body();
-                    //todo view.setCareworkerInform
+                    switch (model.getReviews().length) {
+                        case 0:
+                            firstReview = "";
+                            secondReview = "";
+                            thirdReview = "";
+                            break;
+                        case 1:
+                            firstReview = model.getReviews()[0];
+                            secondReview = "";
+                            thirdReview = "";
+                            break;
+                        case 2:
+                            firstReview = model.getReviews()[0];
+                            secondReview = model.getReviews()[1];
+                            thirdReview = "";
+                            break;
+                        case 3:
+                            firstReview = model.getReviews()[0];
+                            secondReview = model.getReviews()[1];
+                            thirdReview = model.getReviews()[2];
+                            break;
+                    }
+                    view.setCareworkerInform(model.getName(), model.getHospitalName(), model.getCareer(), model.getPatientNumber(), model.getIntroduction(), model.getSincerityScore(), model.getKindnessScore(), model.getOverall(), firstReview, secondReview, thirdReview, model.getImagePath());
                 } else {
                     view.showErrorMessage();
                 }
@@ -37,7 +62,7 @@ public class CareworkerInformationPresenter implements CareworkerInformationCont
 
             @Override
             public void onFailure(Call<CareworkerInformationModel> call, Throwable t) {
-
+                Log.d("Debug","ㅠㅠ");
             }
         });
 

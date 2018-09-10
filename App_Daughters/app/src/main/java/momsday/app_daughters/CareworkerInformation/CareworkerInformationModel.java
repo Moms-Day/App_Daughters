@@ -25,11 +25,51 @@ public class CareworkerInformationModel {
     private int patientNumber;
 
     @SerializedName("scoreDiligence")
-    private int sincerityScore;
+    private float sincerityScore;
 
     @SerializedName("scoreKindness")
-    private int kindnessScore;
+    private float kindnessScore;
 
     @SerializedName("workplace")
     private String hospitalName;
+
+    public String[] getReviews() {
+        return reviews;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public float getOverall() {
+        return overall;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCareer() {
+        return career;
+    }
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public float getKindnessScore() {
+        return kindnessScore;
+    }
+
+    public float getSincerityScore() {
+        return sincerityScore;
+    }
+
+    public int getPatientNumber() {
+        return patientNumber;
+    }
 }

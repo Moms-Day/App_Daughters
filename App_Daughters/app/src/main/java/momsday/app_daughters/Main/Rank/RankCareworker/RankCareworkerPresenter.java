@@ -15,7 +15,7 @@ import static momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerFragm
 public class RankCareworkerPresenter implements RankCareworkerContract.Presenter{
     RankCareworkerContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
-    private String authorization;
+    private String authorization, careworkerId;
     private SharedPreferences preferences;
     private RankCareworkerModel rankCareworkerModel;
 
@@ -44,6 +44,7 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
                             view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(),rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(),rankCareworkerModel.getMyCareworekrs().get(i).getOverall(),rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.putString("careworkerId", rankCareworkerModel.getMyCareworekrs().get(i).getCareworkerId());
+                            editor.putString("careworkerName",rankCareworkerModel.getMyCareworekrs().get(i).getName());
                             editor.apply();
                         }
                     }
@@ -60,6 +61,7 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
 
     @Override
     public void getCareworkerId(int position) {
-
+        careworkerId = rankCareworkerModel.getCareworkers().get(position).getCareworkerId();
+        view.startCareworkerInform(careworkerId);
     }
 }

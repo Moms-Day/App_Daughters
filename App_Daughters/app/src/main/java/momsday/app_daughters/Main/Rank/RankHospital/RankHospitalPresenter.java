@@ -42,6 +42,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
                             view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
                             SharedPreferences.Editor editor = preferences.edit();
                             editor.putString("hospitalCode",rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode());
+                            editor.putString("hospitalName",rankHospitalModel.getMyFacilities().get(i).getMyHospitalName());
                             editor.apply();
                         }
                     }
@@ -60,6 +61,5 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
     public void getHospitalCode(int position) {
         hospitalCode = rankHospitalModel.getFacilities().get(position).getHospitalCode();
         view.startHospitalInform(hospitalCode);
-        Log.d("Debug","hospitalCode : "+hospitalCode);
     }
 }
