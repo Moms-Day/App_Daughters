@@ -99,7 +99,7 @@
         android:id="@+id/text_my_page_parent_inform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="보호자 정보"
+        android:text="부모 정보"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/colorDarkGray"
@@ -158,6 +158,24 @@
         android:hint="나이 입력"
         android:inputType="number"
         android:textSize="12sp"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/edit_my_page_parent_name"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_name"
+        android:layout_marginTop="20dp">
+        <RadioButton
+            android:id="@+id/radiobtn_my_page_parent_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="남자"/>
+        <RadioButton
+            android:id="@+id/radiobtn_my_page_parent_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여자"/>
+    </RadioGroup>
     
     <Button
         android:id="@+id/btn_my_page_change_pw"

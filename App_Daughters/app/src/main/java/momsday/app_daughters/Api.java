@@ -12,6 +12,7 @@ import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalModel;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalModel;
+import momsday.app_daughters.MyPage.MyPageModel;
 import momsday.app_daughters.RequestConnection.RequestConnectionModel;
 import momsday.app_daughters.SearchHospital.SearchHospitalModel;
 import momsday.app_daughters.SignIn.SignInModel;
@@ -73,5 +74,7 @@ public interface Api {
                                 @Header("Authorization") String Authorization,
                                 @Body RankEvaluateCareworkerModel rankEvaluateCareworkerModel);
 
-
+    @GET("my_page/account_info")
+    @Headers("Content-Type: application/json")
+    Call<MyPageModel> getMyPage(@Header("Authorization") String Authorization);
 }
