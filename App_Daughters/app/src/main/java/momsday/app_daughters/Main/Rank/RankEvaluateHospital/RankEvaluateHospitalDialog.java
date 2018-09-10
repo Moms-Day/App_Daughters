@@ -2,6 +2,7 @@ package momsday.app_daughters.Main.Rank.RankEvaluateHospital;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -12,18 +13,21 @@ import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import momsday.app_daughters.R;
 
 public class RankEvaluateHospitalDialog extends Dialog {
 
     private View.OnClickListener hospitalDialogCancelClickListener, evaluateHospitalClickListener;
-    private TextView evaluateHospitalDialogCancelText, evaluateHospitalDialogEvaluateText;
+    private TextView evaluateHospitalDialogCancelText, evaluateHospitalDialogEvaluateText, hospitalNameText;
     private RadioGroup evaluateHospitalFacilityRadioGrp, evaluateHospitalMealRadioGrp, evaluateHospitalScheduleRadioGrp, evaluateHospitalCostRadioGrp, evaluateHospitalServiceRadioGrp;
     private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore;
     private float hospitalTotalScore;
     private RatingBar evaluateHospitalTotalScoreRatingBar;
-    private String hospitalReview;
+    private String hospitalReview, hospitalName;
     private EditText evaluateHospitalReviewEdit;
+    private SharedPreferences preferences;
 
     public RankEvaluateHospitalDialog(@NonNull Context context, View.OnClickListener hospitalDialogCancelClickListener, View.OnClickListener evaluateHospitalClickListener) {
         super(context);
@@ -40,6 +44,7 @@ public class RankEvaluateHospitalDialog extends Dialog {
         getWindow().setAttributes(lpWindow);
         setContentView(R.layout.dialog_rank_evaluate_hospital);
 
+        hospitalNameText = (TextView) findViewById(R.id.text_rank_evaluate_hospital_name);
         evaluateHospitalDialogCancelText = (TextView) findViewById(R.id.text_rank_evaluate_hospital_cancel);
         evaluateHospitalDialogEvaluateText = (TextView) findViewById(R.id.text_rank_evaluate_hospital_ok);
         evaluateHospitalFacilityRadioGrp = (RadioGroup) findViewById(R.id.radiogrp_rank_evaluate_hospital_facility);
@@ -49,6 +54,10 @@ public class RankEvaluateHospitalDialog extends Dialog {
         evaluateHospitalServiceRadioGrp = (RadioGroup) findViewById(R.id.radiogrp_rank_evaluate_hospital_service);
         evaluateHospitalTotalScoreRatingBar = (RatingBar) findViewById(R.id.ratingbar_rank_evaluate_hospital_score);
         evaluateHospitalReviewEdit = (EditText) findViewById(R.id.edit_rank_evaluate_hospital_review);
+
+        preferences = getContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        hospitalName = preferences.getString("hospitalName", "");
+        hospitalNameText.setText(hospitalName);
 
         if (hospitalDialogCancelClickListener != null) {
             evaluateHospitalDialogCancelText.setOnClickListener(hospitalDialogCancelClickListener);

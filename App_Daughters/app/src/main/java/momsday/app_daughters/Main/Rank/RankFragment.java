@@ -29,9 +29,10 @@ import momsday.app_daughters.R;
 
 import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
-public class RankFragment extends Fragment implements RankContract.View{
+public class RankFragment extends Fragment implements RankContract.View {
     public RankFragment() {
     }
+
     private RadioButton rankHospitalRadiobtn, rankCareworkerRadiobtn;
     private ViewPager rankViewPager;
     private ImageButton rankEvaluateBtn;
@@ -41,7 +42,7 @@ public class RankFragment extends Fragment implements RankContract.View{
     public static Context RankContext;
     private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore, careworkerSincerityScore, careworkerKindnessScore;
     private float hospitalTotalScore, careworkerTotalScore;
-    private String hospitalReview, careworkerReview, hospitalCode;
+    private String hospitalReview, careworkerReview, hospitalCode, careworkerId;
     private SharedPreferences preferences;
 
     @Override
@@ -58,8 +59,8 @@ public class RankFragment extends Fragment implements RankContract.View{
         rankHospitalRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_hospital);
         rankCareworkerRadiobtn = (RadioButton) layout.findViewById(R.id.radiobtn_main_rank_careworker);
         rankEvaluateBtn = (ImageButton) layout.findViewById(R.id.imagebtn_main_rank_evaluate);
-        rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(),hospitalDialogCancelClickListener, hospitalDialogEvaluateClickListener);
-        rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(),careworkerDialogCancelClickListener, careworkerDialogEvaluateClickListener);
+        rankEvaluateHospitalDialog = new RankEvaluateHospitalDialog(getContext(), hospitalDialogCancelClickListener, hospitalDialogEvaluateClickListener);
+        rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(), careworkerDialogCancelClickListener, careworkerDialogEvaluateClickListener);
         rankViewPager = (CustomViewPager) layout.findViewById(R.id.viewpager_rank);
 
 
@@ -111,20 +112,24 @@ public class RankFragment extends Fragment implements RankContract.View{
 
                 preferences = getContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
                 hospitalCode = preferences.getString("hospitalCode", "");
-                if(rankViewPager.getCurrentItem() == 0 && !TextUtils.isEmpty(hospitalCode)) {
+                careworkerId = preferences.getString("careworkerId", "");
+                if (rankViewPager.getCurrentItem() == 0 && !TextUtils.isEmpty(hospitalCode)) {
                     rankEvaluateHospitalDialog.setCancelable(true);
                     rankEvaluateHospitalDialog.getWindow().setGravity(Gravity.CENTER);
                     rankEvaluateHospitalDialog.show();
+                } else if (rankViewPager.getCurrentItem() == 1 && !TextUtils.isEmpty(careworkerId)) {
+                    rankEvaluateCareworkerDialog.setCancelable(true);
+                    rankEvaluateCareworkerDialog.getWindow().setGravity(Gravity.CENTER);
+                    rankEvaluateCareworkerDialog.show();
                 } else {
-                 rankEvaluateCareworkerDialog.setCancelable(true);
-                 rankEvaluateCareworkerDialog.getWindow().setGravity(Gravity.CENTER);
-                 rankEvaluateCareworkerDialog.show();
+                    Toast.makeText(getContext(),"요양보호사와 연결해주세요.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         return layout;
     }
+
     private View.OnClickListener hospitalDialogEvaluateClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -135,8 +140,8 @@ public class RankFragment extends Fragment implements RankContract.View{
             hospitalServiceScore = rankEvaluateHospitalDialog.getHospitalServiceScore();
             hospitalTotalScore = rankEvaluateHospitalDialog.getHospitalTotalScore();
             hospitalReview = rankEvaluateHospitalDialog.getHospitalReview();
-            Log.d("Debug","view : "+hospitalFacilityScore+hospitalMealScore+hospitalScheduleScore+hospitalCostScore+hospitalServiceScore+hospitalTotalScore+hospitalReview);
-            presenter.evaluateHospital(hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore,hospitalTotalScore, hospitalReview);
+            Log.d("Debug", "view : " + hospitalFacilityScore + hospitalMealScore + hospitalScheduleScore + hospitalCostScore + hospitalServiceScore + hospitalTotalScore + hospitalReview);
+            presenter.evaluateHospital(hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore, hospitalTotalScore, hospitalReview);
         }
     };
 
@@ -167,19 +172,19 @@ public class RankFragment extends Fragment implements RankContract.View{
 
     @Override
     public void showEvaluateHospitalSuccessMessage() {
-        Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "성공", Toast.LENGTH_SHORT).show();
         rankEvaluateHospitalDialog.dismiss();
     }
 
     @Override
     public void showEvaluateCareworkerSuccessMessage() {
-        Toast.makeText(getContext(),"성공",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "성공", Toast.LENGTH_SHORT).show();
         rankEvaluateCareworkerDialog.dismiss();
     }
 
     @Override
     public void showErrorMEssage(String message) {
-        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     public class PagerAdapter extends FragmentStatePagerAdapter {
