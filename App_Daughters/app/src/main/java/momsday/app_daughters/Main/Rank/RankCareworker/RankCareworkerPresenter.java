@@ -28,7 +28,7 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
     public void getCareworkerRank() {
         preferences = RankCareworkerContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization =preferences.getString("Authorization","");
-        api.rankCareworker("").enqueue(new Callback<RankCareworkerModel>() {
+        api.rankCareworker(authorization).enqueue(new Callback<RankCareworkerModel>() {
             @Override
             public void onResponse(Call<RankCareworkerModel> call, Response<RankCareworkerModel> response) {
                 if(response.code()==200) {

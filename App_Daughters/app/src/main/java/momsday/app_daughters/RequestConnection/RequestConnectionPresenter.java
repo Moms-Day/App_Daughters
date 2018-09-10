@@ -34,7 +34,7 @@ public class RequestConnectionPresenter implements RequestConnectionContract.Pre
     }
 
     @Override
-    public void requestConnection(String userName, String patientName, String patientAge, boolean patientGender) {
+    public void requestConnection(String userName, String patientName, String patientAge, boolean patientGender, String careId) {
 
         SharedPreferences preferences = RequestConnectionContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
 
@@ -46,7 +46,7 @@ public class RequestConnectionPresenter implements RequestConnectionContract.Pre
         requestConnectionModel.setPatientAge(Integer.parseInt(patientAge));
         requestConnectionModel.setPatientGender(patientGender);
         requestConnectionModel.setRequesterId(userId);
-        requestConnectionModel.setCareId("qqqq");
+        requestConnectionModel.setCareId(careId);
 
         api.requestConnection("JWT "+authorization, requestConnectionModel).enqueue(new Callback<Void>() {
             @Override

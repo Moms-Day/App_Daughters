@@ -28,7 +28,7 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
     private ArrayAdapter spinnerAdapter;
     private EditText hospitalNameEdit, userNameEdit, patientNameEdit, patientAgeEdit;
     private RadioButton patientMaleBtn, patientFemaleBtn;
-    private String hospitalName, userName, patientName, patientAge, careworkerName;
+    private String hospitalName, userName, patientName, patientAge, careId;
     private Button requestConnectionBtn;
     private boolean patientGender;
     private ArrayList<Careworker> careworkers;
@@ -74,7 +74,7 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
                 {
                     Toast.makeText(getApplicationContext(),"필수 항목을 모두 입력하세요.",Toast.LENGTH_SHORT).show();
                 } else {
-                    presenter.requestConnection(userName, patientName, patientAge, patientGender);
+                    presenter.requestConnection(userName, patientName, patientAge, patientGender, careId);
                 }
             }
         });
@@ -112,6 +112,7 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
         careworkerNameSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                careId = careworkers.get(i).getId();
                 Toast.makeText(RequestConnectionActivity.this,"선택된 아이템 : "+careworkerNameSpinner.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
 
             }

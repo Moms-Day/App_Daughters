@@ -13,6 +13,6 @@ public interface RequestConnectionContract {
         void setView(View view);
         void searchHospital();
         void getCareworkerList();
-        void requestConnection(String userName, String patientName, String patientAge, boolean patientGender);
+        void requestConnection(String userName, String patientName, String patientAge, boolean patientGender, String careId);
     }
 }

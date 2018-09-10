@@ -27,7 +27,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
     public void getHospitalRank() {
         final SharedPreferences preferences = RankHospitalContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization = preferences.getString("Authorization", "");
-        api.rankHospital("").enqueue(new Callback<RankHospitalModel>() {
+        api.rankHospital(authorization).enqueue(new Callback<RankHospitalModel>() {
             @Override
             public void onResponse(Call<RankHospitalModel> call, Response<RankHospitalModel> response) {
                 if (response.code() == 200) {
