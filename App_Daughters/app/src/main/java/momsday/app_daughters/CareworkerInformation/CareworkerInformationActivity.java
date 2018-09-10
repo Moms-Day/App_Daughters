@@ -53,8 +53,8 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
     public void setCareworkerInform(String name, String hospitalName, int career, int patientNumber, String introduction, float sincerityScore, float kindnessScore, float overall, String firstReview, String secondReview, String thirdReview, String imagePath) {
         careworkerNameText.setText(name);
         careworkerHospitalText.setText(hospitalName);
-        careworkerCareerText.setText(career);
-        careworkerPatientNumberText.setText(patientNumber);
+        careworkerCareerText.setText(Integer.toString(career)+"년");
+        careworkerPatientNumberText.setText(Integer.toString(patientNumber)+"명");
         careworkerIntroductionText.setText(introduction);
         careworkerSincerityScore.setText(Float.toString(sincerityScore));
         careworkerKindnessScore.setText(Float.toString(kindnessScore));
