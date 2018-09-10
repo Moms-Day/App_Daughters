@@ -1,6 +1,8 @@
 package momsday.app_daughters.Main.Main;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mainViewPager;
     private ImageButton myPageBtn;
     private RequestConnectionDialog requestConnectionDialog;
+    private SharedPreferences preferences;
+    private String careworkerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,15 @@ public class MainActivity extends AppCompatActivity {
         myPageBtn = (ImageButton) findViewById(R.id.btn_main_my_page);
         mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
-        requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
-        requestConnectionDialog.setCancelable(false);
-        requestConnectionDialog.show();
+
+        preferences = getApplicationContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        careworkerId = preferences.getString("careworkerId", "");
+        if(TextUtils.isEmpty(careworkerId))
+        {
+            requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
+            requestConnectionDialog.setCancelable(false);
+            requestConnectionDialog.show();
+        }
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_main);
 
