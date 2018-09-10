@@ -23,9 +23,37 @@ public class RankCareworkerModel {
         private int patientInCharge;
         @SerializedName("workplace")
         private String workplace;
+
+        public String getName() {
+            return name;
+        }
+
+        public float getOverall() {
+            return overall;
+        }
+
+        public int getCareer() {
+            return career;
+        }
+
+        public int getPatientInCharge() {
+            return patientInCharge;
+        }
+
+        public String getCareworkerId() {
+            return careworkerId;
+        }
+
+        public String getImagePath() {
+            return imagePath;
+        }
+
+        public String getWorkplace() {
+            return workplace;
+        }
     }
 
-    @SerializedName("myCareworkers")
+    @SerializedName("myCareWorkers")
     private List<myCareworekrs> myCareworekrs;
 
     class myCareworekrs {
@@ -43,5 +71,41 @@ public class RankCareworkerModel {
         private int patientInCharge;
         @SerializedName("workplace")
         private String workplace;
+
+        public String getImagePath() {
+            return imagePath;
+        }
+
+        public String getWorkplace() {
+            return workplace;
+        }
+
+        public String getCareworkerId() {
+            return careworkerId;
+        }
+
+        public int getPatientInCharge() {
+            return patientInCharge;
+        }
+
+        public int getCareer() {
+            return career;
+        }
+
+        public float getOverall() {
+            return overall;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    public List<Careworkers> getCareworkers() {
+        return careworkers;
+    }
+
+    public List<myCareworekrs> getMyCareworekrs() {
+        return myCareworekrs;
     }
 }

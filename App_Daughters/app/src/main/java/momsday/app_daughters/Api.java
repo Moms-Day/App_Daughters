@@ -3,6 +3,9 @@ package momsday.app_daughters;
 
 import com.google.gson.JsonObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
 import momsday.app_daughters.HospitalInformation.HospitalInformationModel;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
@@ -47,8 +50,8 @@ public interface Api {
 
     @GET("connect/search")
     @Headers("Content-Type: application/json")
-    Call<SearchHospitalModel> searchHospital(@Header("Authorization") String Authorization,
-                                                   @Query("facilityName") String facilityName);
+    Call<ArrayList<SearchHospitalModel>> searchHospital(@Header("Authorization") String Authorization,
+                                                        @Query("facilityName") String facilityName);
 
     @GET("info/care_worker/{care_worker_id}")
     @Headers("Content-Type: application/json")

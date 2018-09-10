@@ -32,10 +32,10 @@ public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHo
     @Override
     public void onBindViewHolder(@NonNull RankHospitalRecyclerViewHolder holder, int position) {
 
-        holder.myHospitalNameText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalName);
-        holder.myHospitalLocationText.setText(rankRecyclerHospitalItems.get(position).rankMyHospitalLocation);
-        holder.myHospitalScoreRatingBar.setRating(rankRecyclerHospitalItems.get(position).rankMyHospitalScore);
-        Glide.with(RankHospitalContext).load(rankRecyclerHospitalItems.get(position).rankMyHospitalImagePath).into(holder.myHospitalImageView);
+        holder.hospitalNameText.setText(rankRecyclerHospitalItems.get(position).rankHospitalName);
+        holder.hospitalLocationText.setText(rankRecyclerHospitalItems.get(position).rankHospitalLocation);
+        holder.hospitalScoreRatingBar.setRating(rankRecyclerHospitalItems.get(position).rankHospitalScore);
+        Glide.with(rankRecyclerMyHospitalContext).load(rankRecyclerHospitalItems.get(position).rankHospitalImagePath).into(holder.hospitalImageView);
     }
 
     @Override

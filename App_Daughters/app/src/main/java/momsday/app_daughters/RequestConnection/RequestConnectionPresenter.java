@@ -46,7 +46,7 @@ public class RequestConnectionPresenter implements RequestConnectionContract.Pre
         requestConnectionModel.setPatientAge(Integer.parseInt(patientAge));
         requestConnectionModel.setPatientGender(patientGender);
         requestConnectionModel.setRequesterId(userId);
-        requestConnectionModel.setCareId("dddd");
+        requestConnectionModel.setCareId("qqqq");
 
         api.requestConnection("JWT "+authorization, requestConnectionModel).enqueue(new Callback<Void>() {
             @Override

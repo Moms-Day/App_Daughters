@@ -1,5 +1,6 @@
 package momsday.app_daughters.SearchHospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface SearchHospitalContract {
@@ -9,6 +10,6 @@ public interface SearchHospitalContract {
     interface Presenter {
         void setView(View view);
         void searchFacility(String FacilityName);
-        List<SearchHospitalModel.Careworkers> getCareworkerList(int position);
+        ArrayList<Careworker> getCareworkers(int position);
     }
 }

@@ -32,6 +32,7 @@ public class MainFragment extends Fragment {
         mainContentViewPager = (ViewPager) view.findViewById(R.id.viewPager_main_content);
         mainContentScrollView = (ScrollView)view.findViewById(R.id.scroll_main_content);
         mainContentViewPager.setAdapter(new pagerAdapter(getChildFragmentManager()));
+        mainContentViewPager.setCurrentItem(2);
 
         mainContentViewPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -72,7 +73,7 @@ public class MainFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 30;
+            return 3;
         }
     }
 

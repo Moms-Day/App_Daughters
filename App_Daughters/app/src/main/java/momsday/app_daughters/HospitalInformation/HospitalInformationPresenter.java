@@ -9,6 +9,7 @@ import retrofit2.Response;
 public class HospitalInformationPresenter implements HospitalInformationContract.Presenter {
     HospitalInformationContract.View view;
     private Api api = ApiClient.getClient().create(Api.class);
+    private HospitalInformationModel hospitalInformationModel;
 
     @Override
     public void setView(HospitalInformationContract.View view) {
@@ -21,7 +22,7 @@ public class HospitalInformationPresenter implements HospitalInformationContract
             @Override
             public void onResponse(Call<HospitalInformationModel> call, Response<HospitalInformationModel> response) {
                 if(response.code()==200) {
-                    HospitalInformationModel model = response.body();
+                    hospitalInformationModel = response.body();
                     //todo view.setHospitalInform
                 } else {
                     view.showErrorMessage();

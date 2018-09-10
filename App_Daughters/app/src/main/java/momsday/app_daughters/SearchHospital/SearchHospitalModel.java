@@ -1,12 +1,12 @@
 package momsday.app_daughters.SearchHospital;
 
-import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchHospitalModel {
@@ -14,8 +14,8 @@ public class SearchHospitalModel {
         @SerializedName("address")
         private String address;
 
-        @SerializedName("careworkers")
-        private List<Careworkers> careworekrs;
+        @SerializedName("careWorkers")
+        private ArrayList<Careworker> careworekrs;
 
         @SerializedName("facilityCode")
         private String facilityCode;
@@ -23,41 +23,19 @@ public class SearchHospitalModel {
         @SerializedName("name")
         private String facilityName;
 
-        class Careworkers implements Parcelable {
-            @SerializedName("id")
-            private String id;
 
-            @SerializedName("name")
-            private String name;
-
-            public String getId() {
-                return id;
-            }
-
-            public String getName() {
-                return name;
-            }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel parcel, int i) {
-
-            }
-        }
 
         public String getAddress() {
             return address;
         }
 
-        public List<Careworkers> getCareworekrs() {
+        public ArrayList<Careworker> getCareworekrs() {
             return careworekrs;
         }
 
-        public String getFacilityCode() {
+
+
+    public String getFacilityCode() {
             return facilityCode;
         }
 

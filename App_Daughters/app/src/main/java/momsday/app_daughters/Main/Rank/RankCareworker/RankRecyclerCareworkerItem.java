@@ -3,12 +3,11 @@ package momsday.app_daughters.Main.Rank.RankCareworker;
 import android.media.Image;
 
 public class RankRecyclerCareworkerItem {
-    Image rankCareworkerImage;
-    String rankCareworkerName, rankCareworkerHospital;
+    String rankCareworkerName, rankCareworkerHospital, rankCareworkerImagePath;
     float rankCareworkerScore;
 
-    public Image getRankCareworkerImage() {
-        return rankCareworkerImage;
+    public String getRankCareworkerImagePath() {
+        return rankCareworkerImagePath;
     }
 
     public String getRankCareworkerName() {
@@ -23,9 +22,10 @@ public class RankRecyclerCareworkerItem {
         return rankCareworkerScore;
     }
 
-    public RankRecyclerCareworkerItem(String rankCareworkerName, String rankCareworkerHospital, float rankCareworkerScore) {
+    public RankRecyclerCareworkerItem(String rankCareworkerName, String rankCareworkerHospital, float rankCareworkerScore, String rankCareworkerImagePath) {
         this.rankCareworkerName = rankCareworkerName;
         this.rankCareworkerHospital = rankCareworkerHospital;
         this.rankCareworkerScore = rankCareworkerScore;
+        this.rankCareworkerImagePath = rankCareworkerImagePath;
     }
 }

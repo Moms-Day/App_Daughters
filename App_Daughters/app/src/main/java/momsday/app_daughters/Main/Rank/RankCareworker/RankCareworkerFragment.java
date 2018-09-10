@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,11 +27,12 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
 
     public RankCareworkerFragment() {
     }
-    RecyclerView rankMyCareworkerRecycler, rankCareworkerRecycler;
-    LinearLayoutManager rankMyCareworkerLayoutManager, rankCareworkerLayoutManager;
-    RankCareworkerRecyclerViewAdapter rankMyCareworkerRecyclerAdapter, rankCareworkerRecyclerAdapter;
-    ArrayList<RankRecyclerCareworkerItem> rankRecyclerCareworkerItems;
-    ArrayList<RankRecyclerCareworkerItem> rankRecyclerMyCareworkerItems;
+    private RecyclerView rankMyCareworkerRecycler, rankCareworkerRecycler;
+    private LinearLayoutManager rankMyCareworkerLayoutManager, rankCareworkerLayoutManager;
+    private RankCareworkerRecyclerViewAdapter rankMyCareworkerRecyclerAdapter, rankCareworkerRecyclerAdapter;
+    private ArrayList<RankRecyclerCareworkerItem> rankRecyclerCareworkerItems;
+    private ArrayList<RankRecyclerCareworkerItem> rankRecyclerMyCareworkerItems;
+    private TextView myCareworkerNoneText;
 
 
     @Override
@@ -46,10 +48,10 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         presenter.setView(this);
         //나의 요양보호사
         rankMyCareworkerRecycler = (RecyclerView)layout.findViewById(R.id.recycler_main_rank_my_careworker);
+        myCareworkerNoneText = (TextView)layout.findViewById(R.id.text_main_rank_careworker_my_careworker_none);
         rankMyCareworkerLayoutManager = new LinearLayoutManager(getContext());
         rankMyCareworkerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerMyCareworkerItems = new ArrayList();
-        rankRecyclerMyCareworkerItems.add(new RankRecyclerCareworkerItem("이종현","하늘요양병원",2));
         rankMyCareworkerRecycler.setLayoutManager(rankMyCareworkerLayoutManager);
         rankMyCareworkerRecycler.setItemAnimator(new DefaultItemAnimator());
         rankMyCareworkerRecyclerAdapter = new RankCareworkerRecyclerViewAdapter(rankRecyclerMyCareworkerItems);
@@ -71,7 +73,6 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         rankCareworkerLayoutManager = new LinearLayoutManager(getContext());
         rankCareworkerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerCareworkerItems = new ArrayList();
-        rankRecyclerCareworkerItems.add(new RankRecyclerCareworkerItem("name","hospital",3));
         rankCareworkerRecycler.setLayoutManager(rankCareworkerLayoutManager);
         rankCareworkerRecycler.setItemAnimator(new DefaultItemAnimator());
         rankCareworkerRecyclerAdapter = new RankCareworkerRecyclerViewAdapter(rankRecyclerCareworkerItems);
@@ -96,13 +97,15 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
     }
 
     @Override
-    public void setMyCareworker(String rankCareworkerName, String rankCareworkerHospital, int rankCareworkerScore) {
-        rankRecyclerMyCareworkerItems.add(new RankRecyclerCareworkerItem(rankCareworkerName,rankCareworkerHospital,rankCareworkerScore));
+    public void setMyCareworker(String rankMyCareworkerName, String rankMyCareworkerHospital, float rankMyCareworkerScore, String rankMyCareworkerImagePath) {
+        rankRecyclerMyCareworkerItems.add(new RankRecyclerCareworkerItem(rankMyCareworkerName,rankMyCareworkerHospital,rankMyCareworkerScore, rankMyCareworkerImagePath));
+        rankCareworkerRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
-    public void setCareworker(String rankCareworkerName, String rankCareworkerHospital, int rankCareworkerScore) {
-        rankRecyclerCareworkerItems.add(new RankRecyclerCareworkerItem(rankCareworkerName,rankCareworkerHospital,rankCareworkerScore));
+    public void setCareworker(String rankCareworkerName, String rankCareworkerHospital, float rankCareworkerScore, String rankCareworkerImagePath) {
+        rankRecyclerCareworkerItems.add(new RankRecyclerCareworkerItem(rankCareworkerName,rankCareworkerHospital,rankCareworkerScore, rankCareworkerImagePath));
+        rankCareworkerRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -110,5 +113,10 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         Intent intent = new Intent(getContext(), CareworkerInformationActivity.class);
         intent.putExtra("careworkerId",careworkerId);
         startActivity(intent);
+    }
+
+    @Override
+    public void setMyCareworkerNoneText() {
+        myCareworkerNoneText.setVisibility(View.VISIBLE);
     }
 }

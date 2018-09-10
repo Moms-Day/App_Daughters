@@ -32,7 +32,6 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
     private ImageButton searchHospitalBtn;
     private SearchHospitalContract.Presenter presenter;
     public static Context searchHospitalContext;
-    private List<SearchHospitalModel.Careworkers> careworkers;
     private Intent intent;
 
     @Override
@@ -60,17 +59,12 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
             @Override
             public void onItemClick(View view, int position) {
                 hospitalName = searchHospitalListRecyclerItems.get(position).hospitalName;
-                careworkers = presenter.getCareworkerList(position);
                 intent = new Intent(SearchHospitalActivity.this, RequestConnectionActivity.class);
-                for(int i=0; i<careworkers.size(); i++) {
-                    intent.putExtra("careworkersSize",careworkers.size());
-                    String[] careworkerInform = {careworkers.get(i).getId(),careworkers.get(i).getName()};
-                    intent.putExtra("careworkers"+i,careworkerInform);;
-                }
+
+                ArrayList<Careworker> careworkersList = presenter.getCareworkers(position);
                 intent.putExtra("hospitalName",hospitalName);
-
+                intent.putExtra("careworkers",careworkersList);
                 startActivity(intent);
-
                 finish();
             }
             @Override

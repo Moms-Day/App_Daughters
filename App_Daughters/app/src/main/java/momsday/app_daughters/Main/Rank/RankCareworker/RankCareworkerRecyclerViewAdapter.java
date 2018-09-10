@@ -7,9 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import momsday.app_daughters.R;
+
+import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RankCareworkerRecyclerViewAdapter extends RecyclerView.Adapter<RankCareworkerRecyclerViewHolder> {
 
@@ -35,6 +39,7 @@ public class RankCareworkerRecyclerViewAdapter extends RecyclerView.Adapter<Rank
         holder.careworkerNameText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerName);
         holder.careworkerHospitalText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerHospital);
         holder.careworkerScoreRatingBar.setRating(rankRecyclerCareworkerItems.get(position).rankCareworkerScore);
+        Glide.with(rankRecyclerCareworkerContext).load(rankRecyclerCareworkerItems.get(position).rankCareworkerImagePath).into(holder.careworkerImageView);
     }
 
     @Override

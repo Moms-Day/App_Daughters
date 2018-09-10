@@ -4,30 +4,30 @@ import android.media.Image;
 
 public class RankRecyclerHospitalItem {
 
-    String rankMyHospitalImagePath;
-    String rankMyHospitalName, rankMyHospitalLocation;
-    float rankMyHospitalScore;
+    String rankHospitalImagePath;
+    String rankHospitalName, rankHospitalLocation;
+    float rankHospitalScore;
 
-    public String getRankMyHospitalImagePath() {
-        return rankMyHospitalImagePath;
+    public String getRankHospitalImagePath() {
+        return rankHospitalImagePath;
     }
 
-    public String getRankMyHospitalName() {
-        return rankMyHospitalName;
+    public String getRankHospitalName() {
+        return rankHospitalName;
     }
 
-    public String getRankMyHospitalLocation() {
-        return rankMyHospitalLocation;
+    public String getRankHospitalLocation() {
+        return rankHospitalLocation;
     }
 
-    public float getRankMyHospitalScore() {
-        return rankMyHospitalScore;
+    public float getRankHospitalScore() {
+        return rankHospitalScore;
     }
 
-    public RankRecyclerHospitalItem(String rankMyHospitalName, String rankMyHospitalLocation, float rankMyHospitalScore, String rankMyHospitalImagePath) {
-        this.rankMyHospitalName = rankMyHospitalName;
-        this.rankMyHospitalLocation = rankMyHospitalLocation;
-        this.rankMyHospitalScore = rankMyHospitalScore;
-        this.rankMyHospitalImagePath = rankMyHospitalImagePath;
+    public RankRecyclerHospitalItem(String rankHospitalName, String rankHospitalLocation, float rankHospitalScore, String rankHospitalImagePath) {
+        this.rankHospitalName = rankHospitalName;
+        this.rankHospitalLocation = rankHospitalLocation;
+        this.rankHospitalScore = rankHospitalScore;
+        this.rankHospitalImagePath = rankHospitalImagePath;
     }
 }

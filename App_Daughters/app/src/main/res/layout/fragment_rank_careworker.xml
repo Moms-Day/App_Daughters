@@ -12,6 +12,17 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/text_main_rank_careworker_my_careworker_none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="없음"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_main_rank_my_careworker"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:visibility="invisible"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_main_rank_my_careworker"

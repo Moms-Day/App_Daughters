@@ -2,6 +2,7 @@ package momsday.app_daughters.SearchHospital;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ public class SearchHospitalPresenter implements SearchHospitalContract.Presenter
     private Api api = ApiClient.getClient().create(Api.class);
     private String authorization;
     private ArrayList<SearchHospitalModel> data;
+    private ArrayList<Careworker> careworkers;
 
     @Override
     public void setView(SearchHospitalContract.View view) {
@@ -35,6 +37,7 @@ public class SearchHospitalPresenter implements SearchHospitalContract.Presenter
                     for (int i = 0; i < data.size(); i++) {
                         view.setHospitalNameList(data.get(i).getFacilityName(), data.get(i).getAddress());
                     }
+
                 }
             }
             @Override
@@ -45,9 +48,8 @@ public class SearchHospitalPresenter implements SearchHospitalContract.Presenter
     }
 
     @Override
-    public List<SearchHospitalModel.Careworkers> getCareworkerList(int position) {
-        List<SearchHospitalModel.Careworkers> careworkers = data.get(position).getCareworekrs();
-
-        return careworkers;
+    public ArrayList<Careworker> getCareworkers(int position) {
+        return data.get(position).getCareworekrs();
     }
+
 }

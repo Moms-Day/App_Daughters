@@ -12,8 +12,8 @@ import org.w3c.dom.Text;
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationPresenter;
 import momsday.app_daughters.R;
 
-public class HospitalInformationActivity extends AppCompatActivity implements HospitalInformationContract.View{
-    private TextView hospitalNameText,hospitalPhoneNumText, hospitalLocationText, hospitalIntroductionText, hospitalFacilityScoreText, hospitalMealScoreText, hospitalScheduleScoreText, hospitalCostScoreText, hospitalServiceScoreText, hospitalFirstReviewText, hospitalSecondReviewText, hospitalThirdReviewText;
+public class HospitalInformationActivity extends AppCompatActivity implements HospitalInformationContract.View {
+    private TextView hospitalNameText, hospitalPhoneNumText, hospitalLocationText, hospitalIntroductionText, hospitalFacilityScoreText, hospitalMealScoreText, hospitalScheduleScoreText, hospitalCostScoreText, hospitalServiceScoreText, hospitalFirstReviewText, hospitalSecondReviewText, hospitalThirdReviewText;
     private RatingBar hospitalTotalScoreRatingBar;
     private HospitalInformationContract.Presenter presenter;
     private String hospitalCode;
@@ -30,16 +30,17 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
         hospitalFacilityScoreText = (TextView) findViewById(R.id.text_hospital_information_facility_score);
         hospitalMealScoreText = (TextView) findViewById(R.id.text_hospital_information_meal_score);
         hospitalScheduleScoreText = (TextView) findViewById(R.id.text_hospital_information_schedule_score);
-        hospitalCostScoreText = (TextView)findViewById(R.id.text_hospital_information_cost_score);
+        hospitalCostScoreText = (TextView) findViewById(R.id.text_hospital_information_cost_score);
         hospitalServiceScoreText = (TextView) findViewById(R.id.text_hospital_information_service_score);
         hospitalFirstReviewText = (TextView) findViewById(R.id.text_hospital_information_first_review);
         hospitalSecondReviewText = (TextView) findViewById(R.id.text_hospital_information_second_review);
         hospitalThirdReviewText = (TextView) findViewById(R.id.text_hospital_information_third_review);
-        hospitalTotalScoreRatingBar = (RatingBar)findViewById(R.id.ratingbar_hospital_information_total_score);
+        hospitalTotalScoreRatingBar = (RatingBar) findViewById(R.id.ratingbar_hospital_information_total_score);
 
         presenter = new HospitalInformationPresenter();
+        presenter.setView(this);
         Intent intent = getIntent();
-         hospitalCode = intent.getStringExtra("hospitalCode");
+        hospitalCode = intent.getStringExtra("hospitalCode");
 
         presenter.getHospitalInform(hospitalCode);
     }
@@ -64,6 +65,6 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
 
     @Override
     public void showErrorMessage() {
-        Toast.makeText(getApplicationContext(),"오류",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "오류", Toast.LENGTH_SHORT).show();
     }
 }

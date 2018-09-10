@@ -18,7 +18,9 @@ import java.util.ArrayList;
 
 import momsday.app_daughters.Main.Main.MainActivity;
 import momsday.app_daughters.R;
+import momsday.app_daughters.SearchHospital.Careworker;
 import momsday.app_daughters.SearchHospital.SearchHospitalActivity;
+import momsday.app_daughters.SearchHospital.SearchHospitalModel;
 
 public class RequestConnectionActivity extends AppCompatActivity implements RequestConnectionContract.View{
 
@@ -29,6 +31,7 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
     private String hospitalName, userName, patientName, patientAge, careworkerName;
     private Button requestConnectionBtn;
     private boolean patientGender;
+    private ArrayList<Careworker> careworkers;
     private RequestConnectionContract.Presenter presenter;
     public static Context RequestConnectionContext;
 
@@ -78,16 +81,18 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
     }
 
 
-    @Override
-    public void setHospitalName() {
+    void setHospitalName() {
         hospitalName = getIntent().getStringExtra("hospitalName");
+        careworkers = getIntent().getParcelableArrayListExtra("careworkers");
         Log.d("Debug", "hospitalName : "+hospitalName);
         hospitalNameEdit.setText(hospitalName);
 
-        if(TextUtils.isEmpty(hospitalName)==false) {
+        if(!TextUtils.isEmpty(hospitalName) && careworkers !=null) {
             final ArrayList<String> careworkerNameList = new ArrayList<>();
-            careworkerNameList.add("이종현");
-            careworkerNameList.add("정다은");
+            for(int i=0;i<careworkers.size();i++) {
+                careworkerNameList.add(careworkers.get(i).getName());
+            }
+
             setCareworkerList(careworkerNameList);
         }
     }

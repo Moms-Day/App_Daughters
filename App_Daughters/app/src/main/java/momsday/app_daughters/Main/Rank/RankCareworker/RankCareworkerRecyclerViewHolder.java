@@ -19,5 +19,6 @@ public class RankCareworkerRecyclerViewHolder extends RecyclerView.ViewHolder {
         careworkerNameText = (TextView) itemView.findViewById(R.id.text_main_rank_careworker_name);
         careworkerHospitalText = (TextView)itemView.findViewById(R.id.text_main_rank_careworker_hospital);
         careworkerScoreRatingBar = (RatingBar)itemView.findViewById(R.id.ratingbar_main_rank_careworker_score);
+        careworkerImageView = (ImageView) itemView.findViewById(R.id.image_main_rank_careworker);
     }
 }

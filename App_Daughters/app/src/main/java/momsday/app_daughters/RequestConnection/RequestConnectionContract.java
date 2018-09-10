@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public interface RequestConnectionContract {
     interface View {
-        void setHospitalName();
         void startSearchHospital();
         void setCareworkerList(ArrayList<String> careworkerNameList);
         void startMainActivity();

@@ -2,12 +2,14 @@ package momsday.app_daughters.Main.Rank;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,6 +27,8 @@ import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCarewor
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment;
 import momsday.app_daughters.R;
 
+import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
+
 public class RankFragment extends Fragment implements RankContract.View{
     public RankFragment() {
     }
@@ -37,7 +41,8 @@ public class RankFragment extends Fragment implements RankContract.View{
     public static Context RankContext;
     private int hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore, careworkerSincerityScore, careworkerKindnessScore;
     private float hospitalTotalScore, careworkerTotalScore;
-    private String hospitalReview, careworkerReview;
+    private String hospitalReview, careworkerReview, hospitalCode;
+    private SharedPreferences preferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,7 +108,10 @@ public class RankFragment extends Fragment implements RankContract.View{
         rankEvaluateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rankViewPager.getCurrentItem() == 0) {
+
+                preferences = getContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+                hospitalCode = preferences.getString("hospitalCode", "");
+                if(rankViewPager.getCurrentItem() == 0 && !TextUtils.isEmpty(hospitalCode)) {
                     rankEvaluateHospitalDialog.setCancelable(true);
                     rankEvaluateHospitalDialog.getWindow().setGravity(Gravity.CENTER);
                     rankEvaluateHospitalDialog.show();
