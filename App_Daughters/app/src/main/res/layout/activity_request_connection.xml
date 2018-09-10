@@ -90,27 +90,6 @@
         app:layout_constraintStart_toEndOf="@id/text_request_connection_my_name"
         app:layout_constraintTop_toBottomOf="@id/text_request_connection_my_inform" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@id/edit_request_connection_my_name"
-        app:layout_constraintStart_toEndOf="@id/edit_request_connection_my_name"
-        app:layout_constraintTop_toTopOf="@id/edit_request_connection_my_name">
-
-        <RadioButton
-            android:id="@+id/radiobtn_request_connection_my_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="남자" />
-
-        <RadioButton
-            android:id="@+id/radiobtn_request_connection_my_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="여자" />
-    </RadioGroup>
 
     <TextView
         android:id="@+id/text_request_connection_parent_inform"

@@ -1,5 +1,6 @@
 package momsday.app_daughters.SignUp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,12 +29,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
     private List<String> numberList;
     private Button signUpNextBtn;
     private FirstFragment firstFragment;
+    public static Context signUpContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        signUpContext = getApplicationContext();
         firstFragment = new FirstFragment();
         signUpViewPager = (ViewPager) findViewById(R.id.viewPager_signup);
         signUpIdEdit = (EditText)findViewById(R.id.edit_signup_id);

@@ -2,6 +2,7 @@ package momsday.app_daughters.RequestConnection;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,6 +22,8 @@ import momsday.app_daughters.R;
 import momsday.app_daughters.SearchHospital.Careworker;
 import momsday.app_daughters.SearchHospital.SearchHospitalActivity;
 import momsday.app_daughters.SearchHospital.SearchHospitalModel;
+
+import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RequestConnectionActivity extends AppCompatActivity implements RequestConnectionContract.View{
 
@@ -52,6 +55,9 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
         patientFemaleBtn = (RadioButton) findViewById(R.id.radiobtn_request_connection_parent_female);
         requestConnectionBtn = (Button) findViewById(R.id.btn_request_connection);
 
+
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        userNameEdit.setText(preferences.getString("name",""));
         setHospitalName();
 
         hospitalNameEdit.setOnClickListener(new View.OnClickListener() {

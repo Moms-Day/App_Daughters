@@ -1,5 +1,7 @@
 package momsday.app_daughters.SignUp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,6 +16,8 @@ import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static momsday.app_daughters.SignUp.SignUpActivity.signUpContext;
 
 public class SignUpPresenter implements SignUpContract.SignUpPresenter {
     private SignUpContract.SignUpView signUpView;
@@ -49,6 +53,11 @@ public class SignUpPresenter implements SignUpContract.SignUpPresenter {
                     Log.d("Debug", "responseCode : " + Integer.toString(response.code()));
                     if (response.code() == 201) {
                         signUpView.startSignInActivity();
+                        SharedPreferences sharedPreferences = signUpContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("name", signUpModel.getName());
+                        editor.apply();
+
                     } else if (response.code() == 409) {
                         signUpView.showIdErrorMessage();
                     } else {
