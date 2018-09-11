@@ -59,7 +59,7 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         rankMyCareworkerRecycler.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankMyCareworkerRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                presenter.getCareworkerId(position);
+                presenter.getMyCareworkerId(position);
             }
 
             @Override

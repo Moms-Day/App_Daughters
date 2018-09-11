@@ -11,5 +11,6 @@ public interface RankCareworkerContract {
         void setView(View view);
         void getCareworkerRank();
         void getCareworkerId(int position);
+        void getMyCareworkerId(int position);
     }
 }

@@ -67,4 +67,10 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
         careworkerId = rankCareworkerModel.getCareworkers().get(position).getCareworkerId();
         view.startCareworkerInform(careworkerId);
     }
+
+    @Override
+    public void getMyCareworkerId(int position) {
+        careworkerId = rankCareworkerModel.getMyCareworekrs().get(position).getCareworkerId();
+        view.startCareworkerInform(careworkerId);
+    }
 }
