@@ -30,7 +30,7 @@ public class RankPresenter implements RankContract.Presenter {
     public void evaluateCareworker(int sincerity, int kindness, float overall, String review) {
         SharedPreferences preferences = RankContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization =preferences.getString("Authorization","");
-        careworkerId = preferences.getString("careworkerId","dd");
+        careworkerId = preferences.getString("careworkerId","");
         rankEvaluateCareworkerModel = new RankEvaluateCareworkerModel();
         rankEvaluateCareworkerModel.setSincerity(sincerity);
         rankEvaluateCareworkerModel.setKindness(kindness);
