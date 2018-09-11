@@ -37,6 +37,9 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
                     for (int i = 0; i < rankCareworkerModel.getCareworkers().size(); i++) {
                         view.setCareworker(rankCareworkerModel.getCareworkers().get(i).getName(), rankCareworkerModel.getCareworkers().get(i).getWorkplace(), rankCareworkerModel.getCareworkers().get(i).getOverall(),rankCareworkerModel.getCareworkers().get(i).getImagePath());
                     }
+                    for(int i=0;i<rankCareworkerModel.getMyCareworekrs().size(); i++) {
+                        view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(),rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(), rankCareworkerModel.getMyCareworekrs().get(i).getOverall(),rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
+                    }
                     if(rankCareworkerModel.getMyCareworekrs().size() == 0) {
                         view.setMyCareworkerNoneText();
                     } else {
