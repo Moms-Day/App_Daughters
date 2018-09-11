@@ -98,7 +98,7 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
     @Override
     public void setMyCareworker(String rankMyCareworkerName, String rankMyCareworkerHospital, float rankMyCareworkerScore, String rankMyCareworkerImagePath) {
         rankRecyclerMyCareworkerItems.add(new RankRecyclerCareworkerItem(rankMyCareworkerName,rankMyCareworkerHospital,rankMyCareworkerScore, rankMyCareworkerImagePath));
-        rankCareworkerRecyclerAdapter.notifyDataSetChanged();
+        rankMyCareworkerRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
