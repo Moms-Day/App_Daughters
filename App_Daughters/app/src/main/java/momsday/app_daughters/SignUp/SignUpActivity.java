@@ -23,7 +23,7 @@ import momsday.app_daughters.SignIn.SignInActivity;
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.SignUpView{
     private SignUpContract.SignUpPresenter signUpPresenter;
     private EditText signUpIdEdit, signUpPwEdit, signUpPhoneNumEdit, signUpCertifyCodeEdit, signUpnameEdit, signUpageEdit;
-    String id,pw,phoneNumber,certifyCode,name, age;
+    String id,pw,phoneNumber,certifyCode,name, age, pwCheck;
     private ViewPager signUpViewPager;
     private CircleAnimIndicator circleAnimIndicator;
     private List<String> numberList;
@@ -73,12 +73,17 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
                             public void onClick(View v) {
                                 id = FirstFragment.signUpIdEdit.getText().toString();
                                 pw = FirstFragment.signUpPwEdit.getText().toString();
+                                pwCheck = FirstFragment.signUpPwCheckEdit.getText().toString();
                                 phoneNumber = SecondFragment.signUpPhoneNumberEdit.getText().toString();
                                 certifyCode = SecondFragment.signUpCertifyCodeEdit.getText().toString();
                                 name = SecondFragment.signUpNameEdit.getText().toString();
                                 age = SecondFragment.signUpAgeEdit.getText().toString();
-
-                                signUpPresenter.doSignUp(id, pw, phoneNumber, certifyCode, name, age);
+                                if(pw.equals(pwCheck)) {
+                                    signUpPresenter.doSignUp(id, pw, phoneNumber, certifyCode, name, age);
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(),"비밀번호 확인 오류",Toast.LENGTH_SHORT).show();
+                                }
                             }
                         });
                         break;

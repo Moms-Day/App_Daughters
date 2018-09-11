@@ -11,7 +11,7 @@ import android.widget.EditText;
 import momsday.app_daughters.R;
 
 public class FirstFragment extends Fragment {
-    public static EditText signUpIdEdit, signUpPwEdit;
+    public static EditText signUpIdEdit, signUpPwEdit, signUpPwCheckEdit;
     public FirstFragment() {
     }
 
@@ -25,6 +25,7 @@ public class FirstFragment extends Fragment {
         ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_sign_up_first, container, false);
         signUpIdEdit = (EditText) layout.findViewById(R.id.edit_signup_id);
         signUpPwEdit = (EditText) layout.findViewById(R.id.edit_signup_pw);
+        signUpPwCheckEdit = (EditText) layout.findViewById(R.id.edit_signup_pwcheck);
 
         return layout;
     }
