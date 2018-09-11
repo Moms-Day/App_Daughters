@@ -49,4 +49,27 @@ public class MyPagePresenter implements MyPageContract.Presenter {
             }
         });
     }
+
+    @Override
+    public void doWithdrawal(String pw) {
+        WithdrawalModel withdrawalModel = new WithdrawalModel();
+        withdrawalModel.setPw(pw);
+        api.doWithDrawal("JWT "+authorization,withdrawalModel).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.code() == 200) {
+                    view.completeWithdrawal();
+                } else if(response.code() == 403) {
+                    view.showErrorMessage("비밀번호 불일치");
+                } else {
+                    view.showErrorMessage("오류");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
 }

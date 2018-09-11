@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import momsday.app_daughters.Main.Main.MainActivity;
 import momsday.app_daughters.R;
+import momsday.app_daughters.SignIn.SignInActivity;
 
 public class MyPageActivity extends AppCompatActivity implements MyPageContract.View {
 
@@ -24,6 +26,7 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
     private EditText myNameEdit, myAgeEdit, parentNameEdit, parentAgeEdit;
     private RadioButton parentMaleBtn, parentFemaleBtn;
     public static Context myPageContext;
+    private String pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +99,8 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
     private View.OnClickListener withdrawalClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            pw = withdrawalDialog.getPw();
+            presenter.doWithdrawal(pw);
         }
     };
 
@@ -108,5 +112,18 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
         parentAgeEdit.setText(Integer.toString(parentAge));
         if(parentGender) parentMaleBtn.setChecked(true);
         else parentFemaleBtn.setChecked(true);
+    }
+
+    @Override
+    public void completeWithdrawal() {
+        Toast.makeText(getApplicationContext(),"회원탈퇴 성공!",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MyPageActivity.this, SignInActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void showErrorMessage(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }

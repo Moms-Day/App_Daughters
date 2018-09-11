@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import momsday.app_daughters.R;
@@ -16,11 +17,14 @@ public class WithdrawalDialog extends Dialog {
     private ImageButton withdrawalDialogCancelBtn;
     private Button withdrawalDialogWithdrawalBtn;
     private View.OnClickListener withdrawalCancelClickListenr, withdrawalClickListener;
+    private String pw;
+    private EditText pwEdit;
+
 
     public WithdrawalDialog(@NonNull Context context, View.OnClickListener withdrawalCancelClickListenr, View.OnClickListener withdrawalClickListener) {
         super(context);
         this.withdrawalCancelClickListenr = withdrawalCancelClickListenr;
-        withdrawalClickListener = withdrawalClickListener;
+        this.withdrawalClickListener = withdrawalClickListener;
     }
 
     @Override
@@ -34,6 +38,7 @@ public class WithdrawalDialog extends Dialog {
 
         withdrawalDialogCancelBtn = (ImageButton) findViewById(R.id.btn_withdrawal_cancel);
         withdrawalDialogWithdrawalBtn = (Button) findViewById(R.id.btn_withdrawal);
+        pwEdit = (EditText) findViewById(R.id.edit_dialog_withdrawal_pw);
 
         if(withdrawalCancelClickListenr != null) {
             withdrawalDialogCancelBtn.setOnClickListener(withdrawalCancelClickListenr);
@@ -41,5 +46,10 @@ public class WithdrawalDialog extends Dialog {
         if(withdrawalClickListener != null) {
             withdrawalDialogWithdrawalBtn.setOnClickListener(withdrawalClickListener);
         }
+    }
+
+    public String getPw() {
+        pw = pwEdit.getText().toString();
+        return pw;
     }
 }
