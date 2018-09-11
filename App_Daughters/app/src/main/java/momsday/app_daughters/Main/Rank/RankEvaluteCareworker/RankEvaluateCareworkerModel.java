@@ -3,7 +3,7 @@ package momsday.app_daughters.Main.Rank.RankEvaluteCareworker;
 import com.google.gson.annotations.SerializedName;
 
 public class RankEvaluateCareworkerModel {
-    @SerializedName("dilligence")
+    @SerializedName("diligence")
     private int sincerity;
 
     @SerializedName("kindness")
