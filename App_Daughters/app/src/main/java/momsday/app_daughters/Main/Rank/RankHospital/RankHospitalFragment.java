@@ -96,7 +96,7 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     @Override
     public void setMyHospital(String myHospitalName, String myHospitalLocation, float myHospitalOverall, String myHospitalImagepath) {
         rankRecyclerMyHospitalItems.add(new RankRecyclerHospitalItem(myHospitalName, myHospitalLocation, myHospitalOverall, myHospitalImagepath));
-        rankHospitalRecyclerAdapter.notifyDataSetChanged();
+        rankMyHospitalRecyclerAdapter.notifyDataSetChanged();
     }
 
     @Override
