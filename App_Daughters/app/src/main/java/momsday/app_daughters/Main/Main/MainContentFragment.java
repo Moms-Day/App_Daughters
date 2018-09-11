@@ -42,8 +42,8 @@ public class MainContentFragment extends Fragment {
         mainScheduleLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems = new ArrayList();
 
-        mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem("6","7","ㄹㄹ"));
-        mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem("7","8","바보"));
+        mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem("06:00 ~ 07:00","ㄹㄹ"));
+        mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem("07:00 ~ 08:00","바보"));
         mainScheduleRecycler.setLayoutManager(mainScheduleLayoutManager);
         mainScheduleRecycler.setItemAnimator(new DefaultItemAnimator());
 

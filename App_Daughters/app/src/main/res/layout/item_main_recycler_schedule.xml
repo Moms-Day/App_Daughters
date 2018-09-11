@@ -9,91 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="10dp">
+
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/image_main_recycler_schedule"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/icon_main_schedule"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="14dp"/>
+            <ImageView
+                android:id="@+id/image_main_recycler_schedule"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="14dp"
+                android:src="@drawable/icon_main_schedule"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="|"
-                android:textSize="18sp"
                 android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/image_main_recycler_schedule"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/text_recycler_schedule_start_time"/>
+                app:layout_constraintEnd_toStartOf="@id/text_main_recycler_shedule_time"
+                app:layout_constraintStart_toEndOf="@id/image_main_recycler_schedule"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_recycler_schedule_start_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="8"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintLeft_toRightOf="@id/image_main_recycler_schedule"
-            app:layout_constraintRight_toLeftOf="@id/text1_main_recycler_schedule"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text1_main_recycler_schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시 ~ "
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_start_time"
-            app:layout_constraintRight_toLeftOf="@id/text_recycler_schedule_end_time"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/text_main_recycler_shedule_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="09:00 ~ 10:00"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_main_recycler_schedule"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_recycler_schedule_end_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="9"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/text1_main_recycler_schedule"
-            app:layout_constraintRight_toLeftOf="@id/text2_main_recycler_schedule"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text2_main_recycler_schedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/text_recycler_schedule_end_time"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_main_recycler_schedule_work"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:text="아침식사"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/text2_main_recycler_schedule"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/text_main_recycler_schedule_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아침식사"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toEndOf="@id/text_main_recycler_shedule_time"
+                app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

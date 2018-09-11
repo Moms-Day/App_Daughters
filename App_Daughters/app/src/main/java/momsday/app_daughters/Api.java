@@ -8,6 +8,7 @@ import java.util.List;
 
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
 import momsday.app_daughters.HospitalInformation.HospitalInformationModel;
+import momsday.app_daughters.Main.Main.MainModel;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalModel;
@@ -86,4 +87,9 @@ public interface Api {
     @HTTP(method = "DELETE", path = "my_page/withdraw", hasBody = true)
     Call<Void> doWithDrawal(@Header("Authorization") String Authorization,
                             @Body WithdrawalModel withdrawalModel);
+
+    @GET("form/{p_id}")
+    @Headers("Content-Type: application/json")
+    Call<MainModel> getForm(@Header("Authorization") String Authorization,
+                            @Path("p_id") String parentId);
 }

@@ -1,19 +1,17 @@
 package momsday.app_daughters.Main.Main;
 
 public class MainRecyclerScheduleItem {
-    String startTime, endTime, work;
-    public String getStartTime() {
-        return startTime;
+    String time, work;
+
+    public String getTime() {
+        return time;
     }
-    public String getEndTime() {
-        return endTime;
-    }
+
     public String getWork() {
         return work;
     }
-    public MainRecyclerScheduleItem(String startTime, String endTime, String work) {
-        this.startTime = startTime;
-        this.endTime = endTime;
+    public MainRecyclerScheduleItem(String time, String work) {
+        this.time = time;
         this.work = work;
     }
 }

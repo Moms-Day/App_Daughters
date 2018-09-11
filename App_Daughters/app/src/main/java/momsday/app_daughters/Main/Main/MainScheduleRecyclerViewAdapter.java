@@ -28,8 +28,7 @@ public class MainScheduleRecyclerViewAdapter extends RecyclerView.Adapter<MainSc
     @Override
     public void onBindViewHolder(MainScheduleRecyclerViewHolder holder, final int position) {
         // 해당 position 에 해당하는 데이터 결합
-        holder.scheduleStartTimeText.setText(mainRecyclerScheduleItems.get(position).startTime);
-        holder.scheduleEndTimeText.setText(mainRecyclerScheduleItems.get(position).endTime);
+        holder.scheduleTimeText.setText(mainRecyclerScheduleItems.get(position).time);
         holder.scheduleWorkText.setText(mainRecyclerScheduleItems.get(position).work);
 
     }
