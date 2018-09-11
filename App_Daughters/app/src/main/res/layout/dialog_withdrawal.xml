@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintVertical_bias="0.65"
         app:layout_constraintTop_toBottomOf="@id/toolbar_change_pw"
         app:layout_constraintWidth_percent="0.8" />
 
@@ -75,7 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edit_change_pw_check"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintWidth_percent="0.5"
+        android:layout_marginBottom="20dp"/>
 
 
 </android.support.constraint.ConstraintLayout>
