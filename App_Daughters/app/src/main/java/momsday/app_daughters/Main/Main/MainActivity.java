@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getApplicationContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         careworkerId = preferences.getString("careworkerId", "");
+        Log.d("Debug","main careworkerId"+careworkerId);
         if(TextUtils.isEmpty(careworkerId))
         {
             requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);

@@ -48,6 +48,7 @@ public class RankEvaluateCareworkerDialog extends Dialog {
         evaluateCareworkerKindnessRadioGrp = (RadioGroup) findViewById(R.id.radiogrp_rank_evaluate_careworker_kindness);
         careworkerTotalScoreRatingBar = (RatingBar) findViewById(R.id.ratingbar_rank_evaluate_careworker_score);
         careworkerReviewEdit = (EditText) findViewById(R.id.edit_rank_evaluate_careworker_review);
+        careworkerNameText = (TextView) findViewById(R.id.text_rank_evaluate_careworker_name);
 
         preferences = getContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         careworkerName = preferences.getString("careworkerName", "");

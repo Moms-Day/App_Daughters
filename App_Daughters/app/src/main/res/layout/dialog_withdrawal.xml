@@ -48,7 +48,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="8dp"/>
     <EditText
-        android:id="@+id/edit_change_pw_check"
+        android:id="@+id/edit_dialog_withdrawal_pw"
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginBottom="30dp"

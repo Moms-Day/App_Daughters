@@ -13,13 +13,17 @@ import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCarewor
 import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalModel;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalModel;
 import momsday.app_daughters.MyPage.MyPageModel;
+import momsday.app_daughters.MyPage.WithdrawalModel;
 import momsday.app_daughters.RequestConnection.RequestConnectionModel;
 import momsday.app_daughters.SearchHospital.SearchHospitalModel;
 import momsday.app_daughters.SignIn.SignInModel;
 import momsday.app_daughters.SignUp.SignUpModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.PATCH;
@@ -77,4 +81,9 @@ public interface Api {
     @GET("my_page/account_info")
     @Headers("Content-Type: application/json")
     Call<MyPageModel> getMyPage(@Header("Authorization") String Authorization);
+
+
+    @HTTP(method = "DELETE", path = "my_page/withdraw", hasBody = true)
+    Call<Void> doWithDrawal(@Header("Authorization") String Authorization,
+                            @Body WithdrawalModel withdrawalModel);
 }

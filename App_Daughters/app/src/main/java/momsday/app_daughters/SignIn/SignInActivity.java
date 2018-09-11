@@ -83,6 +83,6 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void showIdErrorMessage() {
-        Toast.makeText(getApplicationContext(), "id중복", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "비밀번호 오류", Toast.LENGTH_SHORT).show();
     }
 }
