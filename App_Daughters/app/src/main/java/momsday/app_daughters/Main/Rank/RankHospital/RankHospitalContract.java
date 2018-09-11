@@ -11,5 +11,6 @@ public interface RankHospitalContract {
         void setView(View view);
         void getHospitalRank();
         void getHospitalCode(int position);
+        void getMyHospitalCode(int position);
     }
 }

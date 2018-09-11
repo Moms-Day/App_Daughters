@@ -59,7 +59,7 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
         rankMyHospitalRecycler.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankMyHospitalRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                presenter.getHospitalCode(position);
+                presenter.getMyHospitalCode(position);
             }
 
             @Override

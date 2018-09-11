@@ -62,4 +62,10 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
         hospitalCode = rankHospitalModel.getFacilities().get(position).getHospitalCode();
         view.startHospitalInform(hospitalCode);
     }
+
+    @Override
+    public void getMyHospitalCode(int position) {
+        hospitalCode = rankHospitalModel.getMyFacilities().get(position).getMyHospitalCode();
+        view.startHospitalInform(hospitalCode);
+    }
 }
