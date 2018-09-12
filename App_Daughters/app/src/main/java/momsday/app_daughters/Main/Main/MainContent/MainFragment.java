@@ -1,5 +1,6 @@
 package momsday.app_daughters.Main.Main.MainContent;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,7 +23,7 @@ import momsday.app_daughters.Main.Main.MainContent.MainContentPresenter;
 import momsday.app_daughters.R;
 
 
-public class MainFragment extends Fragment implements MainContentContract.View{
+public class MainFragment extends Fragment implements MainContentContract.View {
     public MainFragment() {
     }
 
@@ -32,11 +33,12 @@ public class MainFragment extends Fragment implements MainContentContract.View{
     private MainContentFragment mainContentFragment;
     private Form twoDaysAgoForm, yesterdayForm, todayForm;
     private MainContentContract.Presenter presenter;
+    public static Context MainContentContext;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        MainContentContext = getContext();
         presenter = new MainContentPresenter();
         presenter.setView(this);
         presenter.getMainModel();
@@ -92,7 +94,7 @@ public class MainFragment extends Fragment implements MainContentContract.View{
 
     @Override
     public void showErrorMessage() {
-        Toast.makeText(getContext(),"오류",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "오류", Toast.LENGTH_SHORT).show();
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {

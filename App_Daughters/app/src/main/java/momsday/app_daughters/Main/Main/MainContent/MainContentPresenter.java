@@ -9,7 +9,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static momsday.app_daughters.Main.Main.Main.MainActivity.MainContext;
+import static momsday.app_daughters.Main.Main.MainContent.MainFragment.MainContentContext;
 
 public class MainContentPresenter implements MainContentContract.Presenter {
     private MainContentContract.View view;
@@ -24,7 +24,7 @@ public class MainContentPresenter implements MainContentContract.Presenter {
 
     @Override
     public void getMainModel() {
-        SharedPreferences preferences = MainContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        SharedPreferences preferences = MainContentContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization = preferences.getString("Authorization", "");
         parentId = preferences.getString("parentId", "");
         api.getForm("JWT " + authorization, parentId).enqueue(new Callback<MainContentModel>() {
