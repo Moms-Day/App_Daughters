@@ -4,11 +4,11 @@ package momsday.app_daughters;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationModel;
 import momsday.app_daughters.HospitalInformation.HospitalInformationModel;
-import momsday.app_daughters.Main.Main.MainModel;
+import momsday.app_daughters.Main.Main.Main.MainModel;
+import momsday.app_daughters.Main.Main.MainContent.MainContentModel;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerModel;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalModel;
@@ -21,8 +21,6 @@ import momsday.app_daughters.SignIn.SignInModel;
 import momsday.app_daughters.SignUp.SignUpModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Header;
@@ -90,6 +88,10 @@ public interface Api {
 
     @GET("form/{p_id}")
     @Headers("Content-Type: application/json")
-    Call<MainModel> getForm(@Header("Authorization") String Authorization,
-                            @Path("p_id") String parentId);
+    Call<MainContentModel> getForm(@Header("Authorization") String Authorization,
+                                   @Path("p_id") String parentId);
+
+    @GET("main")
+    @Headers("Content-Type: application/json")
+    Call<String[]> getMain(@Header("Authorization") String Authorization);
 }

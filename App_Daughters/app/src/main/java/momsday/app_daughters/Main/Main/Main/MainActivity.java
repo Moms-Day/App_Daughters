@@ -1,9 +1,8 @@
-package momsday.app_daughters.Main.Main;
+package momsday.app_daughters.Main.Main.Main;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -21,40 +20,35 @@ import android.widget.TextView;
 
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Chat.ChatFragment;
+import momsday.app_daughters.Main.Main.MainContent.MainFragment;
 import momsday.app_daughters.Main.Rank.RankFragment;
 import momsday.app_daughters.MyPage.MyPageActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.RequestConnection.RequestConnectionActivity;
 import momsday.app_daughters.RequestConnection.RequestConnectionDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View{
 
     private SectionsPagerAdapter mainSectionsPagerAdapter;
     private ViewPager mainViewPager;
     private ImageButton myPageBtn;
     private RequestConnectionDialog requestConnectionDialog;
-    private SharedPreferences preferences;
-    private String careworkerId;
+    public static Context MainContext;
+    private MainContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MainContext = getApplicationContext();
         mainSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         myPageBtn = (ImageButton) findViewById(R.id.btn_main_my_page);
         mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
-
-        preferences = getApplicationContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
-        careworkerId = preferences.getString("careworkerId", "");
-        Log.d("Debug","main careworkerId"+careworkerId);
-        if(TextUtils.isEmpty(careworkerId))
-        {
-            requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
-            requestConnectionDialog.setCancelable(false);
-            requestConnectionDialog.show();
-        }
+        presenter = new MainPresenter();
+        presenter.setView(this);
+        presenter.getInform();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_main);
 
@@ -75,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void successGetInform() {
+
+    }
+
+    @Override
+    public void showRequestConnectDialog() {
+        requestConnectionDialog = new RequestConnectionDialog(this, moveRankClickListener, moveConnectClickListener);
+        requestConnectionDialog.setCancelable(false);
+        requestConnectionDialog.show();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

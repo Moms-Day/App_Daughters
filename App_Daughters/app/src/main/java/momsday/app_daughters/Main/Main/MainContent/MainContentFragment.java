@@ -1,4 +1,4 @@
-package momsday.app_daughters.Main.Main;
+package momsday.app_daughters.Main.Main.MainContent;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +25,7 @@ public class MainContentFragment extends Fragment {
     LinearLayoutManager mainScheduleLayoutManager, mainConditionLayoutManager;
     MainScheduleRecyclerViewAdapter mainScheduleRecyclerAdapter;
     MainConditionRecyclerViewAdapter mainConditionRecyclerAdapter;
+    Form form;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +36,6 @@ public class MainContentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_main_content,null);
-
 
         mainScheduleRecycler = (RecyclerView)rootView.findViewById(R.id.recycler_main_schedule);
         mainScheduleLayoutManager = new LinearLayoutManager(getContext());
@@ -68,5 +68,10 @@ public class MainContentFragment extends Fragment {
         mainConditionRecycler.setAdapter(mainConditionRecyclerAdapter);
 
         return rootView;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+//        Log.d("Debug","form"+form.toString());
     }
 }

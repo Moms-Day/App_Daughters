@@ -2,7 +2,6 @@ package momsday.app_daughters.MyPage;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import momsday.app_daughters.Main.Main.MainActivity;
+import momsday.app_daughters.Main.Main.Main.MainActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.SignIn.SignInActivity;
 

@@ -17,13 +17,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
 
-import momsday.app_daughters.Main.Main.MainActivity;
+import momsday.app_daughters.Main.Main.Main.MainActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.SearchHospital.Careworker;
 import momsday.app_daughters.SearchHospital.SearchHospitalActivity;
-import momsday.app_daughters.SearchHospital.SearchHospitalModel;
-
-import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RequestConnectionActivity extends AppCompatActivity implements RequestConnectionContract.View{
 
