@@ -167,14 +167,23 @@
         android:layout_marginTop="20dp">
         <RadioButton
             android:id="@+id/radiobtn_my_page_parent_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="남자"/>
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="남자"
+            android:gravity="center"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"
+            android:textColor="@drawable/radiobtn_mypage_gender_text"/>
         <RadioButton
             android:id="@+id/radiobtn_my_page_parent_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="여자"/>
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="여자"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"
+            android:textColor="@drawable/radiobtn_mypage_gender_text" />
     </RadioGroup>
     
     <Button
