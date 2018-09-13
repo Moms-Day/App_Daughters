@@ -27,7 +27,8 @@
         android:layout_height="38dp"
         android:layout_marginTop="23dp"
         android:background="@drawable/roundstyle_signup_edit"
-        android:drawableEnd="@drawable/icon_main_rank_write"
+        android:drawableEnd="@drawable/search_hospital_search_icon"
+        android:paddingEnd="10dp"
         android:hint="요양병원 이름"
         android:textSize="12sp"
         android:inputType="text"
@@ -165,16 +166,26 @@
 
         <RadioButton
             android:id="@+id/radiobtn_request_connection_parent_male"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             android:text="남자"
-            android:checked="true"/>
+            android:checked="true"
+            android:gravity="center"
+            android:textColor="@drawable/radiobtn_mypage_gender_text"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"/>
 
         <RadioButton
             android:id="@+id/radiobtn_request_connection_parent_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="여자" />
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="여자"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:textColor="@drawable/radiobtn_mypage_gender_text"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"
+            />
     </RadioGroup>
 
     <Button
