@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import momsday.app_daughters.Main.Main.MainContent.Form;
@@ -30,8 +31,8 @@ public class MainFragment extends Fragment implements MainContentContract.View {
     private View view;
     private ViewPager mainContentViewPager;
     private ScrollView mainContentScrollView;
-    private MainContentFragment mainContentFragment;
-    private Form twoDaysAgoForm, yesterdayForm, todayForm;
+    private MainContentFragment twoDaysAgoFragment, yesterdayFragment, todayFragment;
+    private Form form;
     private MainContentContract.Presenter presenter;
     public static Context MainContentContext;
 
@@ -49,7 +50,9 @@ public class MainFragment extends Fragment implements MainContentContract.View {
         mainContentScrollView = (ScrollView) view.findViewById(R.id.scroll_main_content);
         mainContentViewPager.setAdapter(new pagerAdapter(getChildFragmentManager()));
         mainContentViewPager.setCurrentItem(2);
-        mainContentFragment = new MainContentFragment();
+        twoDaysAgoFragment = new MainContentFragment();
+        yesterdayFragment = new MainContentFragment();
+        todayFragment = new MainContentFragment();
 
 
         mainContentViewPager.setOnTouchListener(new View.OnTouchListener() {
@@ -71,12 +74,16 @@ public class MainFragment extends Fragment implements MainContentContract.View {
             @Override
             public void onPageSelected(int position) {
                 if (mainContentViewPager.getCurrentItem() == 0) {
-                    Log.d("Debug", "0");
+                    form = presenter.getForm(0);
+                    twoDaysAgoFragment.setForm(form);
                 } else if (mainContentViewPager.getCurrentItem() == 1) {
-                    Log.d("Debug", "1");
+                    form = presenter.getForm(1);
+                    yesterdayFragment.setForm(form);
                 } else if (mainContentViewPager.getCurrentItem() == 2) {
-                    Log.d("Debug", "2");
+                    form = presenter.getForm(2);
+                    todayFragment.setForm(form);
                 }
+
             }
 
             @Override
@@ -89,12 +96,16 @@ public class MainFragment extends Fragment implements MainContentContract.View {
 
     @Override
     public void successGetMainModel() {
-        mainContentFragment.setForm(presenter.getForm(mainContentViewPager.getCurrentItem()));
+        todayFragment.setForm(presenter.getForm(mainContentViewPager.getCurrentItem()));
     }
 
     @Override
     public void showErrorMessage() {
         Toast.makeText(getContext(), "오류", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setDate(String date) {
     }
 
     private class pagerAdapter extends FragmentStatePagerAdapter {
@@ -105,7 +116,16 @@ public class MainFragment extends Fragment implements MainContentContract.View {
 
         @Override
         public Fragment getItem(int position) {
-            return new MainContentFragment();
+            switch (position) {
+                case 0:
+                    return twoDaysAgoFragment;
+                case 1:
+                    return yesterdayFragment;
+                case 2:
+                    return todayFragment;
+                default:
+                    return null;
+            }
         }
 
         @Override

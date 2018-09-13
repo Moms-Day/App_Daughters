@@ -82,6 +82,66 @@ public class Form implements Parcelable{
 
         @SerializedName("cough")
         private boolean cough;
+
+        public boolean isActivityReduction() {
+            return activityReduction;
+        }
+
+        public boolean isBingeEating() {
+            return bingeEating;
+        }
+
+        public boolean isBloodPressureincrease() {
+            return bloodPressureincrease;
+        }
+
+        public boolean isBloodPressureReduction() {
+            return bloodPressureReduction;
+        }
+
+        public boolean isConstipation() {
+            return constipation;
+        }
+
+        public boolean isCough() {
+            return cough;
+        }
+
+        public boolean isDiarrhea() {
+            return diarrhea;
+        }
+
+        public boolean isHighFever() {
+            return highFever;
+        }
+
+        public boolean isHumanPowerReduction() {
+            return humanPowerReduction;
+        }
+
+        public boolean isLackOfSleep() {
+            return lackOfSleep;
+        }
+
+        public boolean isLoseAppetite() {
+            return loseAppetite;
+        }
+
+        public boolean isLowTemparature() {
+            return lowTemparature;
+        }
+
+        public boolean isPovertyOfBlood() {
+            return povertyOfBlood;
+        }
+
+        public boolean isUrinationInconvenient() {
+            return urinationInconvenient;
+        }
+
+        public boolean isVomiting() {
+            return vomiting;
+        }
     }
 
     @SerializedName("date")
@@ -99,6 +159,18 @@ public class Form implements Parcelable{
 
         @SerializedName("lunch")
         private String[] lunch;
+
+        public String[] getBreakfast() {
+            return breakfast;
+        }
+
+        public String[] getDinner() {
+            return dinner;
+        }
+
+        public String[] getLunch() {
+            return lunch;
+        }
     }
 
     @SerializedName("photo")
@@ -110,6 +182,14 @@ public class Form implements Parcelable{
 
         @SerializedName("photo_path")
         private String photoPath;
+
+        public String getComment() {
+            return comment;
+        }
+
+        public String getPhotoPath() {
+            return photoPath;
+        }
     }
 
     @SerializedName("schedule")
@@ -121,5 +201,33 @@ public class Form implements Parcelable{
 
         @SerializedName("work")
         private String work;
+
+        public String getTime() {
+            return time;
+        }
+
+        public String getWork() {
+            return work;
+        }
+    }
+
+    public ArrayList<Condition> getConditions() {
+        return conditions;
+    }
+
+    public ArrayList<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    public String getDate() {
+        return date;
     }
 }

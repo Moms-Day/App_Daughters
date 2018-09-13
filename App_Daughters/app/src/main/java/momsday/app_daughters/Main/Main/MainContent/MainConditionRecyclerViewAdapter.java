@@ -27,9 +27,12 @@ public class MainConditionRecyclerViewAdapter extends RecyclerView.Adapter<MainC
 
     @Override
     public void onBindViewHolder(@NonNull MainConditionRecyclerViewHolder holder, int position) {
-        holder.checkbox1.setText(mainRecyclerConditionItems.get(position).checkbox1);
-        holder.checkbox2.setText(mainRecyclerConditionItems.get(position).checkbox2);
-        holder.checkbox3.setText(mainRecyclerConditionItems.get(position).checkbox3);
+        holder.checkbox1.setText(mainRecyclerConditionItems.get(position).checkbox1Name);
+        holder.checkbox2.setText(mainRecyclerConditionItems.get(position).checkbox2Name);
+        holder.checkbox3.setText(mainRecyclerConditionItems.get(position).checkbox3Name);
+        holder.checkbox1.setChecked(mainRecyclerConditionItems.get(position).checkbox1Checked);
+        holder.checkbox2.setChecked(mainRecyclerConditionItems.get(position).checkbox2Checked);
+        holder.checkbox3.setChecked(mainRecyclerConditionItems.get(position).checkbox3Checked);
     }
     @Override
     public int getItemCount() {

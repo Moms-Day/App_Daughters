@@ -6,6 +6,7 @@ public interface MainContentContract {
     interface View {
         void successGetMainModel();
         void showErrorMessage();
+        void setDate(String date);
 
     }
     interface Presenter {
