@@ -34,7 +34,7 @@ public class MainContentFragment extends Fragment {
     private MainConditionRecyclerViewAdapter mainConditionRecyclerAdapter;
     private ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems;
     private Form form;
-    private TextView breakfastText, lunchText, dinnerText, snackText, dateText;
+    private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText;
     private ImageView mainImageView;
     private String breakfast, lunch, dinner;
 
@@ -61,6 +61,7 @@ public class MainContentFragment extends Fragment {
         snackText = (TextView) rootView.findViewById(R.id.text_main_content_snack);
         dateText = (TextView) rootView.findViewById(R.id.text_main_content_date);
         mainImageView = (ImageView) rootView.findViewById(R.id.image_main_content_image);
+        photoCommentText = (TextView) rootView.findViewById(R.id.text_main_content_photo_comment);
 //todo         mainImageView = (ImageView) rootView.findViewById()
 
         mainScheduleRecycler.setLayoutManager(mainScheduleLayoutManager);
@@ -118,6 +119,7 @@ public class MainContentFragment extends Fragment {
         dateText.setText(form.getDate());
         if (!TextUtils.isEmpty(form.getPhoto().getPhotoPath()))
             Glide.with(getContext()).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
+        photoCommentText.setText(form.getPhoto().getComment());
         init();
     }
 
