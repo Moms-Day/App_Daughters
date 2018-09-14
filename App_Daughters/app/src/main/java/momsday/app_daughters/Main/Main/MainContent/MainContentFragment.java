@@ -33,6 +33,7 @@ public class MainContentFragment extends Fragment {
     private MainScheduleRecyclerViewAdapter mainScheduleRecyclerAdapter;
     private MainConditionRecyclerViewAdapter mainConditionRecyclerAdapter;
     private ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems;
+    private ArrayList<MainRecyclerConditionItem> mainRecyclerConditionItems;
     private Form form;
     private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText;
     private ImageView mainImageView;
@@ -74,13 +75,8 @@ public class MainContentFragment extends Fragment {
         mainConditionRecycler = (RecyclerView) rootView.findViewById(R.id.recycler_main_condition);
         mainConditionLayoutManager = new LinearLayoutManager(getContext());
         mainConditionLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        ArrayList<MainRecyclerConditionItem> mainRecyclerConditionItems = new ArrayList<>();
+        mainRecyclerConditionItems = new ArrayList<>();
 
-        mainRecyclerConditionItems.add(new MainRecyclerConditionItem("활동량 감소", "저체온", "고열", true, true, true));
-        mainRecyclerConditionItems.add(new MainRecyclerConditionItem("고혈압", "저혈압", "수면 부족", true, false, true));
-        mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴", "폭식", "설사", false, false, true));
-        mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", false, true, true));
-        mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", false, false, false));
         mainConditionRecycler.setLayoutManager(mainConditionLayoutManager);
         mainConditionRecycler.setItemAnimator(new DefaultItemAnimator());
 
@@ -93,9 +89,12 @@ public class MainContentFragment extends Fragment {
     public void setForm(Form form) {
         this.form = form;
         Log.d("Debug", "form" + form.toString());
-        for (int i = 0; i < form.getSchedules().size(); i++) {
-            mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem(form.getSchedules().get(i).getTime(), form.getSchedules().get(i).getWork()));
+        if(form.getSchedules().size() != 0) {
+            for (int i = 0; i < form.getSchedules().size(); i++) {
+                mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem(form.getSchedules().get(i).getTime(), form.getSchedules().get(i).getWork()));
+            }
         }
+
         mainScheduleRecyclerAdapter.notifyDataSetChanged();
 
         if (form.getMeal().getBreakfast() != null) {
@@ -120,6 +119,14 @@ public class MainContentFragment extends Fragment {
         if (!TextUtils.isEmpty(form.getPhoto().getPhotoPath()))
             Glide.with(getContext()).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
         photoCommentText.setText(form.getPhoto().getComment());
+
+        if(form.getConditions().size() != 0) {
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("활동량 감소", "저체온", "고열", checkCondition(form.getConditions().get(0).isActivityReduction()), checkCondition(form.getConditions().get(0).isLowTemparature()), checkCondition(form.getConditions().get(0).isHighFever())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("고혈압", "저혈압", "수면 부족", checkCondition(form.getConditions().get(0).isBloodPressureincrease()), checkCondition(form.getConditions().get(0).isBloodPressureReduction()), checkCondition(form.getConditions().get(0).isLackOfSleep())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴", "폭식", "설사", checkCondition(form.getConditions().get(0).isLoseAppetite()), checkCondition(form.getConditions().get(0).isBingeEating()), checkCondition(form.getConditions().get(0).isDiarrhea())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getConditions().get(0).isConstipation()), checkCondition(form.getConditions().get(0).isVomiting()), checkCondition(form.getConditions().get(0).isUrinationInconvenient())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getConditions().get(0).isHumanPowerReduction()), checkCondition(form.getConditions().get(0).isPovertyOfBlood()), checkCondition(form.getConditions().get(0).isCough())));
+        }
         init();
     }
 
@@ -128,5 +135,12 @@ public class MainContentFragment extends Fragment {
         breakfast = "";
         lunch = "";
         dinner = "";
+    }
+
+    public boolean checkCondition(Boolean condition) {
+        if(condition == null) {
+            return false;
+        } else
+            return true;
     }
 }
