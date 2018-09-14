@@ -23,6 +23,8 @@ public class MainRecyclerChatItem {
         return itemViewType;
     }
 
+    MainRecyclerChatItem() { }
+
     MainRecyclerChatItem(int itemViewType, String messageText, String timeText) {
         this.itemViewType = itemViewType;
         this.messageText = messageText;
