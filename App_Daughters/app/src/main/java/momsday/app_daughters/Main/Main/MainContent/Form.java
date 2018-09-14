@@ -160,6 +160,13 @@ public class Form implements Parcelable{
         @SerializedName("lunch")
         private String[] lunch;
 
+        @SerializedName("snack")
+        private String snack;
+
+        public String getSnack() {
+            return snack;
+        }
+
         public String[] getBreakfast() {
             return breakfast;
         }
@@ -172,6 +179,18 @@ public class Form implements Parcelable{
             return lunch;
         }
     }
+
+    @SerializedName("additional")
+    private Additional additional;
+    class Additional {
+        @SerializedName("description")
+        private String description;
+
+        public String getDescription() {
+            return description;
+        }
+    }
+
 
     @SerializedName("photo")
     private Photo photo;
@@ -229,5 +248,9 @@ public class Form implements Parcelable{
 
     public String getDate() {
         return date;
+    }
+
+    public Additional getAdditional() {
+        return additional;
     }
 }

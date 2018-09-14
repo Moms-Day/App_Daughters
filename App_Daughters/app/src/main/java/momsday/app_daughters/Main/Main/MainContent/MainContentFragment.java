@@ -35,7 +35,7 @@ public class MainContentFragment extends Fragment {
     private ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems;
     private ArrayList<MainRecyclerConditionItem> mainRecyclerConditionItems;
     private Form form;
-    private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText;
+    private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText, descriptionText;
     private ImageView mainImageView;
     private String breakfast, lunch, dinner;
 
@@ -63,6 +63,7 @@ public class MainContentFragment extends Fragment {
         dateText = (TextView) rootView.findViewById(R.id.text_main_content_date);
         mainImageView = (ImageView) rootView.findViewById(R.id.image_main_content_image);
         photoCommentText = (TextView) rootView.findViewById(R.id.text_main_content_photo_comment);
+        descriptionText = (TextView) rootView.findViewById(R.id.text_main_content_explain);
 //todo         mainImageView = (ImageView) rootView.findViewById()
 
         mainScheduleRecycler.setLayoutManager(mainScheduleLayoutManager);
@@ -127,6 +128,9 @@ public class MainContentFragment extends Fragment {
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getConditions().get(0).isConstipation()), checkCondition(form.getConditions().get(0).isVomiting()), checkCondition(form.getConditions().get(0).isUrinationInconvenient())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getConditions().get(0).isHumanPowerReduction()), checkCondition(form.getConditions().get(0).isPovertyOfBlood()), checkCondition(form.getConditions().get(0).isCough())));
         }
+
+        snackText.setText(form.getMeal().getSnack());
+        descriptionText.setText(form.getAdditional().getDescription());
         init();
     }
 
