@@ -37,7 +37,6 @@ public class MainContentFragment extends Fragment implements MainContentContract
     private MainConditionRecyclerViewAdapter mainConditionRecyclerAdapter;
     private ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems;
     private ArrayList<MainRecyclerConditionItem> mainRecyclerConditionItems;
-    private Form form;
     private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText, descriptionText, scheduleNoneText, conditionNoneText;
     private ImageView mainImageView;
     private String breakfast, lunch, dinner;
@@ -100,7 +99,6 @@ public class MainContentFragment extends Fragment implements MainContentContract
 
     @Override
     public void setForm(Form form) {
-        this.form = form;
         Log.d("Debug", "form" + form.toString());
         if (form.getSchedules().size() != 0) {
             for (int i = 0; i < form.getSchedules().size(); i++) {
@@ -132,7 +130,7 @@ public class MainContentFragment extends Fragment implements MainContentContract
         }
         dateText.setText(form.getDate());
         if (!TextUtils.isEmpty(form.getPhoto().getPhotoPath()))
-            Glide.with(getContext()).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
+            Glide.with(this).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
         photoCommentText.setText(form.getPhoto().getComment());
 
         if (form.getConditions().size() != 0) {
@@ -142,26 +140,16 @@ public class MainContentFragment extends Fragment implements MainContentContract
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getConditions().get(0).isConstipation()), checkCondition(form.getConditions().get(0).isVomiting()), checkCondition(form.getConditions().get(0).isUrinationInconvenient())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getConditions().get(0).isHumanPowerReduction()), checkCondition(form.getConditions().get(0).isPovertyOfBlood()), checkCondition(form.getConditions().get(0).isCough())));
             mainConditionRecyclerAdapter.notifyDataSetChanged();
-            Log.d("Debug","ㅇㅏ아아아아"+form.getConditions().get(0).isPovertyOfBlood());
         } else {
             conditionNoneText.setVisibility(View.VISIBLE);
         }
         snackText.setText(form.getMeal().getSnack());
         descriptionText.setText(form.getAdditional().getDescription());
-        init();
     }
 
     @Override
     public void showErrorMessage() {
         Toast.makeText(MainContentContext, "오류",Toast.LENGTH_SHORT).show();
-    }
-
-    public void init() {
-        mainRecyclerScheduleItems = new ArrayList();
-        breakfast = "";
-        lunch = "";
-        dinner = "";
-        mainRecyclerConditionItems = new ArrayList();
     }
 
     public boolean checkCondition(Boolean condition) {

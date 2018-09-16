@@ -30,7 +30,6 @@ public class MainFragment extends Fragment {
 
     private View view;
     private ViewPager mainContentViewPager;
-    private ScrollView mainContentScrollView;
     public static Context MainContentContext;
 
     @Nullable
@@ -40,7 +39,6 @@ public class MainFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_main_main, null);
         mainContentViewPager = (ViewPager) view.findViewById(R.id.viewPager_main_content);
-        mainContentScrollView = (ScrollView) view.findViewById(R.id.scroll_main_content);
         mainContentViewPager.setAdapter(new pagerAdapter(getChildFragmentManager()));
         mainContentViewPager.setCurrentItem(2);
 

@@ -7,34 +7,12 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class Form implements Parcelable{
+public class Form {
     @SerializedName("condition")
     private ArrayList<Condition> conditions;
 
     protected Form(Parcel in) {
         date = in.readString();
-    }
-
-    public static final Creator<Form> CREATOR = new Creator<Form>() {
-        @Override
-        public Form createFromParcel(Parcel in) {
-            return new Form(in);
-        }
-
-        @Override
-        public Form[] newArray(int size) {
-            return new Form[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(date);
     }
 
     class Condition {

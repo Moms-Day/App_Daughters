@@ -85,10 +85,10 @@ public class ChatActivity extends AppCompatActivity {
         });
 
 
-        databaseReference.child(careworkerId+"AND"+userId).child("message").addChildEventListener(new ChildEventListener() {  // message는 child의 이벤트를 수신합니다.
+        databaseReference.child(careworkerId+"AND"+userId).child("message").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                MainRecyclerChatItem chatData = dataSnapshot.getValue(MainRecyclerChatItem.class);  // chatData를 가져오고
+                MainRecyclerChatItem chatData = dataSnapshot.getValue(MainRecyclerChatItem.class);
                 if(chatData.getItemViewType() == 2) {
                     mainRecyclerChatItems.add(new MainRecyclerChatItem(2,chatData.getMessageText(),chatData.getTimeText()));
                     mainChatRecyclerAdapter.notifyDataSetChanged();
