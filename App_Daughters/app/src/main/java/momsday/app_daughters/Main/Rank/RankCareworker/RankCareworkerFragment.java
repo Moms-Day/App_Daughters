@@ -49,7 +49,12 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         //나의 요양보호사
         rankMyCareworkerRecycler = (RecyclerView)layout.findViewById(R.id.recycler_main_rank_my_careworker);
         myCareworkerNoneText = (TextView)layout.findViewById(R.id.text_main_rank_careworker_my_careworker_none);
-        rankMyCareworkerLayoutManager = new LinearLayoutManager(getContext());
+        rankMyCareworkerLayoutManager = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         rankMyCareworkerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerMyCareworkerItems = new ArrayList();
         rankMyCareworkerRecycler.setLayoutManager(rankMyCareworkerLayoutManager);
@@ -70,7 +75,12 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
 
         //요양보호사 순위
         rankCareworkerRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_careworker);
-        rankCareworkerLayoutManager = new LinearLayoutManager(getContext());
+        rankCareworkerLayoutManager = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         rankCareworkerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerCareworkerItems = new ArrayList();
         rankCareworkerRecycler.setLayoutManager(rankCareworkerLayoutManager);

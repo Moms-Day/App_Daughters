@@ -49,7 +49,12 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
         //나의 요양병원
         rankMyHospitalRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_my_hospital);
         myHospitalNoneText = (TextView) layout.findViewById(R.id.text_main_rank_hospital_my_hospital_none);
-        rankMyHospitalLayoutManager = new LinearLayoutManager(getContext());
+        rankMyHospitalLayoutManager = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         rankMyHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerMyHospitalItems = new ArrayList();
         rankMyHospitalRecycler.setLayoutManager(rankMyHospitalLayoutManager);
@@ -70,7 +75,12 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
 
         //요양병원 순위
         rankHospitalRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_hospital);
-        rankHospitalLayoutManager = new LinearLayoutManager(getContext());
+        rankHospitalLayoutManager = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         rankHospitalLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rankRecyclerHospitalItems = new ArrayList();
         rankHospitalRecycler.setLayoutManager(rankHospitalLayoutManager);
