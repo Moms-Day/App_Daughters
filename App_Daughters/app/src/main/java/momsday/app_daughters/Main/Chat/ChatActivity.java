@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ public class ChatActivity extends AppCompatActivity {
     long now;
     Date nowDate;
     SimpleDateFormat timeDateFormat, dateDateFormat;
-    String timeText, dateText, careworkerName;
+    String timeText, dateText, careworkerName, careworkerId, userId;
     private TextView sendBtn, careworkerNameText;
     private ArrayList<MainRecyclerChatItem> mainRecyclerChatItems;
     private EditText messageEdit;
@@ -56,6 +57,8 @@ public class ChatActivity extends AppCompatActivity {
 
         SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
         careworkerName = preferences.getString("careworkerName","");
+        careworkerId = preferences.getString("careworkerId","");
+        userId = preferences.getString("id","");
 
         careworkerNameText.setText(careworkerName);
 
@@ -76,16 +79,13 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MainRecyclerChatItem chatData = new MainRecyclerChatItem(1,messageEdit.getText().toString(),timeText);
-                mainRecyclerChatItems.add(chatData);
-                mainChatRecyclerAdapter.notifyDataSetChanged();
-                mainChatRecycler.smoothScrollToPosition(mainRecyclerChatItems.size() - 1);
-                databaseReference.child("message").push().setValue(chatData);
+                databaseReference.child("asdfANDqw").child("message").push().setValue(chatData);
                 messageEdit.setText("");
             }
         });
 
 
-        databaseReference.child("message").addChildEventListener(new ChildEventListener() {  // message는 child의 이벤트를 수신합니다.
+        databaseReference.child(careworkerId+"AND"+userId).child("message").addChildEventListener(new ChildEventListener() {  // message는 child의 이벤트를 수신합니다.
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MainRecyclerChatItem chatData = dataSnapshot.getValue(MainRecyclerChatItem.class);  // chatData를 가져오고
@@ -113,6 +113,15 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) { }
         });
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

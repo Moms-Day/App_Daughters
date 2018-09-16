@@ -2,6 +2,7 @@ package momsday.app_daughters.MyPage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -70,6 +71,8 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
             public void onClick(View view) {
                 Intent intent = new Intent(MyPageActivity.this, MainActivity.class);
                 startActivity(intent);
+
+                finish();
             }
         });
     }
@@ -118,6 +121,10 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
         Toast.makeText(getApplicationContext(),"회원탈퇴 성공!",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MyPageActivity.this, SignInActivity.class);
         startActivity(intent);
+
+        SharedPreferences preference = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preference.edit();
+        editor.clear();
         finish();
     }
 

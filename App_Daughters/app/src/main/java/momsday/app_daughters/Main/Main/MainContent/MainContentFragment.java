@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -21,8 +22,10 @@ import java.util.ArrayList;
 
 import momsday.app_daughters.R;
 
+import static momsday.app_daughters.Main.Main.MainContent.MainFragment.MainContentContext;
 
-public class MainContentFragment extends Fragment {
+
+public class MainContentFragment extends Fragment implements MainContentContract.View{
 
     public MainContentFragment() {
     }
@@ -35,9 +38,11 @@ public class MainContentFragment extends Fragment {
     private ArrayList<MainRecyclerScheduleItem> mainRecyclerScheduleItems;
     private ArrayList<MainRecyclerConditionItem> mainRecyclerConditionItems;
     private Form form;
-    private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText, descriptionText;
+    private TextView breakfastText, lunchText, dinnerText, snackText, dateText, photoCommentText, descriptionText, scheduleNoneText, conditionNoneText;
     private ImageView mainImageView;
     private String breakfast, lunch, dinner;
+    private int position;
+    private MainContentContract.Presenter presenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class MainContentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_main_content, null);
+        presenter = new MainContentPresenter();
 
         breakfast = "";
         lunch = "";
@@ -64,7 +70,8 @@ public class MainContentFragment extends Fragment {
         mainImageView = (ImageView) rootView.findViewById(R.id.image_main_content_image);
         photoCommentText = (TextView) rootView.findViewById(R.id.text_main_content_photo_comment);
         descriptionText = (TextView) rootView.findViewById(R.id.text_main_content_explain);
-//todo         mainImageView = (ImageView) rootView.findViewById()
+        scheduleNoneText = (TextView) rootView.findViewById(R.id.text_main_content_schedule_none);
+        conditionNoneText = (TextView) rootView.findViewById(R.id.text_main_content_condition_none);
 
         mainScheduleRecycler.setLayoutManager(mainScheduleLayoutManager);
         mainScheduleRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -84,16 +91,23 @@ public class MainContentFragment extends Fragment {
         mainConditionRecyclerAdapter = new MainConditionRecyclerViewAdapter(mainRecyclerConditionItems);
         mainConditionRecycler.setAdapter(mainConditionRecyclerAdapter);
 
+        presenter.setView(this);
+        presenter.getMainModel(position);
+
+
         return rootView;
     }
 
+    @Override
     public void setForm(Form form) {
         this.form = form;
         Log.d("Debug", "form" + form.toString());
-        if(form.getSchedules().size() != 0) {
+        if (form.getSchedules().size() != 0) {
             for (int i = 0; i < form.getSchedules().size(); i++) {
                 mainRecyclerScheduleItems.add(new MainRecyclerScheduleItem(form.getSchedules().get(i).getTime(), form.getSchedules().get(i).getWork()));
             }
+        } else {
+            scheduleNoneText.setVisibility(View.VISIBLE);
         }
 
         mainScheduleRecyclerAdapter.notifyDataSetChanged();
@@ -121,17 +135,25 @@ public class MainContentFragment extends Fragment {
             Glide.with(getContext()).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
         photoCommentText.setText(form.getPhoto().getComment());
 
-        if(form.getConditions().size() != 0) {
+        if (form.getConditions().size() != 0) {
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("활동량 감소", "저체온", "고열", checkCondition(form.getConditions().get(0).isActivityReduction()), checkCondition(form.getConditions().get(0).isLowTemparature()), checkCondition(form.getConditions().get(0).isHighFever())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("고혈압", "저혈압", "수면 부족", checkCondition(form.getConditions().get(0).isBloodPressureincrease()), checkCondition(form.getConditions().get(0).isBloodPressureReduction()), checkCondition(form.getConditions().get(0).isLackOfSleep())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴", "폭식", "설사", checkCondition(form.getConditions().get(0).isLoseAppetite()), checkCondition(form.getConditions().get(0).isBingeEating()), checkCondition(form.getConditions().get(0).isDiarrhea())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getConditions().get(0).isConstipation()), checkCondition(form.getConditions().get(0).isVomiting()), checkCondition(form.getConditions().get(0).isUrinationInconvenient())));
             mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getConditions().get(0).isHumanPowerReduction()), checkCondition(form.getConditions().get(0).isPovertyOfBlood()), checkCondition(form.getConditions().get(0).isCough())));
+            mainConditionRecyclerAdapter.notifyDataSetChanged();
+            Log.d("Debug","ㅇㅏ아아아아"+form.getConditions().get(0).isPovertyOfBlood());
+        } else {
+            conditionNoneText.setVisibility(View.VISIBLE);
         }
-
         snackText.setText(form.getMeal().getSnack());
         descriptionText.setText(form.getAdditional().getDescription());
         init();
+    }
+
+    @Override
+    public void showErrorMessage() {
+        Toast.makeText(MainContentContext, "오류",Toast.LENGTH_SHORT).show();
     }
 
     public void init() {
@@ -139,12 +161,14 @@ public class MainContentFragment extends Fragment {
         breakfast = "";
         lunch = "";
         dinner = "";
+        mainRecyclerConditionItems = new ArrayList();
     }
 
     public boolean checkCondition(Boolean condition) {
-        if(condition == null) {
-            return false;
-        } else
-            return true;
+        return condition;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

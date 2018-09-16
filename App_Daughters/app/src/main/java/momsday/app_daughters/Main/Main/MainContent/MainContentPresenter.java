@@ -25,7 +25,7 @@ public class MainContentPresenter implements MainContentContract.Presenter {
     }
 
     @Override
-    public void getMainModel() {
+    public void getMainModel(final int position) {
         SharedPreferences preferences = MainContentContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization = preferences.getString("Authorization", "");
         parentId = preferences.getString("parentId", "");
@@ -34,8 +34,9 @@ public class MainContentPresenter implements MainContentContract.Presenter {
             public void onResponse(Call<MainContentModel> call, Response<MainContentModel> response) {
                 if (response.code() == 200) {
                     mainContentModel = response.body();
-                    Log.d("Debug", "presenter : " + mainContentModel.getToday().toString());
-                    view.successGetMainModel();
+                    if(position == 0) view.setForm(mainContentModel.getTwoDaysAgoForm());
+                    else if(position == 1) view.setForm(mainContentModel.getYesterday());
+                    else if(position == 2) view.setForm(mainContentModel.getToday());
                 } else {
                     view.showErrorMessage();
                 }
@@ -46,22 +47,5 @@ public class MainContentPresenter implements MainContentContract.Presenter {
             }
         });
 
-    }
-
-    @Override
-    public Form getForm(int position) {
-        switch (position) {
-            case 0:
-                form = mainContentModel.getTwoDaysAgoForm();
-                return form;
-            case 1:
-                form = mainContentModel.getYesterday();
-                return form;
-            case 2:
-                form = mainContentModel.getToday();
-                return form;
-            default:
-                return null;
-        }
     }
 }

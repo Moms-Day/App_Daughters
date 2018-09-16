@@ -4,14 +4,12 @@ import momsday.app_daughters.Main.Main.MainContent.Form;
 
 public interface MainContentContract {
     interface View {
-        void successGetMainModel();
+        void setForm(Form form);
         void showErrorMessage();
-        void setDate(String date);
 
     }
     interface Presenter {
         void setView(View view);
-        void getMainModel();
-        Form getForm(int position);
+        void getMainModel(int position);
     }
 }
