@@ -27,13 +27,6 @@ public class MainChatListRecyclerViewAdapter extends RecyclerView.Adapter<MainCh
 
         mainRecyclerChatListContext = parent.getContext();
         MainChatListRecyclerViewHolder holder = new MainChatListRecyclerViewHolder(v);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),ChatActivity.class);
-                v.getContext().startActivity(intent);
-            }
-        });
         return holder;
     }
 

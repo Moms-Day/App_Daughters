@@ -1,11 +1,13 @@
 package momsday.app_daughters.Main.Chat;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     long now;
     Date nowDate;
     SimpleDateFormat timeDateFormat, dateDateFormat;
-    String timeText, dateText, careworkerName, careworkerId, userId;
+    private String timeText, dateText, careworkerName, careworkerId, userId, chatName, hospitalName, chatCode;
     private TextView sendBtn, careworkerNameText;
     private ArrayList<MainRecyclerChatItem> mainRecyclerChatItems;
     private EditText messageEdit;
@@ -55,13 +57,15 @@ public class ChatActivity extends AppCompatActivity {
         messageEdit = (EditText) findViewById(R.id.edit_chat_message);
         careworkerNameText = (TextView) findViewById(R.id.text_chat_toolbar_careworker_name);
 
-        SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
-        careworkerName = preferences.getString("careworkerName","");
-        careworkerId = preferences.getString("careworkerId","");
-        userId = preferences.getString("id","");
+//        SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
+//        careworkerName = preferences.getString("careworkerName","");
+//        careworkerId = preferences.getString("careworkerId","");
+//        userId = preferences.getString("id","");
 
-        careworkerNameText.setText(careworkerName);
-
+//        careworkerNameText.setText(careworkerName);
+        Intent intent = getIntent();
+        careworkerNameText.setText(intent.getStringExtra("chatName"));
+        chatCode = intent.getStringExtra("chatCode");
         mainChatRecycler = (RecyclerView)findViewById(R.id.recycler_main_chat);
         mainChatLayoutManager = new LinearLayoutManager(this);
         mainChatLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -79,13 +83,13 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 MainRecyclerChatItem chatData = new MainRecyclerChatItem(1,messageEdit.getText().toString(),timeText);
-                databaseReference.child("asdfANDqw").child("message").push().setValue(chatData);
+                databaseReference.child(chatCode).child("message").push().setValue(chatData);
                 messageEdit.setText("");
             }
         });
 
 
-        databaseReference.child(careworkerId+"AND"+userId).child("message").addChildEventListener(new ChildEventListener() {
+        databaseReference.child(chatCode).child("message").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MainRecyclerChatItem chatData = dataSnapshot.getValue(MainRecyclerChatItem.class);
