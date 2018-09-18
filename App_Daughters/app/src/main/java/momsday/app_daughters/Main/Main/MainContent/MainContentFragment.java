@@ -133,12 +133,12 @@ public class MainContentFragment extends Fragment implements MainContentContract
             Glide.with(this).load("http://" + form.getPhoto().getPhotoPath().replace("\\", "")).into(mainImageView);
         photoCommentText.setText(form.getPhoto().getComment());
 
-        if (form.getConditions().size() != 0) {
-            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("활동량 감소", "저체온", "고열", checkCondition(form.getConditions().get(0).isActivityReduction()), checkCondition(form.getConditions().get(0).isLowTemparature()), checkCondition(form.getConditions().get(0).isHighFever())));
-            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("고혈압", "저혈압", "수면 부족", checkCondition(form.getConditions().get(0).isBloodPressureincrease()), checkCondition(form.getConditions().get(0).isBloodPressureReduction()), checkCondition(form.getConditions().get(0).isLackOfSleep())));
-            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴", "폭식", "설사", checkCondition(form.getConditions().get(0).isLoseAppetite()), checkCondition(form.getConditions().get(0).isBingeEating()), checkCondition(form.getConditions().get(0).isDiarrhea())));
-            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getConditions().get(0).isConstipation()), checkCondition(form.getConditions().get(0).isVomiting()), checkCondition(form.getConditions().get(0).isUrinationInconvenient())));
-            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getConditions().get(0).isHumanPowerReduction()), checkCondition(form.getConditions().get(0).isPovertyOfBlood()), checkCondition(form.getConditions().get(0).isCough())));
+        if (form.getCondition() != null) {
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("활동량 감소", "저체온", "고열", checkCondition(form.getCondition().isActivityReduction()), checkCondition(form.getCondition().isLowTemparature()), checkCondition(form.getCondition().isHighFever())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("고혈압", "저혈압", "수면 부족", checkCondition(form.getCondition().isBloodPressureincrease()), checkCondition(form.getCondition().isBloodPressureReduction()), checkCondition(form.getCondition().isLackOfSleep())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("식욕 감퇴", "폭식", "설사", checkCondition(form.getCondition().isLoseAppetite()), checkCondition(form.getCondition().isBingeEating()), checkCondition(form.getCondition().isDiarrhea())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("변비", "구토", "배뇨활동 불편", checkCondition(form.getCondition().isConstipation()), checkCondition(form.getCondition().isVomiting()), checkCondition(form.getCondition().isUrinationInconvenient())));
+            mainRecyclerConditionItems.add(new MainRecyclerConditionItem("인지력 감퇴", "빈혈", "기침", checkCondition(form.getCondition().isHumanPowerReduction()), checkCondition(form.getCondition().isPovertyOfBlood()), checkCondition(form.getCondition().isCough())));
             mainConditionRecyclerAdapter.notifyDataSetChanged();
         } else {
             conditionNoneText.setVisibility(View.VISIBLE);

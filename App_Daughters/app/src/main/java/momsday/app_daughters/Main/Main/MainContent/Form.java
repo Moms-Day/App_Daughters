@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Form {
     @SerializedName("condition")
-    private ArrayList<Condition> conditions;
+    private Condition condition;
 
     protected Form(Parcel in) {
         date = in.readString();
@@ -208,8 +208,8 @@ public class Form {
         }
     }
 
-    public ArrayList<Condition> getConditions() {
-        return conditions;
+    public Condition getCondition() {
+        return condition;
     }
 
     public ArrayList<Schedule> getSchedules() {
