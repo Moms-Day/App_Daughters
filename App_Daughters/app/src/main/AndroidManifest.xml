@@ -13,11 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SignIn.SignInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".SignUp.SignUpActivity" />
         <activity android:name=".Main.Main.Main.MainActivity">
@@ -29,6 +25,13 @@
         <activity android:name=".RequestConnection.RequestConnectionActivity" />
         <activity android:name=".SearchHospital.SearchHospitalActivity" />
         <activity android:name=".MyPage.MyPageActivity"></activity>
+        <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
