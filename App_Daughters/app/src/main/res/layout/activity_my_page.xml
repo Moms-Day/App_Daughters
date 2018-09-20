@@ -25,191 +25,119 @@
             android:id="@+id/text_my_page_complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="완료"
-            android:textSize="17sp"
-            android:textColor="@color/colorGray"
             android:layout_gravity="right"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:text="완료"
+            android:textColor="@color/colorGray"
+            android:textSize="17sp" />
     </android.support.v7.widget.Toolbar>
+
     <TextView
         android:id="@+id/text_my_page_my_inform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="내 정보"
+        android:textColor="@color/colorDarkGray"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/colorDarkGray"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_my_page" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="이름"
         android:textColor="@color/colorGray"
-        android:textStyle="bold"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/edit_my_page_my_name"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_my_name"
+        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="나이"
         android:textColor="@color/colorGray"
-        android:textStyle="bold"
         android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/edit_my_page_my_age"/>
-    
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_my_age"
+        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform" />
+
     <EditText
         android:id="@+id/edit_my_page_my_name"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.4"
-        android:background="@drawable/roundstyle_signup_edit"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        app:layout_constraintEnd_toStartOf="@id/edit_my_page_my_age"
         android:layout_marginTop="40dp"
+        android:background="@drawable/roundstyle_signup_edit"
         android:hint="이름 입력"
         android:inputType="text"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/edit_my_page_my_age"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
+        app:layout_constraintWidth_percent="0.4" />
 
     <EditText
         android:id="@+id/edit_my_page_my_age"
         android:layout_width="0dp"
         android:layout_height="35dp"
-        app:layout_constraintWidth_percent="0.4"
-        android:background="@drawable/roundstyle_signup_edit"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        app:layout_constraintStart_toEndOf="@id/edit_my_page_my_name"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/roundstyle_signup_edit"
         android:hint="나이 입력"
         android:inputType="number"
-        android:textSize="12sp"/>
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edit_my_page_my_name"
+        app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
+        app:layout_constraintWidth_percent="0.4" />
 
     <TextView
         android:id="@+id/text_my_page_parent_inform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:text="부모 정보"
+        android:textColor="@color/colorDarkGray"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/colorDarkGray"
-        app:layout_constraintTop_toBottomOf="@id/edit_my_page_my_name"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이름"
-        android:textColor="@color/colorGray"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_parent_inform"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_name"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="나이"
-        android:textColor="@color/colorGray"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_parent_inform"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_age"/>
-
-    <EditText
-        android:id="@+id/edit_my_page_parent_name"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.4"
-        android:background="@drawable/roundstyle_signup_edit"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_parent_inform"
-        app:layout_constraintEnd_toStartOf="@id/edit_my_page_parent_age"
-        android:layout_marginTop="40dp"
-        android:hint="이름 입력"
-        android:inputType="text"
-        android:textSize="12sp" />
+        app:layout_constraintTop_toBottomOf="@id/edit_my_page_my_name" />
 
-    <EditText
-        android:id="@+id/edit_my_page_parent_age"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        app:layout_constraintWidth_percent="0.4"
-        android:background="@drawable/roundstyle_signup_edit"
-        app:layout_constraintTop_toBottomOf="@id/text_my_page_parent_inform"
-        app:layout_constraintStart_toEndOf="@id/edit_my_page_parent_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
-        android:hint="나이 입력"
-        android:inputType="number"
-        android:textSize="12sp"/>
-    <RadioGroup
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler-my_page_parents"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/edit_my_page_parent_name"
-        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_name"
-        android:layout_marginTop="20dp">
-        <RadioButton
-            android:id="@+id/radiobtn_my_page_parent_male"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:text="남자"
-            android:gravity="center"
-            android:background="@drawable/radiobtn_mypage_gender"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/radiobtn_mypage_gender_text"/>
-        <RadioButton
-            android:id="@+id/radiobtn_my_page_parent_female"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:text="여자"
-            android:layout_marginStart="15dp"
-            android:gravity="center"
-            android:background="@drawable/radiobtn_mypage_gender"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/radiobtn_mypage_gender_text" />
-    </RadioGroup>
-    
+        app:layout_constraintTop_toBottomOf="@id/text_my_page_parent_inform"></android.support.v7.widget.RecyclerView>
+
     <Button
         android:id="@+id/btn_my_page_change_pw"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:background="@drawable/roundstyle_reqeust_connection_btn"
-        app:layout_constraintWidth_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="55dp"
+        android:background="@drawable/roundstyle_reqeust_connection_btn"
         android:text="비밀번호 변경하기"
         android:textColor="@android:color/white"
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
 
     <TextView
         android:id="@+id/text_my_page_withdrawal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="회원 탈퇴하기"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@id/btn_my_page_change_pw"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
-        android:textColor="@color/colorGray"/>
-
+        android:text="회원 탈퇴하기"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_my_page_change_pw" />
 </android.support.constraint.ConstraintLayout>

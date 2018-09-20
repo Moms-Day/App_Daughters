@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/colorGray"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나이"
+        android:textColor="@color/colorGray"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_age"/>
+
+    <EditText
+        android:id="@+id/edit_my_page_parent_name"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.4"
+        android:background="@drawable/roundstyle_signup_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edit_my_page_parent_age"
+        android:layout_marginTop="40dp"
+        android:hint="이름 입력"
+        android:inputType="text"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/edit_my_page_parent_age"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        app:layout_constraintWidth_percent="0.4"
+        android:background="@drawable/roundstyle_signup_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edit_my_page_parent_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="나이 입력"
+        android:inputType="number"
+        android:textSize="12sp"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/edit_my_page_parent_name"
+        app:layout_constraintStart_toStartOf="@id/edit_my_page_parent_name"
+        android:layout_marginTop="20dp">
+        <RadioButton
+            android:id="@+id/radiobtn_my_page_parent_male"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="남자"
+            android:gravity="center"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"
+            android:textColor="@drawable/radiobtn_mypage_gender_text"/>
+        <RadioButton
+            android:id="@+id/radiobtn_my_page_parent_female"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:text="여자"
+            android:layout_marginStart="15dp"
+            android:gravity="center"
+            android:background="@drawable/radiobtn_mypage_gender"
+            android:button="@android:color/transparent"
+            android:textColor="@drawable/radiobtn_mypage_gender_text" />
+    </RadioGroup>
+
+
+</android.support.constraint.ConstraintLayout>

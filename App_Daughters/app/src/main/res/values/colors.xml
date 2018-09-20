@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#9ea84f</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#9ea84f</color>
     <color name="colorCardView">#1595c1ff</color>
     <color name="colorPrimaryLight">#ececd0</color>
     <color name="colorDarkGray">#707070</color>
