@@ -32,12 +32,12 @@
                 android:textSize="20sp" />
 
             <ImageButton
-                android:id="@+id/btn_main_my_page"
+                android:id="@+id/btn_main_more"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="right"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/mypage_icon"/>
+                android:background="@drawable/icon_my_page_more"/>
 
         </android.support.v7.widget.Toolbar>
 

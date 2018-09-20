@@ -13,10 +13,14 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+
+import com.google.android.gms.signin.SignIn;
 
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Chat.ChatFragment;
@@ -26,15 +30,17 @@ import momsday.app_daughters.MyPage.MyPageActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.RequestConnection.RequestConnectionActivity;
 import momsday.app_daughters.RequestConnection.RequestConnectionDialog;
+import momsday.app_daughters.SignIn.SignInActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View{
 
     private SectionsPagerAdapter mainSectionsPagerAdapter;
     private ViewPager mainViewPager;
-    private ImageButton myPageBtn;
+    private ImageButton moreBtn;
     private RequestConnectionDialog requestConnectionDialog;
     public static Context MainContext;
     private MainContract.Presenter presenter;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         MainContext = getApplicationContext();
         mainSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        myPageBtn = (ImageButton) findViewById(R.id.btn_main_my_page);
+        moreBtn = (ImageButton) findViewById(R.id.btn_main_more);
         mainViewPager = (CustomViewPager) findViewById(R.id.viewPager_main);
         mainViewPager.setAdapter(mainSectionsPagerAdapter);
         presenter = new MainPresenter();
@@ -62,11 +68,38 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mainViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mainViewPager));
 
-        myPageBtn.setOnClickListener(new View.OnClickListener() {
+        moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MyPageActivity.class);
-                startActivity(intent);
+                //todo click
+                final PopupMenu popupMenu = new PopupMenu(getApplicationContext(), view);
+                getMenuInflater().inflate(R.menu.menu_main,popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch(menuItem.getItemId()) {
+                            case R.id.btn_menu_my_page:
+                                intent = new Intent(MainActivity.this, MyPageActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.btn_menu_request:
+                                intent = new Intent(MainActivity.this, RequestConnectionActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.btn_menu_logout:
+                                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                                SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.clear();
+                                editor.apply();
+                                startActivity(intent);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+
             }
         });
     }
