@@ -69,9 +69,6 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
         completeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyPageActivity.this, MainActivity.class);
-                startActivity(intent);
-
                 finish();
             }
         });
@@ -131,5 +128,10 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
     @Override
     public void showErrorMessage(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
