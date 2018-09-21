@@ -30,6 +30,7 @@ public class MainFragment extends Fragment {
 
     private View view;
     private ViewPager mainContentViewPager;
+    private pagerAdapter viewPagerAdapter;
     public static Context MainContentContext;
 
     @Nullable
@@ -39,7 +40,8 @@ public class MainFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_main_main, null);
         mainContentViewPager = (ViewPager) view.findViewById(R.id.viewPager_main_content);
-        mainContentViewPager.setAdapter(new pagerAdapter(getChildFragmentManager()));
+        viewPagerAdapter = new pagerAdapter(getChildFragmentManager());
+        mainContentViewPager.setAdapter(viewPagerAdapter);
         mainContentViewPager.setCurrentItem(2);
 
 
@@ -92,5 +94,9 @@ public class MainFragment extends Fragment {
         }
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewPagerAdapter.notifyDataSetChanged();
+    }
 }

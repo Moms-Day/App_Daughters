@@ -93,5 +93,5 @@ public interface Api {
 
     @GET("main")
     @Headers("Content-Type: application/json")
-    Call<ArrayList<String>> getMain(@Header("Authorization") String Authorization);
+    Call<ArrayList<MainModel>> getMain(@Header("Authorization") String Authorization);
 }
