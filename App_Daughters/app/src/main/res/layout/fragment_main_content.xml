@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scroll_main_content"
+    android:id="@+id/swipe_layout_main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:paddingEnd="20dp"
-    android:paddingStart="20dp">
+    android:layout_height="match_parent">
+    
+    <ScrollView
+        android:id="@+id/scroll_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp">
+
+
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -324,4 +331,5 @@
         </android.support.v7.widget.RecyclerView>
 
     </android.support.constraint.ConstraintLayout>
-</ScrollView>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

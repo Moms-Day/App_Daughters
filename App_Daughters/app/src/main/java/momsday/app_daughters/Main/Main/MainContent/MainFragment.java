@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import momsday.app_daughters.Main.Main.Main.MainActivity;
 import momsday.app_daughters.Main.Main.MainContent.Form;
 import momsday.app_daughters.Main.Main.MainContent.MainContentContract;
 import momsday.app_daughters.Main.Main.MainContent.MainContentFragment;
@@ -32,7 +35,6 @@ public class MainFragment extends Fragment {
     private ViewPager mainContentViewPager;
     private pagerAdapter viewPagerAdapter;
     public static Context MainContentContext;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,8 +45,6 @@ public class MainFragment extends Fragment {
         viewPagerAdapter = new pagerAdapter(getChildFragmentManager());
         mainContentViewPager.setAdapter(viewPagerAdapter);
         mainContentViewPager.setCurrentItem(2);
-
-
 
         mainContentViewPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -58,19 +58,12 @@ public class MainFragment extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 mainContentViewPager.getParent().requestDisallowInterceptTouchEvent(true);
-
-
             }
+            @Override
+            public void onPageSelected(int position) { }
 
             @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) { }
         });
         return view;
     }

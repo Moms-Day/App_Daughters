@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -30,6 +32,7 @@ public class MainContentFragment extends Fragment implements MainContentContract
     public MainContentFragment() {
     }
 
+    private SwipeRefreshLayout swipeRefreshLayout;
     private View rootView = null;
     private RecyclerView mainScheduleRecycler, mainConditionRecycler;
     private LinearLayoutManager mainScheduleLayoutManager, mainConditionLayoutManager;
@@ -42,6 +45,7 @@ public class MainContentFragment extends Fragment implements MainContentContract
     private String breakfast, lunch, dinner;
     private int position;
     private MainContentContract.Presenter presenter;
+    private FragmentTransaction ft;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +75,18 @@ public class MainContentFragment extends Fragment implements MainContentContract
         descriptionText = (TextView) rootView.findViewById(R.id.text_main_content_explain);
         scheduleNoneText = (TextView) rootView.findViewById(R.id.text_main_content_schedule_none);
         conditionNoneText = (TextView) rootView.findViewById(R.id.text_main_content_condition_none);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_layout_main_content);
+        ft = getFragmentManager().beginTransaction();
+
+
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+
+            }
+        });
 
         mainScheduleRecycler.setLayoutManager(mainScheduleLayoutManager);
         mainScheduleRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -158,5 +174,9 @@ public class MainContentFragment extends Fragment implements MainContentContract
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public void refresh() {
+        ft.detach(this).attach(this).commit();
     }
 }
