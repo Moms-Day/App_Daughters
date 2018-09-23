@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,6 +35,9 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
     private ArrayList<RankRecyclerCareworkerItem> rankRecyclerCareworkerItems;
     private ArrayList<RankRecyclerCareworkerItem> rankRecyclerMyCareworkerItems;
     private TextView myCareworkerNoneText;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private FragmentTransaction ft;
+    private View layout;
 
 
     @Override
@@ -43,9 +48,20 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RankCareworkerContext = getContext();
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_rank_careworker, container, false);
+        layout = inflater.inflate(R.layout.fragment_rank_careworker,null);
         presenter = new RankCareworkerPresenter();
         presenter.setView(this);
+        swipeRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.swipe_layout_rank_careworker);
+        ft = getFragmentManager().beginTransaction();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+
+            }
+        });
+
         //나의 요양보호사
         rankMyCareworkerRecycler = (RecyclerView)layout.findViewById(R.id.recycler_main_rank_my_careworker);
         myCareworkerNoneText = (TextView)layout.findViewById(R.id.text_main_rank_careworker_my_careworker_none);
@@ -127,5 +143,9 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
     @Override
     public void setMyCareworkerNoneText() {
         myCareworkerNoneText.setVisibility(View.VISIBLE);
+    }
+
+    public void refresh() {
+        ft.detach(this).attach(this).commit();
     }
 }

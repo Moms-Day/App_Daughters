@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +36,9 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     private RankHospitalContract.Presenter presenter;
     public static Context RankHospitalContext;
     private TextView myHospitalNoneText;
+    private View layout;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private FragmentTransaction ft;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,9 +48,21 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RankHospitalContext = getContext();
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_rank_hospital, container, false);
+        layout = inflater.inflate(R.layout.fragment_rank_hospital,null);
         presenter = new RankHospitalPresenter();
         presenter.setView(this);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) layout.findViewById(R.id.swipe_layout_rank_hospital);
+        ft = getFragmentManager().beginTransaction();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+
+            }
+        });
+
         //나의 요양병원
         rankMyHospitalRecycler = (RecyclerView) layout.findViewById(R.id.recycler_main_rank_my_hospital);
         myHospitalNoneText = (TextView) layout.findViewById(R.id.text_main_rank_hospital_my_hospital_none);
@@ -125,5 +142,9 @@ public class RankHospitalFragment extends Fragment implements RankHospitalContra
     @Override
     public void setMyHospitalNoneText() {
         myHospitalNoneText.setVisibility(View.VISIBLE);
+    }
+
+    public void refresh() {
+        ft.detach(this).attach(this).commit();
     }
 }
