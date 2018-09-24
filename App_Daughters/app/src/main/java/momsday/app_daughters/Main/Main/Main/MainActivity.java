@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         for(int i=0;i<parentsInform.size();i++) {
             names.add(i,parentsInform.get(i).getName());
         }
-        spinnerAdapter = new ArrayAdapter(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,names);
+        spinnerAdapter = new ArrayAdapter(getApplicationContext(),R.layout.spinner_main_text,names);
         parentsSpinner.setAdapter(spinnerAdapter);
         parentsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
