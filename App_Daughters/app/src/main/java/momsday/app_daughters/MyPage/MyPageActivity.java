@@ -118,9 +118,13 @@ public class MyPageActivity extends AppCompatActivity implements MyPageContract.
     };
 
     @Override
-    public void setMyInform(String myName, int myAge, String parentName, int parentAge, boolean parentGender) {
+    public void setMyInform(String myName, int myAge) {
         myNameEdit.setText(myName);
         myAgeEdit.setText(Integer.toString(myAge));
+    }
+
+    @Override
+    public void setParentInform(String parentName, int parentAge, boolean parentGender) {
         myPageParentsRecyclerItems.add(new MyPageParentsRecyclerItem(parentName, Integer.toString(parentAge), parentGender));
         myPageParentsRecyclerViewAdapter.notifyDataSetChanged();
     }

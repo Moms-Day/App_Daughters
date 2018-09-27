@@ -2,7 +2,8 @@ package momsday.app_daughters.MyPage;
 
 public interface MyPageContract {
     interface View {
-        void setMyInform(String myName, int myAge, String parentName, int parentAge, boolean pagrentGender);
+        void setMyInform(String myName, int myAge);
+        void setParentInform(String parentName, int parentAge, boolean parentGender);
         void completeWithdrawal();
         void showErrorMessage(String message);
     }
