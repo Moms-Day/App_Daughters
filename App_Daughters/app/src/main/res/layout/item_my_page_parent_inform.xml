@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toStartOf="@id/edit_my_page_parent_age"
         android:layout_marginTop="40dp"
         android:hint="이름 입력"
-        android:inputType="text"
+        android:focusableInTouchMode="false"
         android:textSize="12sp" />
 
     <EditText
@@ -53,7 +53,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
         android:hint="나이 입력"
-        android:inputType="number"
+        android:focusableInTouchMode="false"
         android:textSize="12sp"/>
     <RadioGroup
         android:layout_width="wrap_content"
@@ -67,6 +67,7 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:text="남자"
+            android:clickable="false"
             android:gravity="center"
             android:background="@drawable/radiobtn_mypage_gender"
             android:button="@android:color/transparent"
@@ -76,6 +77,7 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:text="여자"
+            android:clickable="false"
             android:layout_marginStart="15dp"
             android:gravity="center"
             android:background="@drawable/radiobtn_mypage_gender"

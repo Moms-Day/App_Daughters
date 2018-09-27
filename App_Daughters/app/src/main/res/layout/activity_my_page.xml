@@ -79,7 +79,8 @@
         app:layout_constraintEnd_toStartOf="@id/edit_my_page_my_age"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        app:layout_constraintWidth_percent="0.4" />
+        app:layout_constraintWidth_percent="0.4"
+        android:focusableInTouchMode="false"/>
 
     <EditText
         android:id="@+id/edit_my_page_my_age"
@@ -89,12 +90,12 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/roundstyle_signup_edit"
         android:hint="나이 입력"
-        android:inputType="number"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/edit_my_page_my_name"
         app:layout_constraintTop_toBottomOf="@id/text_my_page_my_inform"
-        app:layout_constraintWidth_percent="0.4" />
+        app:layout_constraintWidth_percent="0.4"
+        android:focusableInTouchMode="false"/>
 
     <TextView
         android:id="@+id/text_my_page_parent_inform"
