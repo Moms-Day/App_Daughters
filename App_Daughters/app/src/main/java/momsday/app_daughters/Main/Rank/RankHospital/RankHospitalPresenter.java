@@ -27,7 +27,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
     public void getHospitalRank() {
         final SharedPreferences preferences = RankHospitalContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization = preferences.getString("Authorization", "");
-        api.rankHospital("JWT "+authorization).enqueue(new Callback<RankHospitalModel>() {
+        api.rankHospital("JWT " + authorization).enqueue(new Callback<RankHospitalModel>() {
             @Override
             public void onResponse(Call<RankHospitalModel> call, Response<RankHospitalModel> response) {
                 if (response.code() == 200) {
@@ -35,15 +35,21 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
                     for (int i = 0; i < rankHospitalModel.getFacilities().size(); i++) {
                         view.setHospital(rankHospitalModel.getFacilities().get(i).getHospitalName(), rankHospitalModel.getFacilities().get(i).getHospitalAddress(), rankHospitalModel.getFacilities().get(i).getHospitalOverAll(), rankHospitalModel.getFacilities().get(i).getHospitalImagePath());
                     }
-                    if(rankHospitalModel.getMyFacilities().size() == 0) {
+                    if (rankHospitalModel.getMyFacilities().size() == 0) {
                         view.setMyHospitalNoneText();
                     } else {
-                        for(int i=0; i<rankHospitalModel.getMyFacilities().size(); i++) {
-                            view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(),rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
-                            SharedPreferences.Editor editor = preferences.edit();
-                            editor.putString("hospitalCode",rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode());
-                            editor.putString("hospitalName",rankHospitalModel.getMyFacilities().get(i).getMyHospitalName());
-                            editor.apply();
+                        for (int i = 0; i < rankHospitalModel.getMyFacilities().size(); i++) {
+                            if (i > 0) {
+                                if (!(rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode().equals(rankHospitalModel.getMyFacilities().get(i - 1).getMyHospitalCode()))) {
+                                    view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
+                                }
+                            } else {
+                                view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
+                            }
+//                            SharedPreferences.Editor editor = preferences.edit();
+//                            editor.putString("hospitalCode",rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode());
+//                            editor.putString("hospitalName",rankHospitalModel.getMyFacilities().get(i).getMyHospitalName());
+//                            editor.apply();
                         }
                     }
                 }
