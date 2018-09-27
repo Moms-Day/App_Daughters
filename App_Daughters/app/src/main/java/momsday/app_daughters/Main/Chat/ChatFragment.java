@@ -32,7 +32,6 @@ public class ChatFragment extends Fragment {
     public ChatFragment() {
     }
 
-    private TextView messageText;
     private RecyclerView mainChatListRecycler;
     private LinearLayoutManager mainChatListLayoutManager;
     private MainChatListRecyclerViewAdapter mainChatListRecyclerAdapter;
@@ -82,6 +81,7 @@ public class ChatFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) { }
         });
+
         mainRecyclerChatListItems.add(new MainRecyclerChatListItem(hospitalName + " 단체채팅방", "",""));
         databaseReference.child(hospitalCode).child("message").addChildEventListener(new ChildEventListener() {
             @Override
@@ -103,7 +103,6 @@ public class ChatFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) { }
         });
-
 
         mainChatListRecycler.setLayoutManager(mainChatListLayoutManager);
         mainChatListRecycler.setItemAnimator(new DefaultItemAnimator());

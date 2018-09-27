@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class MainRecyclerChatItem {
     String  messageText, timeText, dateText;
+    Date date;
     private int itemViewType;
 
     public String getMessageText() {
@@ -19,11 +20,22 @@ public class MainRecyclerChatItem {
         return dateText;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
     public int getItemViewType() {
         return itemViewType;
     }
 
     MainRecyclerChatItem() { }
+
+    MainRecyclerChatItem(int itemViewType, String messageText, String timeText, Date date) {
+        this.itemViewType = itemViewType;
+        this.messageText = messageText;
+        this.timeText = timeText;
+        this.date = date;
+    }
 
     MainRecyclerChatItem(int itemViewType, String messageText, String timeText) {
         this.itemViewType = itemViewType;

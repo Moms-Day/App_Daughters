@@ -33,9 +33,10 @@ public class ChatActivity extends AppCompatActivity {
     LinearLayoutManager mainChatLayoutManager;
     MainChatRecyclerViewAdapter mainChatRecyclerAdapter;
     long now;
-    Date nowDate;
+    int i = 0;
+    Date nowDate, chatDate;
     SimpleDateFormat timeDateFormat, dateDateFormat;
-    private String timeText, dateText, careworkerName, careworkerId, userId, chatName, hospitalName, chatCode;
+    private String timeText, dateText, chatCode;
     private TextView sendBtn, careworkerNameText;
     private ArrayList<MainRecyclerChatItem> mainRecyclerChatItems;
     private EditText messageEdit;
@@ -47,22 +48,12 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        now =  System.currentTimeMillis();
-        nowDate = new Date(now);
-        timeDateFormat = new SimpleDateFormat("hh:mm");
-        dateDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
-        timeText = timeDateFormat.format(nowDate);
-        dateText = dateDateFormat.format(nowDate);
+        initTime();
+
         sendBtn = (TextView) findViewById(R.id.text_chat_send_message);
         messageEdit = (EditText) findViewById(R.id.edit_chat_message);
         careworkerNameText = (TextView) findViewById(R.id.text_chat_toolbar_careworker_name);
 
-//        SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
-//        careworkerName = preferences.getString("careworkerName","");
-//        careworkerId = preferences.getString("careworkerId","");
-//        userId = preferences.getString("id","");
-
-//        careworkerNameText.setText(careworkerName);
         Intent intent = getIntent();
         careworkerNameText.setText(intent.getStringExtra("chatName"));
         chatCode = intent.getStringExtra("chatCode");
@@ -70,8 +61,6 @@ public class ChatActivity extends AppCompatActivity {
         mainChatLayoutManager = new LinearLayoutManager(this);
         mainChatLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mainRecyclerChatItems = new ArrayList();
-
-        mainRecyclerChatItems.add(new MainRecyclerChatItem(0,dateText));
 
         mainChatRecycler.setLayoutManager(mainChatLayoutManager);
         mainChatRecycler.setItemAnimator(new DefaultItemAnimator());
@@ -82,7 +71,8 @@ public class ChatActivity extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainRecyclerChatItem chatData = new MainRecyclerChatItem(1,messageEdit.getText().toString(),timeText);
+                initTime();
+                MainRecyclerChatItem chatData = new MainRecyclerChatItem(1,messageEdit.getText().toString(),timeText, nowDate);
                 databaseReference.child(chatCode).child("message").push().setValue(chatData);
                 messageEdit.setText("");
             }
@@ -93,6 +83,18 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 MainRecyclerChatItem chatData = dataSnapshot.getValue(MainRecyclerChatItem.class);
+                if(i==0) {
+                    chatDate = chatData.getDate();
+                    mainRecyclerChatItems.add(new MainRecyclerChatItem(0,dateDateFormat.format(chatDate)));
+                    i++;
+                } else {
+                    if(chatDate.compareTo(chatData.getDate()) < 0) {
+                        chatDate = chatData.getDate();
+                        mainRecyclerChatItems.add(new MainRecyclerChatItem(0,dateDateFormat.format(chatDate)));
+                    }
+                }
+
+
                 if(chatData.getItemViewType() == 2) {
                     mainRecyclerChatItems.add(new MainRecyclerChatItem(2,chatData.getMessageText(),chatData.getTimeText()));
                     mainChatRecyclerAdapter.notifyDataSetChanged();
@@ -127,5 +129,12 @@ public class ChatActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
+    public void initTime() {
+        now =  System.currentTimeMillis();
+        nowDate = new Date(now);
+        timeDateFormat = new SimpleDateFormat("hh:mm");
+        dateDateFormat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        timeText = timeDateFormat.format(nowDate);
+        dateText = dateDateFormat.format(nowDate);
+    }
 }
