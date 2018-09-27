@@ -34,6 +34,7 @@ public class MainChatListRecyclerViewAdapter extends RecyclerView.Adapter<MainCh
     public void onBindViewHolder(@NonNull MainChatListRecyclerViewHolder holder, int position) {
         holder.chatListNameText.setText(mainRecyclerChatListItems.get(position).nameText);
         holder.chatListMessageText.setText(mainRecyclerChatListItems.get(position).messageText);
+        holder.chatListTimeText.setText(mainRecyclerChatListItems.get(position).timeText);
     }
 
 

@@ -3,7 +3,7 @@ package momsday.app_daughters.Main.Chat;
 import android.media.Image;
 
 public class MainRecyclerChatListItem {
-    String nameText, messageText;
+    String nameText, messageText,timeText;
     Image profileImage;
 
     public String getNameText() {
@@ -15,10 +15,14 @@ public class MainRecyclerChatListItem {
     public Image getProfileImage() {
         return profileImage;
     }
+    public String getTimeText() {
+        return timeText;
+    }
 
-    public MainRecyclerChatListItem(String nameText, String messageText) {
+    public MainRecyclerChatListItem(String nameText, String messageText, String timeText) {
         this.nameText = nameText;
         this.messageText = messageText;
+        this.timeText = timeText;
     }
 
 }
