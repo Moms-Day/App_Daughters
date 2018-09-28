@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="하늘요양병원"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_main_rank_hospital" />
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="대전광역시 유성구 장동"
                 android:textSize="10sp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@id/image_main_rank_hospital"
                 app:layout_constraintTop_toBottomOf="@id/text_main_rank_hospital_name" />

@@ -63,7 +63,6 @@ public class RankFragment extends Fragment implements RankContract.View {
         rankEvaluateCareworkerDialog = new RankEvaluateCareworkerDialog(getContext(), careworkerDialogCancelClickListener, careworkerDialogEvaluateClickListener);
         rankViewPager = (CustomViewPager) layout.findViewById(R.id.viewpager_rank);
 
-
         rankViewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         rankViewPager.setCurrentItem(0);
 
@@ -109,7 +108,6 @@ public class RankFragment extends Fragment implements RankContract.View {
         rankEvaluateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 preferences = getContext().getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
                 hospitalCode = preferences.getString("hospitalCode", "");
                 careworkerId = preferences.getString("careworkerId", "");

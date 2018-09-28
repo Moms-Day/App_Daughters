@@ -17,6 +17,7 @@
             android:id="@+id/radiobtn_main_rank_hospital"
             android:layout_width="80dp"
             android:layout_height="35dp"
+            android:paddingStart="5dp"
             android:background="@drawable/radiobtn_main_rank_hospital"
             android:button="@android:color/transparent"
             android:checked="true"
@@ -31,6 +32,7 @@
             android:background="@drawable/radiobtn_main_rank_careworker"
             android:button="@android:color/transparent"
             android:gravity="center"
+            android:paddingEnd="5dp"
             android:text="요양보호사"
             android:textColor="@drawable/textcolor_main_rank" />
     </RadioGroup>
