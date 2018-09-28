@@ -129,6 +129,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 SharedPreferences preference = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
                 SharedPreferences.Editor editor = preference.edit();
                 editor.putString("parentId",parentsInform.get(i).getId());
+                editor.putString("careworkerId",parentsInform.get(i).getCareworkerId());
+                editor.putString("careworkerName",parentsInform.get(i).getCareworkerName());
+                editor.putString("hospitalCode",parentsInform.get(i).getHospitalCode());
+                editor.putString("hospitalName",parentsInform.get(i).getHospitalName());
                 editor.apply();
                 mainSectionsPagerAdapter.notifyDataSetChanged();
             }
