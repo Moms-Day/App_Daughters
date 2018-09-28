@@ -2,6 +2,8 @@ package momsday.app_daughters.Main.Rank.RankCareworker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
@@ -34,18 +36,16 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
                     for (int i = 0; i < rankCareworkerModel.getCareworkers().size(); i++) {
                         view.setCareworker(rankCareworkerModel.getCareworkers().get(i).getName(), rankCareworkerModel.getCareworkers().get(i).getWorkplace(), rankCareworkerModel.getCareworkers().get(i).getOverall(), rankCareworkerModel.getCareworkers().get(i).getImagePath());
                     }
-                    for (int i = 0; i < rankCareworkerModel.getMyCareworekrs().size(); i++) {
-                        if (i > 0) {
-                            if (!(rankCareworkerModel.getMyCareworekrs().get(i).getCareworkerId().equals(rankCareworkerModel.getCareworkers().get(i - 1).getCareworkerId())))
-                            {
-                                view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(), rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(), rankCareworkerModel.getMyCareworekrs().get(i).getOverall(), rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
-                            }
-                        } else {
-                            view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(), rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(), rankCareworkerModel.getMyCareworekrs().get(i).getOverall(), rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
-                        }
-                    }
+
                     if(rankCareworkerModel.getMyCareworekrs().size() == 0) {
                         view.setMyCareworkerNoneText();
+                    } else {
+                        for(int i=0; i<rankCareworkerModel.getMyCareworekrs().size(); i++) {
+                            if(rankCareworkerModel.getMyCareworekrs().get(i).getCareworkerId().equals(preferences.getString("careworkerId", ""))) {
+                                view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(), rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(), rankCareworkerModel.getMyCareworekrs().get(i).getOverall(), rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
 
     @Override
     public void getMyCareworkerId(int position) {
-        careworkerId = rankCareworkerModel.getMyCareworekrs().get(position).getCareworkerId();
+        careworkerId = preferences.getString("careworkerId","");
         view.startCareworkerInform(careworkerId);
     }
 }

@@ -9,7 +9,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +75,6 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         rankMyCareworkerRecycler.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankMyCareworkerRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.d("Debug","먀먀 "+ position);
                 presenter.getMyCareworkerId(position);
             }
 

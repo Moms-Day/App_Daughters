@@ -2,6 +2,7 @@ package momsday.app_daughters.Main.Rank.RankHospital;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
@@ -15,6 +16,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
     private Api api = ApiClient.getClient().create(Api.class);
     private String authorization, hospitalCode;
     private RankHospitalModel rankHospitalModel;
+    private SharedPreferences preferences;
 
     @Override
     public void setView(RankHospitalContract.View view) {
@@ -23,7 +25,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
 
     @Override
     public void getHospitalRank() {
-        final SharedPreferences preferences = RankHospitalContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
+        preferences = RankHospitalContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
         authorization = preferences.getString("Authorization", "");
         api.rankHospital("JWT " + authorization).enqueue(new Callback<RankHospitalModel>() {
             @Override
@@ -33,21 +35,15 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
                     for (int i = 0; i < rankHospitalModel.getFacilities().size(); i++) {
                         view.setHospital(rankHospitalModel.getFacilities().get(i).getHospitalName(), rankHospitalModel.getFacilities().get(i).getHospitalAddress(), rankHospitalModel.getFacilities().get(i).getHospitalOverAll(), rankHospitalModel.getFacilities().get(i).getHospitalImagePath());
                     }
+
                     if (rankHospitalModel.getMyFacilities().size() == 0) {
                         view.setMyHospitalNoneText();
                     } else {
-                        for (int i = 0; i < rankHospitalModel.getMyFacilities().size(); i++) {
-                            if (i > 0) {
-                                if (!(rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode().equals(rankHospitalModel.getMyFacilities().get(i - 1).getMyHospitalCode()))) {
-                                    view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
-                                }
-                            } else {
+                        for(int i=0;i<rankHospitalModel.getMyFacilities().size();i++) {
+                            if(rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode().equals(preferences.getString("hospitalCode", ""))) {
                                 view.setMyHospital(rankHospitalModel.getMyFacilities().get(i).getMyHospitalName(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalAddress(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalOverAll(), rankHospitalModel.getMyFacilities().get(i).getMyHospitalImagePath());
+                                break;
                             }
-//                            SharedPreferences.Editor editor = preferences.edit();
-//                            editor.putString("hospitalCode",rankHospitalModel.getMyFacilities().get(i).getMyHospitalCode());
-//                            editor.putString("hospitalName",rankHospitalModel.getMyFacilities().get(i).getMyHospitalName());
-//                            editor.apply();
                         }
                     }
                 }
@@ -69,7 +65,7 @@ public class RankHospitalPresenter implements RankHospitalContract.Presenter {
 
     @Override
     public void getMyHospitalCode(int position) {
-        hospitalCode = rankHospitalModel.getMyFacilities().get(position).getMyHospitalCode();
+        hospitalCode = preferences.getString("hospitalCode","");
         view.startHospitalInform(hospitalCode);
     }
 }
