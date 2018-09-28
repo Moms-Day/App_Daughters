@@ -2,8 +2,6 @@ package momsday.app_daughters.Main.Rank.RankCareworker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
@@ -33,7 +31,6 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
             public void onResponse(Call<RankCareworkerModel> call, Response<RankCareworkerModel> response) {
                 if (response.code() == 200) {
                     rankCareworkerModel = response.body();
-                    Log.d("Debug", "rankCareworker : " + rankCareworkerModel.getCareworkers().size());
                     for (int i = 0; i < rankCareworkerModel.getCareworkers().size(); i++) {
                         view.setCareworker(rankCareworkerModel.getCareworkers().get(i).getName(), rankCareworkerModel.getCareworkers().get(i).getWorkplace(), rankCareworkerModel.getCareworkers().get(i).getOverall(), rankCareworkerModel.getCareworkers().get(i).getImagePath());
                     }
@@ -50,16 +47,6 @@ public class RankCareworkerPresenter implements RankCareworkerContract.Presenter
                     if(rankCareworkerModel.getMyCareworekrs().size() == 0) {
                         view.setMyCareworkerNoneText();
                     }
-//                    else {
-//                        for (int i = 0; i < rankCareworkerModel.getMyCareworekrs().size(); i++) {
-//                            view.setMyCareworker(rankCareworkerModel.getMyCareworekrs().get(i).getName(),rankCareworkerModel.getMyCareworekrs().get(i).getWorkplace(),rankCareworkerModel.getMyCareworekrs().get(i).getOverall(),rankCareworkerModel.getMyCareworekrs().get(i).getImagePath());
-//                            SharedPreferences.Editor editor = preferences.edit();
-//                            editor.putString("careworkerId", rankCareworkerModel.getMyCareworekrs().get(i).getCareworkerId());
-//                            editor.putString("careworkerName",rankCareworkerModel.getMyCareworekrs().get(i).getName());
-//                            editor.apply();
-//                        }
-//                    }
-
                 }
             }
 

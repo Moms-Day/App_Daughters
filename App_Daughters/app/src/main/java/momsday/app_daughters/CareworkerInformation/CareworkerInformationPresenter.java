@@ -1,13 +1,8 @@
 package momsday.app_daughters.CareworkerInformation;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
-import android.view.View;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
-import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -1,16 +1,12 @@
 package momsday.app_daughters.Main.Main.Main;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-
 import java.util.ArrayList;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import static android.content.Context.MODE_PRIVATE;
 import static momsday.app_daughters.Main.Main.Main.MainActivity.MainContext;
 

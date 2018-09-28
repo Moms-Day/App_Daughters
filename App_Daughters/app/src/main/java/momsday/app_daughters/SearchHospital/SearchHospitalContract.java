@@ -1,7 +1,6 @@
 package momsday.app_daughters.SearchHospital;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface SearchHospitalContract {
     interface View {

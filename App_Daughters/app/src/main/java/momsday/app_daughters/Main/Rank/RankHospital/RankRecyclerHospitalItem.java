@@ -1,7 +1,5 @@
 package momsday.app_daughters.Main.Rank.RankHospital;
 
-import android.media.Image;
-
 public class RankRecyclerHospitalItem {
 
     String rankHospitalImagePath;

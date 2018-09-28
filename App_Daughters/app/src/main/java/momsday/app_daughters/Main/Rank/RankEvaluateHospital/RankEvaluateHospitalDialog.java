@@ -8,13 +8,9 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import momsday.app_daughters.R;
 
 public class RankEvaluateHospitalDialog extends Dialog {

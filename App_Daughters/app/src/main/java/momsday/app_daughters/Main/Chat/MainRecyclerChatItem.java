@@ -1,6 +1,5 @@
 package momsday.app_daughters.Main.Chat;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainRecyclerChatItem {

@@ -3,7 +3,6 @@ package momsday.app_daughters.Main.Rank.RankEvaluteCareworker;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.Rating;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import momsday.app_daughters.R;
 
 public class RankEvaluateCareworkerDialog extends Dialog {

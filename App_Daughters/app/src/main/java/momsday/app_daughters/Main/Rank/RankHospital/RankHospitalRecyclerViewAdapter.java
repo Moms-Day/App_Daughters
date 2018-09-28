@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import momsday.app_daughters.R;
-import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHospitalRecyclerViewHolder> {
 

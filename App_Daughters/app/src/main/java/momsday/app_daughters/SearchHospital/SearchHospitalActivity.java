@@ -8,15 +8,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import momsday.app_daughters.R;
 import momsday.app_daughters.RequestConnection.RequestConnectionActivity;
 import momsday.app_daughters.RecyclerItemClickListener;

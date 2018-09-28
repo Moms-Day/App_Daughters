@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import momsday.app_daughters.Main.Main.Main.MainActivity;
 import momsday.app_daughters.R;
 import momsday.app_daughters.SignUp.SignUpActivity;

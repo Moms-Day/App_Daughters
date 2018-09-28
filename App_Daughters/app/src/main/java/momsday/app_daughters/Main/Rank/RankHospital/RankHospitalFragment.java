@@ -3,7 +3,6 @@ package momsday.app_daughters.Main.Rank.RankHospital;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,13 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import momsday.app_daughters.HospitalInformation.HospitalInformationActivity;
-import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerContract;
-import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerPresenter;
-import momsday.app_daughters.Main.Rank.RankContract;
 import momsday.app_daughters.R;
 import momsday.app_daughters.RecyclerItemClickListener;
 

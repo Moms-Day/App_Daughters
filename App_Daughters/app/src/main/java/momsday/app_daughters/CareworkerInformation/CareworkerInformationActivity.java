@@ -1,20 +1,13 @@
 package momsday.app_daughters.CareworkerInformation;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.media.Rating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
-
 import momsday.app_daughters.R;
 
 public class CareworkerInformationActivity extends AppCompatActivity implements CareworkerInformationContract.View{

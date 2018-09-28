@@ -2,13 +2,11 @@ package momsday.app_daughters.MyPage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 import static momsday.app_daughters.MyPage.MyPageActivity.myPageContext;
 
 public class MyPagePresenter implements MyPageContract.Presenter {

@@ -1,10 +1,7 @@
 package momsday.app_daughters.Main.Main.MainContent;
 
 import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 
 public class Form {

@@ -1,21 +1,6 @@
 package momsday.app_daughters.SignUp;
 
-import android.text.TextUtils;
-import android.util.Log;
-
 import com.google.gson.annotations.SerializedName;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.Serializable;
-
-import momsday.app_daughters.Api;
-import momsday.app_daughters.ApiClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SignUpModel {
     @SerializedName("id")

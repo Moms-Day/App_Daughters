@@ -3,14 +3,6 @@ package momsday.app_daughters.SignUp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
@@ -50,7 +42,6 @@ public class SignUpPresenter implements SignUpContract.SignUpPresenter {
             api.doSignUp(signUpModel).enqueue(new Callback<Void>() {
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
-                    Log.d("Debug", "responseCode : " + Integer.toString(response.code()));
                     if (response.code() == 201) {
                         signUpView.startSignInActivity();
                         SharedPreferences sharedPreferences = signUpContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);

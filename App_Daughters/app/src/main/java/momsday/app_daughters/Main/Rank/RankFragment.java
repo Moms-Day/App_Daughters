@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -19,15 +18,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Rank.RankCareworker.RankCareworkerFragment;
 import momsday.app_daughters.Main.Rank.RankEvaluateHospital.RankEvaluateHospitalDialog;
 import momsday.app_daughters.Main.Rank.RankEvaluteCareworker.RankEvaluateCareworkerDialog;
 import momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment;
 import momsday.app_daughters.R;
-
-import static momsday.app_daughters.Main.Rank.RankHospital.RankHospitalFragment.RankHospitalContext;
 
 public class RankFragment extends Fragment implements RankContract.View {
     public RankFragment() {
@@ -138,7 +134,6 @@ public class RankFragment extends Fragment implements RankContract.View {
             hospitalServiceScore = rankEvaluateHospitalDialog.getHospitalServiceScore();
             hospitalTotalScore = rankEvaluateHospitalDialog.getHospitalTotalScore();
             hospitalReview = rankEvaluateHospitalDialog.getHospitalReview();
-            Log.d("Debug", "view : " + hospitalFacilityScore + hospitalMealScore + hospitalScheduleScore + hospitalCostScore + hospitalServiceScore + hospitalTotalScore + hospitalReview);
             presenter.evaluateHospital(hospitalFacilityScore, hospitalMealScore, hospitalScheduleScore, hospitalCostScore, hospitalServiceScore, hospitalTotalScore, hospitalReview);
         }
     };

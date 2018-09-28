@@ -2,7 +2,6 @@ package momsday.app_daughters.SignIn;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import com.google.gson.JsonObject;
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
@@ -32,7 +31,6 @@ public class SignInPresenter implements SignInContract.Presenter {
         api.doSignIn(signInModel).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, final Response<JsonObject> response) {
-                Log.d("Debug", Integer.toString(response.code()));
                 if (response.code() == 200) {
                     SharedPreferences sharedPreferences = signInContext.getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();

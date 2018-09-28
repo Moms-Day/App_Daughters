@@ -4,8 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
-
 import momsday.app_daughters.R;
 
 public class MyPageParentsRecyclerViewHolder extends RecyclerView.ViewHolder {

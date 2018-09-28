@@ -7,12 +7,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
-
-import momsday.app_daughters.CareworkerInformation.CareworkerInformationPresenter;
 import momsday.app_daughters.R;
 
 public class HospitalInformationActivity extends AppCompatActivity implements HospitalInformationContract.View {

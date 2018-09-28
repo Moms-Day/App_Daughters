@@ -2,8 +2,6 @@ package momsday.app_daughters.RequestConnection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.UiThread;
-import android.util.Log;
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;
@@ -51,7 +49,6 @@ public class RequestConnectionPresenter implements RequestConnectionContract.Pre
         api.requestConnection("JWT "+authorization, requestConnectionModel).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, final Response<Void> response) {
-                Log.d("Debug", Integer.toString(response.code()));
                 if (response.code() == 201) {
                     view.startMainActivity();
                 } else {

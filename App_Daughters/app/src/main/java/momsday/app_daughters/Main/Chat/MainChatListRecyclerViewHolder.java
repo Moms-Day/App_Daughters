@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import momsday.app_daughters.R;
 
 public class MainChatListRecyclerViewHolder extends RecyclerView.ViewHolder {

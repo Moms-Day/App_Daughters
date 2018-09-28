@@ -2,8 +2,6 @@ package momsday.app_daughters.Main.Main.MainContent;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
-
 import momsday.app_daughters.Api;
 import momsday.app_daughters.ApiClient;
 import retrofit2.Call;

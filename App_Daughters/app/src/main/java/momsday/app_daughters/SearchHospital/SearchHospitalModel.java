@@ -1,14 +1,7 @@
 package momsday.app_daughters.SearchHospital;
 
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
-
-import org.json.JSONArray;
-
 import java.util.ArrayList;
-import java.util.List;
-
 public class SearchHospitalModel {
 
         @SerializedName("address")

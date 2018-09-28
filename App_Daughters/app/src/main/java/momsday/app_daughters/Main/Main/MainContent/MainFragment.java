@@ -5,25 +5,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import momsday.app_daughters.Main.Main.Main.MainActivity;
-import momsday.app_daughters.Main.Main.MainContent.Form;
-import momsday.app_daughters.Main.Main.MainContent.MainContentContract;
-import momsday.app_daughters.Main.Main.MainContent.MainContentFragment;
-import momsday.app_daughters.Main.Main.MainContent.MainContentPresenter;
 import momsday.app_daughters.R;
 
 

@@ -3,23 +3,19 @@ package momsday.app_daughters.Main.Rank.RankCareworker;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import momsday.app_daughters.CareworkerInformation.CareworkerInformationActivity;
-import momsday.app_daughters.HospitalInformation.HospitalInformationActivity;
-import momsday.app_daughters.Main.Rank.RankContract;
 import momsday.app_daughters.R;
 import momsday.app_daughters.RecyclerItemClickListener;
 
@@ -80,6 +76,7 @@ public class RankCareworkerFragment extends Fragment implements RankCareworkerCo
         rankMyCareworkerRecycler.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), rankMyCareworkerRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                Log.d("Debug","먀먀 "+ position);
                 presenter.getMyCareworkerId(position);
             }
 
