@@ -11,7 +11,7 @@ import momsday.app_daughters.R;
 public class RankHospitalRecyclerViewHolder extends RecyclerView.ViewHolder {
     public TextView hospitalNameText, hospitalLocationText;
     public RatingBar hospitalScoreRatingBar;
-    public ImageView hospitalImageView;
+    public ImageView hospitalImageView, hospitalImageNoneView;
 
     public RankHospitalRecyclerViewHolder(View itemView) {
         super(itemView);
@@ -20,5 +20,6 @@ public class RankHospitalRecyclerViewHolder extends RecyclerView.ViewHolder {
         hospitalLocationText = (TextView)itemView.findViewById(R.id.text_main_rank_hospital_location);
         hospitalScoreRatingBar = (RatingBar)itemView.findViewById(R.id.ratingbar_main_rank_hopital_score);
         hospitalImageView = (ImageView)itemView.findViewById(R.id.image_main_rank_hospital);
+        hospitalImageNoneView = (ImageView) itemView.findViewById(R.id.image_main_rank_hospital_none);
     }
 }

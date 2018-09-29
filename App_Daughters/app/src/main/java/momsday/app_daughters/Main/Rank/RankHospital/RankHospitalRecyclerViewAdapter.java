@@ -34,7 +34,13 @@ public class RankHospitalRecyclerViewAdapter extends RecyclerView.Adapter<RankHo
         holder.hospitalNameText.setText(rankRecyclerHospitalItems.get(position).rankHospitalName);
         holder.hospitalLocationText.setText(rankRecyclerHospitalItems.get(position).rankHospitalLocation);
         holder.hospitalScoreRatingBar.setRating(rankRecyclerHospitalItems.get(position).rankHospitalScore);
-        Glide.with(rankRecyclerMyHospitalContext).load(rankRecyclerHospitalItems.get(position).rankHospitalImagePath).into(holder.hospitalImageView);
+        if(rankRecyclerHospitalItems.get(position).rankHospitalImagePath.isEmpty()) {
+            holder.hospitalImageNoneView.setVisibility(View.VISIBLE);
+            holder.hospitalImageView.setVisibility(View.GONE);
+        } else {
+            Glide.with(rankRecyclerMyHospitalContext).load(rankRecyclerHospitalItems.get(position).rankHospitalImagePath).into(holder.hospitalImageView);
+
+        }
     }
 
     @Override
