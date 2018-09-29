@@ -34,7 +34,14 @@ public class RankCareworkerRecyclerViewAdapter extends RecyclerView.Adapter<Rank
         holder.careworkerNameText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerName);
         holder.careworkerHospitalText.setText(rankRecyclerCareworkerItems.get(position).rankCareworkerHospital);
         holder.careworkerScoreRatingBar.setRating(rankRecyclerCareworkerItems.get(position).rankCareworkerScore);
-        Glide.with(rankRecyclerCareworkerContext).load(rankRecyclerCareworkerItems.get(position).rankCareworkerImagePath).into(holder.careworkerImageView);
+
+        if(rankRecyclerCareworkerItems.get(position).rankCareworkerImagePath.isEmpty()) {
+            holder.careworkerNoneImageView.setVisibility(View.VISIBLE);
+            holder.careworkerImageView.setVisibility(View.INVISIBLE);
+        } else {
+            Glide.with(rankRecyclerCareworkerContext).load(rankRecyclerCareworkerItems.get(position).rankCareworkerImagePath).into(holder.careworkerImageView);
+            holder.careworkerNoneImageView.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
