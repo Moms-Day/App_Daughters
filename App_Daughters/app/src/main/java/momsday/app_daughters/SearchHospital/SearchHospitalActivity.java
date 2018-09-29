@@ -85,6 +85,16 @@ public class SearchHospitalActivity extends AppCompatActivity implements SearchH
     }
 
     @Override
+    public void showMessage(String message) {
+        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void init() {
+        searchHospitalListRecyclerItems.clear();
+    }
+
+    @Override
     public void setHospitalNameList(String hospitalName, String hospitalLocation) {
         searchHospitalListRecyclerItems.add(new SearchHospitalListRecyclerItem(hospitalName, hospitalLocation));
         searchHospitalListRecyclerViewAdapter.notifyDataSetChanged();

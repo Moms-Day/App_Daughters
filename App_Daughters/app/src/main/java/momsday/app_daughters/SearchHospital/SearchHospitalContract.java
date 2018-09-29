@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public interface SearchHospitalContract {
     interface View {
+        void showMessage(String message);
+        void init();
         void setHospitalNameList(String hospitalName, String hospitalLocation);
     }
     interface Presenter {

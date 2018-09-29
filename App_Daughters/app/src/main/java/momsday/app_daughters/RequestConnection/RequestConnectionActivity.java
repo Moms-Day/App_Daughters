@@ -113,8 +113,6 @@ public class RequestConnectionActivity extends AppCompatActivity implements Requ
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 careId = careworkers.get(i).getId();
-                Toast.makeText(RequestConnectionActivity.this,"선택된 아이템 : "+careworkerNameSpinner.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
-
             }
 
             @Override

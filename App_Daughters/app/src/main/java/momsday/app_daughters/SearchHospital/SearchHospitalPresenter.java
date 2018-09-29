@@ -29,12 +29,14 @@ public class SearchHospitalPresenter implements SearchHospitalContract.Presenter
             @Override
             public void onResponse(Call<ArrayList<SearchHospitalModel>> call, Response<ArrayList<SearchHospitalModel>> response) {
                 if (response.code() == 200) {
+                    view.init();
+                    view.showMessage("검색 완료");
                     data = response.body();
                     for (int i = 0; i < data.size(); i++) {
                         view.setHospitalNameList(data.get(i).getFacilityName(), data.get(i).getAddress());
                     }
-
-                }
+                } else
+                    view.showMessage("검색 실패");
             }
             @Override
             public void onFailure(Call<ArrayList<SearchHospitalModel>> call, Throwable t) {
