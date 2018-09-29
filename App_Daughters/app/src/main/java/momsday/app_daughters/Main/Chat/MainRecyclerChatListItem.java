@@ -4,16 +4,12 @@ import android.media.Image;
 
 public class MainRecyclerChatListItem {
     String nameText, messageText,timeText;
-    Image profileImage;
 
     public String getNameText() {
         return nameText;
     }
     public String getMessageText() {
         return messageText;
-    }
-    public Image getProfileImage() {
-        return profileImage;
     }
     public String getTimeText() {
         return timeText;

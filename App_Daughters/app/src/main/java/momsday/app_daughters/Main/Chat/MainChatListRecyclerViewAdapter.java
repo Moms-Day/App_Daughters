@@ -32,6 +32,11 @@ public class MainChatListRecyclerViewAdapter extends RecyclerView.Adapter<MainCh
         holder.chatListNameText.setText(mainRecyclerChatListItems.get(position).nameText);
         holder.chatListMessageText.setText(mainRecyclerChatListItems.get(position).messageText);
         holder.chatListTimeText.setText(mainRecyclerChatListItems.get(position).timeText);
+        if (position == 0) {
+            holder.chatListProfileImage.setImageResource(R.drawable.icon_user);
+        } else if(position == 1) {
+            holder.chatListProfileImage.setImageResource(R.drawable.icon_hospital);
+        }
     }
 
 
