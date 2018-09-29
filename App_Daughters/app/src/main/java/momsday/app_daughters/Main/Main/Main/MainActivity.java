@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                                 editor.clear();
                                 editor.apply();
                                 startActivity(intent);
+                                finish();
                                 break;
                         }
                         return false;

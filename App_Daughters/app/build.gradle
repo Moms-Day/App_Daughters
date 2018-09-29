@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
 
-
-
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -44,3 +42,6 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+repositories {
+    mavenCentral()
+}
