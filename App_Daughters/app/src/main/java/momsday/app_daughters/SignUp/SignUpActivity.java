@@ -10,22 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import momsday.app_daughters.R;
 import momsday.app_daughters.SignIn.SignInActivity;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.SignUpView{
     private SignUpContract.SignUpPresenter signUpPresenter;
-    private EditText signUpIdEdit, signUpPwEdit, signUpPhoneNumEdit, signUpCertifyCodeEdit, signUpnameEdit, signUpageEdit;
     String id,pw,phoneNumber,certifyCode,name, age, pwCheck;
     private ViewPager signUpViewPager;
     private CircleAnimIndicator circleAnimIndicator;
     private List<String> numberList;
     private Button signUpNextBtn;
-    private FirstFragment firstFragment;
     public static Context signUpContext;
 
     @Override
@@ -34,14 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         setContentView(R.layout.activity_sign_up);
 
         signUpContext = getApplicationContext();
-        firstFragment = new FirstFragment();
         signUpViewPager = (ViewPager) findViewById(R.id.viewPager_signup);
-        signUpIdEdit = (EditText)findViewById(R.id.edit_signup_id);
-        signUpPwEdit = (EditText)findViewById(R.id.edit_signup_pw);
-        signUpPhoneNumEdit = (EditText)findViewById(R.id.edit_signup_phone_number);
-        signUpCertifyCodeEdit = (EditText)findViewById(R.id.edit_signup_certification);
-        signUpnameEdit = (EditText) findViewById(R.id.edit_signup_name);
-        signUpageEdit = (EditText)findViewById(R.id.edit_signup_age);
         signUpPresenter = new SignUpPresenter();
         signUpPresenter.setView(this);
         circleAnimIndicator = (CircleAnimIndicator) findViewById(R.id.circleAnimIndicator);
@@ -64,6 +55,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
                         });
                         break;
                     case 1:
+                        SecondFragment.signUpCertifyCodeBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                SecondFragment.signUpCertifyCodeEdit.setText(generateCode());
+                            }
+                        });
                         signUpNextBtn.setText("회원가입");
                         signUpNextBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -158,5 +155,21 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         circleAnimIndicator.setAnimDuration(300);
         //indecator 생성
         circleAnimIndicator.createDotPanel(numberList.size(), R.drawable.indicator_non, R.drawable.indicator_on);
+    }
+
+    private String generateCode() {
+        int certCharLength = 8;
+        final char[] characterTable = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+                'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+                'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+        Random random = new Random(System.currentTimeMillis());
+        int tablelength = characterTable.length;
+        StringBuffer buf = new StringBuffer();
+
+        for(int i = 0; i < certCharLength; i++) {
+            buf.append(characterTable[random.nextInt(tablelength)]);
+        }
+
+        return buf.toString();
     }
 }

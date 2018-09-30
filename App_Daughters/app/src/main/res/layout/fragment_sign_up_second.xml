@@ -27,6 +27,7 @@
         app:layout_constraintWidth_percent="0.5" />
 
     <Button
+        android:id="@+id/btn_signup_certify"
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:background="@drawable/roundstyle_signup_certify_btn"

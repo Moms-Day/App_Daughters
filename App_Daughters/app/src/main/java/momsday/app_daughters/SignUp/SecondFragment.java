@@ -6,11 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import momsday.app_daughters.R;
 
 public class SecondFragment extends Fragment {
     public static EditText signUpPhoneNumberEdit, signUpCertifyCodeEdit, signUpNameEdit, signUpAgeEdit;
+    public static Button signUpCertifyCodeBtn;
     public SecondFragment() {
     }
 
@@ -27,6 +29,7 @@ public class SecondFragment extends Fragment {
         signUpCertifyCodeEdit = (EditText) layout.findViewById(R.id.edit_signup_certification);
         signUpNameEdit = (EditText) layout.findViewById(R.id.edit_signup_name);
         signUpAgeEdit = (EditText) layout.findViewById(R.id.edit_signup_age);
+        signUpCertifyCodeBtn = (Button) layout.findViewById(R.id.btn_signup_certify);
 
         return layout;
     }
