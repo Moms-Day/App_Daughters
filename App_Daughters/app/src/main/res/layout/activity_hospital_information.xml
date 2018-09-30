@@ -41,6 +41,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/text_hospital_information_image_none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이미지 없음"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/image_hospital_information"
+                app:layout_constraintEnd_toEndOf="@id/image_hospital_information"
+                app:layout_constraintTop_toTopOf="@id/image_hospital_information"
+                app:layout_constraintBottom_toBottomOf="@id/image_hospital_information"/>
 
             <TextView
                 android:id="@+id/text_hospital_information_name"

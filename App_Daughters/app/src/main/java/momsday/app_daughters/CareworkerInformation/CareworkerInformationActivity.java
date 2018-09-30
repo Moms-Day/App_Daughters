@@ -3,6 +3,7 @@ package momsday.app_daughters.CareworkerInformation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import com.bumptech.glide.Glide;
 import momsday.app_daughters.R;
 
 public class CareworkerInformationActivity extends AppCompatActivity implements CareworkerInformationContract.View{
-    private TextView careworkerNameText, careworkerHospitalText, careworkerPatientNumberText, careworkerCareerText, careworkerIntroductionText, careworkerSincerityScore, careworkerKindnessScore, careworkerFirstReview, careworkerSecondReview, careworkerThirdReview;
+    private TextView careworkerNameText, careworkerHospitalText, careworkerPatientNumberText, careworkerCareerText, careworkerIntroductionText, careworkerSincerityScore, careworkerKindnessScore, careworkerFirstReview, careworkerSecondReview, careworkerThirdReview, careworkerImageNoneText;
     private RatingBar careworkerOverallRatingBar;
     private String careworkerId;
     private ImageView careworkerImage;
@@ -33,6 +34,7 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
         careworkerThirdReview = (TextView) findViewById(R.id.text_careworker_information_third_review);
         careworkerOverallRatingBar = (RatingBar) findViewById(R.id.ratingbar_careworker_information_total_score);
         careworkerImage = (ImageView) findViewById(R.id.image_careworker_information);
+        careworkerImageNoneText = (TextView) findViewById(R.id.text_careworker_information_image_none);
         presenter = new CareworkerInformationPresenter();
         presenter.setView(this);
         Intent intent = getIntent();
@@ -55,7 +57,12 @@ public class CareworkerInformationActivity extends AppCompatActivity implements 
         careworkerSecondReview.setText(secondReview);
         careworkerThirdReview.setText(thirdReview);
         careworkerOverallRatingBar.setRating(overall);
-        Glide.with(getApplicationContext()).load(imagePath).into(careworkerImage);
+        if(imagePath.isEmpty()) {
+            careworkerImageNoneText.setVisibility(View.VISIBLE);
+        } else {
+            careworkerImageNoneText.setVisibility(View.INVISIBLE);
+            Glide.with(getApplicationContext()).load(imagePath).into(careworkerImage);
+        }
     }
 
     @Override

@@ -3,6 +3,7 @@ package momsday.app_daughters.HospitalInformation;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import com.bumptech.glide.Glide;
 import momsday.app_daughters.R;
 
 public class HospitalInformationActivity extends AppCompatActivity implements HospitalInformationContract.View {
-    private TextView hospitalNameText, hospitalPhoneNumText, hospitalLocationText, hospitalIntroductionText, hospitalFacilityScoreText, hospitalMealScoreText, hospitalScheduleScoreText, hospitalCostScoreText, hospitalServiceScoreText, hospitalFirstReviewText, hospitalSecondReviewText, hospitalThirdReviewText;
+    private TextView hospitalNameText, hospitalPhoneNumText, hospitalLocationText, hospitalIntroductionText, hospitalFacilityScoreText, hospitalMealScoreText, hospitalScheduleScoreText, hospitalCostScoreText, hospitalServiceScoreText, hospitalFirstReviewText, hospitalSecondReviewText, hospitalThirdReviewText, hospitalImageNoneText;
     private RatingBar hospitalTotalScoreRatingBar;
     private ImageView hospitalImage;
     private HospitalInformationContract.Presenter presenter;
@@ -36,6 +37,7 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
         hospitalThirdReviewText = (TextView) findViewById(R.id.text_hospital_information_third_review);
         hospitalTotalScoreRatingBar = (RatingBar) findViewById(R.id.ratingbar_hospital_information_total_score);
         hospitalImage = (ImageView) findViewById(R.id.image_hospital_information);
+        hospitalImageNoneText = (TextView) findViewById(R.id.text_hospital_information_image_none);
 
         presenter = new HospitalInformationPresenter();
         presenter.setView(this);
@@ -61,7 +63,14 @@ public class HospitalInformationActivity extends AppCompatActivity implements Ho
         hospitalSecondReviewText.setText(secondReview);
         hospitalThirdReviewText.setText(thirdReview);
         hospitalTotalScoreRatingBar.setRating(overall);
-        Glide.with(getApplicationContext()).load(imagePath).into(hospitalImage);
+        if(imagePath.isEmpty()) {
+            hospitalImageNoneText.setVisibility(View.VISIBLE);
+        } else {
+            hospitalImageNoneText.setVisibility(View.INVISIBLE);
+            Glide.with(getApplicationContext()).load(imagePath).into(hospitalImage);
+        }
+
+
 
     }
 
