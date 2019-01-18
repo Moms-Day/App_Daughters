@@ -2,6 +2,7 @@ package momsday.app_daughters.SignIn;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,8 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        checkSignIn();
 
         signInContext = this;
 
@@ -55,6 +58,15 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
                 presenter.goSignUp();
             }
         });
+    }
+
+    private void checkSignIn() {
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences("PREFERENCE", MODE_PRIVATE);
+        if(!preferences.getString("id", "").equals("")) {
+            Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
