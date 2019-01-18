@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,6 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.util.ArrayList;
 import momsday.app_daughters.CustomViewPager;
 import momsday.app_daughters.Main.Chat.ChatFragment;
@@ -58,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         presenter = new MainPresenter();
         presenter.setView(this);
         presenter.getInform();
+
+        setFirebaseToken();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs_main);
 
@@ -107,6 +114,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
     }
+
+    private void setFirebaseToken() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        SharedPreferences preference = getApplicationContext().getSharedPreferences("PREFERENCE",MODE_PRIVATE);
+        firebaseDatabase.getReference("users").child(preference.getString("id","")).setValue(FirebaseInstanceId.getInstance().getToken());
+    }
+
 
     @Override
     public void successGetInform(final ArrayList<MainModel> parentsInform) {
